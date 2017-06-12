@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"cicalese"
+		]
+	},
+	"emailauthorization-desc": "Authorize users by email address",
+	"configemailauthorization": "Configure Email Authorization",
+	"configemailauthorization-instructions": "To add or revoke all email addresses in a domain use ''@domain'', where ''domain'' is the email domain. This will not affect other email addresses explicitly added in that domain.",
+	"configemailauthorization-authorized": "''$1'' is authorized.",
+	"configemailauthorization-notauthorized": "''$1'' is not authorized.",
+	"configemailauthorization-added": "Successfully authorized ''$1''.",
+	"configemailauthorization-alreadyauthorized": "''$1'' is already authorized.",
+	"configemailauthorization-revoked": "Successfully revoked authorization from ''$1''.",
+	"configemailauthorization-noauthfound": "No authorized email addresses or domains found.",
+	"configemailauthorization-nousersfound": "No users found.",
+	"configemailauthorization-label-email": "Email",
+	"configemailauthorization-label-username": "Username",
+	"configemailauthorization-label-realname": "Real Name",
+	"configemailauthorization-label-userpage": "User Page",
+	"configemailauthorization-label-authorized": "Authorized",
+	"configemailauthorization-value-domain": "all users with email addresses ending in $1",
+	"configemailauthorization-value-yes": "yes",
+	"configemailauthorization-value-no": "no",
+	"configemailauthorization-legend-search": "Search for email addresses",
+	"configemailauthorization-legend-add": "Add authorized email address or domain",
+	"configemailauthorization-legend-revoke": "Revoke authorized email address or domain",
+	"configemailauthorization-button-next": "Next",
+	"configemailauthorization-button-previous": "Previous",
+	"configemailauthorization-button-search": "Search",
+	"configemailauthorization-button-add": "Add",
+	"configemailauthorization-button-revoke": "Revoke",
+	"configemailauthorization-button-showauth": "Show authorized email addresses and domains",
+	"configemailauthorization-button-showall": "Show all wiki users"
+}

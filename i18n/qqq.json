@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"cicalese"
+		]
+	},
+	"emailauthorization-desc": "{{desc|name=Email Authorization|url=https://www.mediawiki.org/wiki/Extension:Email_Authorization}}",
+	"configemailauthorization": "Special page name",
+	"configemailauthorization-instructions": "Instructions",
+	"configemailauthorization-authorized": "Status message",
+	"configemailauthorization-notauthorized": "Status message",
+	"configemailauthorization-added": "Status message",
+	"configemailauthorization-alreadyauthorized": "Status message",
+	"configemailauthorization-revoked": "Status message",
+	"configemailauthorization-noauthfound": "Status message",
+	"configemailauthorization-nousersfound": "Status message",
+	"configemailauthorization-label-email": "Table column label",
+	"configemailauthorization-label-username": "Table column label",
+	"configemailauthorization-label-realname": "Table column label",
+	"configemailauthorization-label-userpage": "Table column label",
+	"configemailauthorization-label-authorized": "Table column label",
+	"configemailauthorization-value-domain": "Table value",
+	"configemailauthorization-value-yes": "Table value",
+	"configemailauthorization-value-no": "Table value",
+	"configemailauthorization-legend-search": "Form legend",
+	"configemailauthorization-legend-add": "Form legend",
+	"configemailauthorization-legend-revoke": "Form legend",
+	"configemailauthorization-button-next": "Button text",
+	"configemailauthorization-button-previous": "Button text",
+	"configemailauthorization-button-search": "Button text",
+	"configemailauthorization-button-add": "Button text",
+	"configemailauthorization-button-revoke": "Button text",
+	"configemailauthorization-button-showauth": "Button text",
+	"configemailauthorization-button-showall": "Button text"
+}
