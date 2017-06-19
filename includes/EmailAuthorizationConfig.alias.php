@@ -26,5 +26,5 @@ $specialPageAliases = [];
 
 /** English */
 $specialPageAliases['en'] = [
-	'ConfigEmailAuthorization' => [ 'Configure Email Authorization' ]
+	'EmailAuthorizationConfig' => [ 'Configure Email Authorization' ]
 ];

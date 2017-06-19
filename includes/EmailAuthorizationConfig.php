@@ -22,11 +22,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-class ConfigEmailAuthorization extends SpecialPage {
+class EmailAuthorizationConfig extends SpecialPage {
 
 	function __construct() {
-		parent::__construct( 'ConfigEmailAuthorization',
-			'configemailauthorization' );
+		parent::__construct( 'EmailAuthorizationConfig',
+			'emailauthorizationconfig' );
 	}
 
 	function execute( $par ) {
@@ -50,7 +50,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 
 		$html = Html::openElement( 'p' )
 			. Html::openElement( 'b' )
-			. wfMessage( 'configemailauthorization-instructions' )->parse()
+			. wfMessage( 'emailauthorization-config-instructions' )->parse()
 			. Html::closeElement( 'b' )
 			. Html::closeElement( 'p' );
 		$this->getOutput()->addHtml( $html );
@@ -107,18 +107,18 @@ class ConfigEmailAuthorization extends SpecialPage {
 		if ( $validatedemail !== false ) {
 			if ( EmailAuthorization::isEmailAuthorized( $validatedemail ) ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-authorized', $validatedemail )
+					wfMessage( 'emailauthorization-config-authorized', $validatedemail )
 				);
 				return true;
 			} else {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-notauthorized', $validatedemail )
+					wfMessage( 'emailauthorization-config-notauthorized', $validatedemail )
 				);
 				return false;
 			}
 		}
 		$this->displayMessage(
-			wfMessage( 'configemailauthorization-invalidemail', $email )
+			wfMessage( 'emailauthorization-config-invalidemail', $email )
 		);
 		return null;
 	}
@@ -131,17 +131,17 @@ class ConfigEmailAuthorization extends SpecialPage {
 		if ( $validatedemail !== false ) {
 			if ( self::insertEmail( $email ) ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-added', $validatedemail )
+					wfMessage( 'emailauthorization-config-added', $validatedemail )
 				);
 				wfRunHooks( 'EmailAuthorizationAdd', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-alreadyauthorized', $validatedemail )
+					wfMessage( 'emailauthorization-config-alreadyauthorized', $validatedemail )
 				);
 			}
 		} else {
 			$this->displayMessage(
-				wfMessage( 'configemailauthorization-invalidemail', $email )
+				wfMessage( 'emailauthorization-config-invalidemail', $email )
 			);
 		}
 	}
@@ -154,17 +154,17 @@ class ConfigEmailAuthorization extends SpecialPage {
 		if ( $validatedemail !== false ) {
 			if ( self::deleteEmail( $validatedemail ) ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-revoked', $validatedemail )
+					wfMessage( 'emailauthorization-config-revoked', $validatedemail )
 				);
 				wfRunHooks( 'EmailAuthorizationRevoke', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-notauthorized', $validatedemail )
+					wfMessage( 'emailauthorization-config-notauthorized', $validatedemail )
 				);
 			}
 		} else {
 			$this->displayMessage(
-				wfMessage( 'configemailauthorization-invalidemail', $email )
+				wfMessage( 'emailauthorization-config-invalidemail', $email )
 			);
 		}
 	}
@@ -186,7 +186,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 			$emails = self::getAuthorizedEmails( $limit + 1, $authoffset );
 			if ( !$emails->valid() ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-noauthfound' )
+					wfMessage( 'emailauthorization-config-noauthfound' )
 				);
 				return;
 			}
@@ -194,13 +194,13 @@ class ConfigEmailAuthorization extends SpecialPage {
 
 		$wikitext = '{| class="wikitable emailauth-wikitable"' . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-email' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-email' ) . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-username' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-username' ) . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-realname' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-realname' ) . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-userpage' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-userpage' ) . PHP_EOL;
 
 		$index = 0;
 		$more = false;
@@ -210,7 +210,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 				$email_addr = htmlspecialchars( $email->email, ENT_QUOTES );
 				if ( strlen( $email_addr ) > 1 && $email_addr[0] === '@' ) {
 					$wikitext .= '|'
-						. wfMessage( 'configemailauthorization-value-domain', $email_addr )
+						. wfMessage( 'emailauthorization-config-value-domain', $email_addr )
 						. PHP_EOL;
 					$wikitext .= '| &nbsp;' . PHP_EOL;
 					$wikitext .= '| &nbsp;' . PHP_EOL;
@@ -295,7 +295,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 			$users = self::getUsers( $limit + 1, $alloffset );
 			if ( !$users->valid() ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-nousersfound' )
+					wfMessage( 'emailauthorization-config-nousersfound' )
 				);
 				return;
 			}
@@ -303,15 +303,15 @@ class ConfigEmailAuthorization extends SpecialPage {
 
 		$wikitext = '{| class="wikitable emailauth-wikitable"' . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-email' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-email' ) . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-username' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-username' ) . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-realname' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-realname' ) . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-userpage' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-userpage' ) . PHP_EOL;
 		$wikitext .=
-			'!' . wfMessage( 'configemailauthorization-label-authorized' ) . PHP_EOL;
+			'!' . wfMessage( 'emailauthorization-config-label-authorized' ) . PHP_EOL;
 
 		$index = 0;
 		$more = false;
@@ -328,11 +328,11 @@ class ConfigEmailAuthorization extends SpecialPage {
 				$wikitext .= '|[[User:' . $user_name . ']]' . PHP_EOL;
 				if ( EmailAuthorization::isEmailAuthorized( $email ) ) {
 					$wikitext .= '| style="text-align:center;" | '
-						. wfMessage( 'configemailauthorization-value-yes' )
+						. wfMessage( 'emailauthorization-config-value-yes' )
 						. PHP_EOL;
 				} else {
 					$wikitext .= '| style="text-align:center;" | '
-						. wfMessage( 'configemailauthorization-value-no' )
+						. wfMessage( 'emailauthorization-config-value-no' )
 						. PHP_EOL;
 				}
 				$index ++;
@@ -354,7 +354,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 
 	private function addTableNavigation( $offset, $more, $limit, $paramname ) {
 
-		$title = Title::newFromText( 'Special:ConfigEmailAuthorization' );
+		$title = Title::newFromText( 'Special:EmailAuthorizationConfig' );
 		$url = $title->getFullURL();
 
 		$html = Html::openElement( 'table', [
@@ -369,7 +369,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 					'href' => $prevurl,
 					'class' => 'emailauth-button'
 				] )
-				. wfMessage( 'configemailauthorization-button-previous' )
+				. wfMessage( 'emailauthorization-config-button-previous' )
 				. Html::closeElement( 'a' );
 		}
 
@@ -384,7 +384,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 					'href' => $nexturl,
 					'class' => 'emailauth-button'
 				] )
-				. wfMessage( 'configemailauthorization-button-next' )
+				. wfMessage( 'emailauthorization-config-button-next' )
 				. Html::closeElement( 'a' );
 		}
 
@@ -402,13 +402,13 @@ class ConfigEmailAuthorization extends SpecialPage {
 			] )
 			. Html::openElement( 'fieldset' )
 			. Html::element( 'legend', null,
-				wfMessage( 'configemailauthorization-legend-search' ) . ':' );
+				wfMessage( 'emailauthorization-config-legend-search' ) . ':' );
 		list( $label, $input ) =
 			Xml::inputLabelSep( 'Email address:', 'searchemail', 'searchemail',
 			50 );
 		$html .= $label . ' ' . $input . ' '
 			. Xml::submitButton(
-				wfMessage( 'configemailauthorization-button-search' ),
+				wfMessage( 'emailauthorization-config-button-search' ),
 				[ 'class' => 'emailauth-button' ] )
 			. Html::closeElement( 'fieldset' )
 			. Html::closeElement( 'form' );
@@ -423,13 +423,13 @@ class ConfigEmailAuthorization extends SpecialPage {
 			] )
 			. Html::openElement( 'fieldset' )
 			. Html::element( 'legend', null,
-				wfMessage( 'configemailauthorization-legend-add' ) . ':' );
+				wfMessage( 'emailauthorization-config-legend-add' ) . ':' );
 		list( $label, $input ) =
 			Xml::inputLabelSep( 'Email address:', 'addemail', 'addemail', 50,
 			$default );
 		$html .= $label . ' ' . $input . ' '
 			. Xml::submitButton(
-				wfMessage( 'configemailauthorization-button-add' ),
+				wfMessage( 'emailauthorization-config-button-add' ),
 				[ 'class' => 'emailauth-button' ] )
 			. Html::closeElement( 'fieldset' )
 			. Html::closeElement( 'form' );
@@ -444,13 +444,13 @@ class ConfigEmailAuthorization extends SpecialPage {
 			] )
 			. Html::openElement( 'fieldset' )
 			. Html::element( 'legend', null,
-				wfMessage( 'configemailauthorization-legend-revoke' ) . ':' );
+				wfMessage( 'emailauthorization-config-legend-revoke' ) . ':' );
 		list( $label, $input ) =
 			Xml::inputLabelSep( 'Email address:', 'revokeemail', 'revokeemail',
 			50, $default );
 		$html .= $label . ' ' . $input . ' '
 			. Xml::submitButton(
-				wfMessage( 'configemailauthorization-button-revoke' ),
+				wfMessage( 'emailauthorization-config-button-revoke' ),
 				[ 'class' => 'emailauth-button' ] )
 			. Html::closeElement( 'fieldset' )
 			. Html::closeElement( 'form' );
@@ -466,7 +466,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 			] )
 			. Html::hidden( 'authoffset', 0 )
 			. Xml::submitButton(
-				wfMessage( 'configemailauthorization-button-showauth' ),
+				wfMessage( 'emailauthorization-config-button-showauth' ),
 				[ 'class' => 'emailauth-button' ] )
 			. Html::closeElement( 'form' );
 		$this->getOutput()->addHtml( $html );
@@ -481,7 +481,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 			] )
 			. Html::hidden( 'alloffset', 0 )
 			. Xml::submitButton(
-				wfMessage( 'configemailauthorization-button-showall' ),
+				wfMessage( 'emailauthorization-config-button-showall' ),
 				[ 'class' => 'emailauth-button' ] )
 			. Html::closeElement( 'form' );
 		$this->getOutput()->addHtml( $html );

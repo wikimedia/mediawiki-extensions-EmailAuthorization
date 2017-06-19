@@ -1,6 +1,6 @@
 {
 	"name": "Email Authorization",
-	"version": "1.1",
+	"version": "1.2",
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:Cindy.cicalese Cindy Cicalese]"
 	],
@@ -9,7 +9,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"SpecialPages": {
-		"ConfigEmailAuthorization": "ConfigEmailAuthorization"
+		"EmailAuthorizationConfig": "EmailAuthorizationConfig"
 	},
 	"MessagesDirs": {
 		"EmailAuthorization": [
@@ -17,7 +17,7 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"EmailAuthorizationAlias": "includes/ConfigEmailAuthorization.alias.php"
+		"EmailAuthorizationAlias": "includes/EmailAuthorizationConfig.alias.php"
 	},
 	"ResourceModules": {
 		"ext.EmailAuthorization": {
@@ -37,7 +37,7 @@
 	"AutoloadClasses": {
 		"EmailAuthorization": "includes/EmailAuthorization.php",
 		"EmailAuthorizationHooks": "includes/EmailAuthorizationHooks.php",
-		"ConfigEmailAuthorization": "includes/ConfigEmailAuthorization.php"
+		"EmailAuthorizationConfig": "includes/EmailAuthorizationConfig.php"
 	},
 	"Hooks": {
 		"PluggableAuthUserAuthorization": [ "EmailAuthorizationHooks::authorize" ],
