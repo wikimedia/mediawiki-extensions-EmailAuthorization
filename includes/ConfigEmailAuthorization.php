@@ -85,59 +85,93 @@ class ConfigEmailAuthorization extends SpecialPage {
 		$this->getOutput()->addHtml( $html );
 	}
 
+	private function validateEmail( $email ) {
+		$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
+		if ( $email[0] === '@' ) {
+			if ( filter_var( 'a' . $email, FILTER_VALIDATE_EMAIL ) ) {
+				return $email;
+			}
+		} else {
+			if ( filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
+				return $email;
+			}
+		}
+		return false;
+	}
+
 	private function searchEmail( $email ) {
-		if ( !is_null( $email ) && strlen( $email ) > 0 ) {
-			$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
-			if ( EmailAuthorization::isEmailAuthorized( $email ) ) {
+		if ( is_null( $email ) || strlen( $email ) < 1 ) {
+			return null;
+		}
+		$validatedemail = $this->validateEmail( $email );
+		if ( $validatedemail !== false ) {
+			if ( EmailAuthorization::isEmailAuthorized( $validatedemail ) ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-authorized', $email )
+					wfMessage( 'configemailauthorization-authorized', $validatedemail )
 				);
 				return true;
 			} else {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-notauthorized', $email )
+					wfMessage( 'configemailauthorization-notauthorized', $validatedemail )
 				);
 				return false;
 			}
 		}
+		$this->displayMessage(
+			wfMessage( 'configemailauthorization-invalidemail', $email )
+		);
 		return null;
 	}
 
 	private function addEmail( $email ) {
-		if ( !is_null( $email ) && strlen( $email ) > 0 ) {
-			$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
+		if ( is_null( $email ) || strlen( $email ) < 1 ) {
+			return;
+		}
+		$validatedemail = $this->validateEmail( $email );
+		if ( $validatedemail !== false ) {
 			if ( self::insertEmail( $email ) ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-added', $email )
+					wfMessage( 'configemailauthorization-added', $validatedemail )
 				);
-				wfRunHooks( 'EmailAuthorizationAdd', [ $email ] );
+				wfRunHooks( 'EmailAuthorizationAdd', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-alreadyauthorized', $email )
+					wfMessage( 'configemailauthorization-alreadyauthorized', $validatedemail )
 				);
 			}
+		} else {
+			$this->displayMessage(
+				wfMessage( 'configemailauthorization-invalidemail', $email )
+			);
 		}
 	}
 
 	private function revokeEmail( $email ) {
-		if ( !is_null( $email ) && strlen( $email ) > 0 ) {
-			$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
-			if ( self::deleteEmail( $email ) ) {
+		if ( is_null( $email ) || strlen( $email ) < 1 ) {
+			return;
+		}
+		$validatedemail = $this->validateEmail( $email );
+		if ( $validatedemail !== false ) {
+			if ( self::deleteEmail( $validatedemail ) ) {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-revoked', $email )
+					wfMessage( 'configemailauthorization-revoked', $validatedemail )
 				);
-				wfRunHooks( 'EmailAuthorizationRevoke', [ $email ] );
+				wfRunHooks( 'EmailAuthorizationRevoke', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
-					wfMessage( 'configemailauthorization-notauthorized', $email )
+					wfMessage( 'configemailauthorization-notauthorized', $validatedemail )
 				);
 			}
+		} else {
+			$this->displayMessage(
+				wfMessage( 'configemailauthorization-invalidemail', $email )
+			);
 		}
 	}
 
 	private function showAuthorizedUsers( $authoffset ) {
 
-		if ( is_null( $authoffset ) || strlen( $authoffset ) == 0 ||
+		if ( is_null( $authoffset ) || strlen( $authoffset ) === 0 ||
 			!is_numeric( $authoffset ) || $authoffset < 0 ) {
 			return;
 		}
@@ -174,7 +208,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 			if ( $index < $limit ) {
 				$wikitext .= '|-' . PHP_EOL;
 				$email_addr = htmlspecialchars( $email->email, ENT_QUOTES );
-				if ( strlen( $email_addr ) > 1 && $email_addr[0] == '@' ) {
+				if ( strlen( $email_addr ) > 1 && $email_addr[0] === '@' ) {
 					$wikitext .= '|'
 						. wfMessage( 'configemailauthorization-value-domain', $email_addr )
 						. PHP_EOL;
@@ -246,7 +280,7 @@ class ConfigEmailAuthorization extends SpecialPage {
 
 	private function showAllUsers( $alloffset ) {
 
-		if ( is_null( $alloffset ) || strlen( $alloffset ) == 0 ||
+		if ( is_null( $alloffset ) || strlen( $alloffset ) === 0 ||
 			!is_numeric( $alloffset ) || $alloffset < 0 ) {
 			return;
 		}
@@ -512,8 +546,14 @@ class ConfigEmailAuthorization extends SpecialPage {
 
 	private static function insertEmail( $email ) {
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->insert(
+		$dbw->upsert(
 			'emailauth',
+			[
+				'email' => $email
+			],
+			[
+				'email' => $email
+			],
 			[
 				'email' => $email
 			],

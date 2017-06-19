@@ -14,6 +14,7 @@
 	"configemailauthorization-revoked": "Status message",
 	"configemailauthorization-noauthfound": "Status message",
 	"configemailauthorization-nousersfound": "Status message",
+	"configemailauthorization-invalidemail": "Error message",
 	"configemailauthorization-label-email": "Table column label",
 	"configemailauthorization-label-username": "Table column label",
 	"configemailauthorization-label-realname": "Table column label",
@@ -31,5 +32,7 @@
 	"configemailauthorization-button-add": "Button text",
 	"configemailauthorization-button-revoke": "Button text",
 	"configemailauthorization-button-showauth": "Button text",
-	"configemailauthorization-button-showall": "Button text"
+	"configemailauthorization-button-showall": "Button text",
+	"right-configemailauthorization": "{{doc-right|configemailauthorization}}",
+	"action-configemailauthorization": "{{doc-action|configemailauthorization}}"
 }

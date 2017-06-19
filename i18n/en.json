@@ -14,6 +14,7 @@
 	"configemailauthorization-revoked": "Successfully revoked authorization from ''$1''.",
 	"configemailauthorization-noauthfound": "No authorized email addresses or domains found.",
 	"configemailauthorization-nousersfound": "No users found.",
+	"configemailauthorization-invalidemail": "''$1'' is not a valid email address or domain.",
 	"configemailauthorization-label-email": "Email",
 	"configemailauthorization-label-username": "Username",
 	"configemailauthorization-label-realname": "Real Name",
@@ -31,5 +32,8 @@
 	"configemailauthorization-button-add": "Add",
 	"configemailauthorization-button-revoke": "Revoke",
 	"configemailauthorization-button-showauth": "Show authorized email addresses and domains",
-	"configemailauthorization-button-showall": "Show all wiki users"
+	"configemailauthorization-button-showall": "Show all wiki users",
+	"right-configemailauthorization": "Configure user authorization by email address",
+	"action-configemailauthorization": "configure email authorization"
+
 }
