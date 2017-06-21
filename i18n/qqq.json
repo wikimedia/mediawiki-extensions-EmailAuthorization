@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"cicalese"
+			"cicalese",
+			"Liuxinyu970226"
 		]
 	},
 	"emailauthorization-desc": "{{desc|name=Email Authorization|url=https://www.mediawiki.org/wiki/Extension:Email_Authorization}}",
@@ -15,7 +16,7 @@
 	"emailauthorization-config-noauthfound": "Status message",
 	"emailauthorization-config-nousersfound": "Status message",
 	"emailauthorization-config-invalidemail": "Error message",
-	"emailauthorization-config-label-email": "Table column label",
+	"emailauthorization-config-label-email": "Table column label\n{{Identical|E-mail}}",
 	"emailauthorization-config-label-username": "Table column label",
 	"emailauthorization-config-label-realname": "Table column label",
 	"emailauthorization-config-label-userpage": "Table column label",

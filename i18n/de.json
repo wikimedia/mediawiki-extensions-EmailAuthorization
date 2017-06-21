@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"emailauthorization-desc": "Autorisiert Benutzer durch ihre E-Mail-Adresse",
+	"emailauthorizationconfig": "E-Mail-Autorisierung konfigurieren",
+	"emailauthorization-config-instructions": "Um alle E-Mail-Adressen in einer Domain hinzuzufügen oder zu widerrufen, verwende „@domain“, wobei „domain“ die E-Mail-Domain ist. Dies betrifft nicht die anderen E-Mail-Adressen, die ausdrücklich in dieser Domain hinzugefügt wurden.",
+	"emailauthorization-config-authorized": "„$1“ ist autorisiert.",
+	"emailauthorization-config-notauthorized": "„$1“ ist nicht autorisiert.",
+	"emailauthorization-config-added": "„$1“ erfolgreich autorisiert.",
+	"emailauthorization-config-alreadyauthorized": "„$1“ ist bereits autorisiert.",
+	"emailauthorization-config-revoked": "Autorisierung von „$1“ erfolgreich widerrufen.",
+	"emailauthorization-config-noauthfound": "Keine autorisierten E-Mail-Adressen oder Domains gefunden.",
+	"emailauthorization-config-nousersfound": "Keine Benutzer gefunden",
+	"emailauthorization-config-invalidemail": "„$1“ ist keine gültige E-Mail-Adresse oder Domain.",
+	"emailauthorization-config-label-email": "E-Mail",
+	"emailauthorization-config-label-username": "Benutzername",
+	"emailauthorization-config-label-realname": "Bürgerlicher Name",
+	"emailauthorization-config-label-userpage": "Benutzerseite",
+	"emailauthorization-config-label-authorized": "Autorisiert",
+	"emailauthorization-config-value-domain": "Alle Benutzer mit E-Mail-Adressen, die auf $1 enden",
+	"emailauthorization-config-value-yes": "Ja",
+	"emailauthorization-config-value-no": "Nein",
+	"emailauthorization-config-legend-search": "Nach E-Mail-Adressen suchen",
+	"emailauthorization-config-legend-add": "Autorisierte E-Mail-Adresse oder Domain hinzufügen",
+	"emailauthorization-config-legend-revoke": "Autorisierte E-Mail-Adresse oder Domain widerrufen",
+	"emailauthorization-config-button-next": "Nächster",
+	"emailauthorization-config-button-previous": "Vorheriger",
+	"emailauthorization-config-button-search": "Suchen",
+	"emailauthorization-config-button-add": "Hinzufügen",
+	"emailauthorization-config-button-revoke": "Widerrufen",
+	"emailauthorization-config-button-showauth": "Autorisierte E-Mail-Adressen und Domains anzeigen",
+	"emailauthorization-config-button-showall": "Alle Wikibenutzer anzeigen",
+	"right-emailauthorizationconfig": "Benutzerautorisierung durch E-Mail-Adresse konfigurieren",
+	"action-emailauthorizationconfig": "die E-Mail-Autorisierung zu konfigurieren"
+}

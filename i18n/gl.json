@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Elisardojm"
+		]
+	},
+	"emailauthorization-config-label-email": "Correo electrónico",
+	"emailauthorization-config-label-username": "Nome de usuario",
+	"emailauthorization-config-label-realname": "Nome real",
+	"emailauthorization-config-label-userpage": "Páxina de usuario"
+}
