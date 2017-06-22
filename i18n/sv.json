@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Umeaboy"
 		]
 	},
 	"emailauthorization-desc": "Auktorisera användare via e-postadress",
@@ -19,6 +20,7 @@
 	"emailauthorization-config-label-username": "Användarnamn",
 	"emailauthorization-config-label-realname": "Riktigt namn",
 	"emailauthorization-config-label-userpage": "Användarsida",
+	"emailauthorization-config-label-authorized": "Auktoriserade",
 	"emailauthorization-config-value-domain": "alla användare med e-postadresser som slutar med $1",
 	"emailauthorization-config-value-yes": "ja",
 	"emailauthorization-config-value-no": "nej",

@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aftabuzzaman"
+		]
+	},
+	"emailauthorization-desc": "ইমেল ঠিকানা দ্বারা ব্যবহারকারীদের অনুমোদন করে",
+	"emailauthorizationconfig": "ইমেল অনুমোদন কনফিগার",
+	"emailauthorization-config-authorized": "''$1'' অনুমোদিত।",
+	"emailauthorization-config-notauthorized": "''$1'' অনুমোদিত নয়।",
+	"emailauthorization-config-added": "''$1'' সফলভাবে অনুমোদিত হয়েছে।",
+	"emailauthorization-config-alreadyauthorized": "''$1'' ইতিমধ্যে অনুমোদিত।",
+	"emailauthorization-config-revoked": "''$1'' থেকে সফলভাবে অনুমোদন প্রত্যাহার করা হয়েছে।",
+	"emailauthorization-config-noauthfound": "কোন অনুমোদিত ইমেল ঠিকানা বা ডোমেন পাওয়া যায় নি।",
+	"emailauthorization-config-nousersfound": "কোনো ব্যবহারকারী পাওয়া যায়নি।",
+	"emailauthorization-config-invalidemail": "''$1'' বৈধ ইমেইল ঠিকানা বা ডোমেন নয়।",
+	"emailauthorization-config-label-email": "ইমেইল",
+	"emailauthorization-config-label-username": "ব্যবহারকারী নাম",
+	"emailauthorization-config-label-realname": "প্রকৃত নাম",
+	"emailauthorization-config-label-userpage": "ব্যবহারকারী পাতা",
+	"emailauthorization-config-label-authorized": "অনুমোদিত",
+	"emailauthorization-config-value-domain": "$1-এ সমাপ্ত হওয়া ইমেল ঠিকানাসহ সমস্ত ব্যবহারকারী",
+	"emailauthorization-config-value-yes": "হ্যাঁ",
+	"emailauthorization-config-value-no": "না",
+	"emailauthorization-config-legend-search": "ইমেল ঠিকানাগুলি অনুসন্ধান করুন",
+	"emailauthorization-config-legend-add": "অনুমোদিত ইমেল ঠিকানা বা ডোমেন যোগ করুন",
+	"emailauthorization-config-legend-revoke": "অনুমোদিত ইমেল ঠিকানা বা ডোমেন প্রত্যাহার করুন",
+	"emailauthorization-config-button-next": "পরবর্তী",
+	"emailauthorization-config-button-previous": "পূর্ববর্তী",
+	"emailauthorization-config-button-search": "অনুসন্ধান",
+	"emailauthorization-config-button-add": "যোগ করুন",
+	"emailauthorization-config-button-revoke": "প্রত্যাহার করুন",
+	"emailauthorization-config-button-showauth": "অনুমোদিত ইমেল ঠিকানা এবং ডোমেন দেখান",
+	"emailauthorization-config-button-showall": "সকল উইকি ব্যবহারকারী দেখান",
+	"right-emailauthorizationconfig": "ইমেল ঠিকানা দ্বারা ব্যবহারকারী অনুমোদন কনফিগার করা",
+	"action-emailauthorizationconfig": "ইমেল অনুমোদন কনফিগার করার"
+}

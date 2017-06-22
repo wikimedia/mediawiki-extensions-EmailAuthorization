@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"emailauthorization-desc": "Овластување на корисници по е-поштенски адреси",
+	"emailauthorizationconfig": "Постави овластување на е-пошта",
+	"emailauthorization-config-instructions": "За да ги додадете или отповикате сите адреси во еден домен, користете ''@домен'', каде ''домен'' е доменот на е-поштата. Ова нема да ги засегне другите е-поштенски адреси изрично додадени во тој домен.",
+	"emailauthorization-config-authorized": "„$1“ е овластена.",
+	"emailauthorization-config-notauthorized": "„$1“ е неовластена.",
+	"emailauthorization-config-added": "Успешно овластена „$1“.",
+	"emailauthorization-config-alreadyauthorized": "„$1“ е веќе овластена.",
+	"emailauthorization-config-revoked": "Успешно одземено овластувањето на „$1“.",
+	"emailauthorization-config-noauthfound": "Не пронајдов овластени е-пошти или домени.",
+	"emailauthorization-config-nousersfound": "Не пронајдов ниеден корисник.",
+	"emailauthorization-config-invalidemail": "„$1“ не претставува важечка е-пошта или домен.",
+	"emailauthorization-config-label-email": "Е-пошта",
+	"emailauthorization-config-label-username": "Корисничко име",
+	"emailauthorization-config-label-realname": "Вистинско име",
+	"emailauthorization-config-label-userpage": "Корисничка страница",
+	"emailauthorization-config-label-authorized": "Овластеност",
+	"emailauthorization-config-value-domain": "сите корисници чии е-пошти завршуваат со $1",
+	"emailauthorization-config-value-yes": "да",
+	"emailauthorization-config-value-no": "не",
+	"emailauthorization-config-legend-search": "Пребарај е-пошти",
+	"emailauthorization-config-legend-add": "Додај овластена е-пошта или домен",
+	"emailauthorization-config-legend-revoke": "Отповикај овластена е-пошта или домен",
+	"emailauthorization-config-button-next": "Следно",
+	"emailauthorization-config-button-previous": "Претходно",
+	"emailauthorization-config-button-search": "Пребарај",
+	"emailauthorization-config-button-add": "Додај",
+	"emailauthorization-config-button-revoke": "Одземи",
+	"emailauthorization-config-button-showauth": "Прикажи ги овластените е-пошти или домени",
+	"emailauthorization-config-button-showall": "Прикажи ги сите корисници на викито",
+	"right-emailauthorizationconfig": "Поставување на корисничко овластување на е-пошти",
+	"action-emailauthorizationconfig": "поставување на корисничко овластување на е-пошти"
+}

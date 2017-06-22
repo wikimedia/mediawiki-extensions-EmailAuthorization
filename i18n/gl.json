@@ -4,8 +4,23 @@
 			"Elisardojm"
 		]
 	},
+	"emailauthorization-config-authorized": "''$1'' está autorizado.",
+	"emailauthorization-config-notauthorized": "''$1'' non está autorizado.",
 	"emailauthorization-config-label-email": "Correo electrónico",
 	"emailauthorization-config-label-username": "Nome de usuario",
 	"emailauthorization-config-label-realname": "Nome real",
-	"emailauthorization-config-label-userpage": "Páxina de usuario"
+	"emailauthorization-config-label-userpage": "Páxina de usuario",
+	"emailauthorization-config-label-authorized": "Autorizado",
+	"emailauthorization-config-value-yes": "si",
+	"emailauthorization-config-value-no": "non",
+	"emailauthorization-config-legend-search": "Procurar enderezos de correo electrónico",
+	"emailauthorization-config-legend-add": "Engadir enderezo de correo electrónico ou dominio autorizado",
+	"emailauthorization-config-legend-revoke": "Revogar enderezo de correo electrónico ou dominio",
+	"emailauthorization-config-button-next": "Seguinte",
+	"emailauthorization-config-button-previous": "Anterior",
+	"emailauthorization-config-button-search": "Procurar",
+	"emailauthorization-config-button-add": "Engadir",
+	"emailauthorization-config-button-revoke": "Revogar",
+	"emailauthorization-config-button-showauth": "Amosar enderezos de correo electrónico e dominios autorizados",
+	"emailauthorization-config-button-showall": "Amosar tódolos usuarios wiki"
 }

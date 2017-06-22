@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"emailauthorization-config-authorized": "''$1'' è autorizzato.",
+	"emailauthorization-config-notauthorized": "''$1'' non è autorizzato.",
+	"emailauthorization-config-alreadyauthorized": "''$1'' è già autorizzato.",
+	"emailauthorization-config-nousersfound": "Nessun utente trovato.",
+	"emailauthorization-config-label-email": "Email",
+	"emailauthorization-config-label-username": "Nome utente",
+	"emailauthorization-config-label-realname": "Nome vero",
+	"emailauthorization-config-label-userpage": "Pagina utente",
+	"emailauthorization-config-label-authorized": "Autorizzato",
+	"emailauthorization-config-value-yes": "sì",
+	"emailauthorization-config-value-no": "no",
+	"emailauthorization-config-legend-revoke": "Revoca indirizzo email o dominio autorizzati",
+	"emailauthorization-config-button-next": "Successivo",
+	"emailauthorization-config-button-previous": "Precedente",
+	"emailauthorization-config-button-search": "Cerca",
+	"emailauthorization-config-button-add": "Aggiungi",
+	"emailauthorization-config-button-revoke": "Revoca"
+}

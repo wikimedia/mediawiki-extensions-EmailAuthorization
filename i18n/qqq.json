@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"cicalese",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Robby"
 		]
 	},
 	"emailauthorization-desc": "{{desc|name=Email Authorization|url=https://www.mediawiki.org/wiki/Extension:Email_Authorization}}",
@@ -17,19 +18,19 @@
 	"emailauthorization-config-nousersfound": "Status message",
 	"emailauthorization-config-invalidemail": "Error message",
 	"emailauthorization-config-label-email": "Table column label\n{{Identical|E-mail}}",
-	"emailauthorization-config-label-username": "Table column label",
+	"emailauthorization-config-label-username": "Table column label\n{{Identical|Username}}",
 	"emailauthorization-config-label-realname": "Table column label",
 	"emailauthorization-config-label-userpage": "Table column label",
 	"emailauthorization-config-label-authorized": "Table column label",
 	"emailauthorization-config-value-domain": "Table value",
-	"emailauthorization-config-value-yes": "Table value",
+	"emailauthorization-config-value-yes": "Table value\n{{Identical|Yes}}",
 	"emailauthorization-config-value-no": "Table value",
 	"emailauthorization-config-legend-search": "Form legend",
 	"emailauthorization-config-legend-add": "Form legend",
 	"emailauthorization-config-legend-revoke": "Form legend",
-	"emailauthorization-config-button-next": "Button text",
-	"emailauthorization-config-button-previous": "Button text",
-	"emailauthorization-config-button-search": "Button text",
+	"emailauthorization-config-button-next": "Button text\n{{Identical|Next}}",
+	"emailauthorization-config-button-previous": "Button text\n{{Identical|Previous}}",
+	"emailauthorization-config-button-search": "Button text\n{{Identical|Search}}",
 	"emailauthorization-config-button-add": "Button text",
 	"emailauthorization-config-button-revoke": "Button text",
 	"emailauthorization-config-button-showauth": "Button text",
