@@ -1,9 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Great11"
+			"Great11",
+			"Wladek92"
 		]
 	},
+	"emailauthorization-config-authorized": "« $1 » est autorisé.",
+	"emailauthorization-config-notauthorized": "« $1 » n'est pas autorisé.",
+	"emailauthorization-config-added": "« $1 » a été autorisé avec succès.",
+	"emailauthorization-config-alreadyauthorized": "« $1 » est déja autorisé.",
+	"emailauthorization-config-nousersfound": "Aucun utilisateur trouvé.",
 	"emailauthorization-config-label-email": "Courriel",
+	"emailauthorization-config-label-username": "Nom d’utilisateur",
+	"emailauthorization-config-label-realname": "Nom réel",
+	"emailauthorization-config-label-userpage": "Page utilisateur",
+	"emailauthorization-config-label-authorized": "Autorisé",
+	"emailauthorization-config-value-yes": "oui",
+	"emailauthorization-config-value-no": "non",
 	"emailauthorization-config-button-next": "Suivant"
 }

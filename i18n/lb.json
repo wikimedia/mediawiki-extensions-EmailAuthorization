@@ -4,10 +4,13 @@
 			"Robby"
 		]
 	},
+	"emailauthorization-desc": "Benotzer duerch E-Mail-Adressen autoriséieren",
+	"emailauthorizationconfig": "E-Mail-Autorisatioun astellen",
 	"emailauthorization-config-authorized": "\"$1\" ass autoriséiert.",
 	"emailauthorization-config-notauthorized": "\"$1\" ass net autoriséiert.",
 	"emailauthorization-config-alreadyauthorized": "\"$1\" ass schonn autoriséiert.",
 	"emailauthorization-config-nousersfound": "Keng Benotzer fonnt.",
+	"emailauthorization-config-invalidemail": "\"$1\" ass keng valabel E-Mail-Adress oder Domain.",
 	"emailauthorization-config-label-email": "E-Mail",
 	"emailauthorization-config-label-username": "Benotzernumm",
 	"emailauthorization-config-label-realname": "Richtegen Numm",
@@ -16,10 +19,12 @@
 	"emailauthorization-config-value-domain": "all Benotzer deenen hier E-Mail-Adress mat $1 ophält",
 	"emailauthorization-config-value-yes": "jo",
 	"emailauthorization-config-value-no": "neen",
+	"emailauthorization-config-legend-search": "No E-Mail-Adresse sichen",
 	"emailauthorization-config-button-next": "Weider",
 	"emailauthorization-config-button-previous": "Vireg",
 	"emailauthorization-config-button-search": "Sichen",
 	"emailauthorization-config-button-add": "Derbäisetzen",
 	"emailauthorization-config-button-revoke": "Zréckruffen",
+	"emailauthorization-config-button-showauth": "Autoriséiert E-Mail-Adressen an Domaine weisen",
 	"emailauthorization-config-button-showall": "All Wikibenotzer weisen"
 }
