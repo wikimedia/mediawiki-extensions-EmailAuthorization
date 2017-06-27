@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
+	"emailauthorization-desc": "Autorizar usuarios por enderezo de correo electrónico",
 	"emailauthorization-config-authorized": "''$1'' está autorizado.",
 	"emailauthorization-config-notauthorized": "''$1'' non está autorizado.",
 	"emailauthorization-config-nousersfound": "Non se atopou ningún usuario.",

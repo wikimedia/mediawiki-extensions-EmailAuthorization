@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"InternerowyGołąb"
+		]
+	},
+	"emailauthorization-config-authorized": "\"$1\" jest autoryzowany.",
+	"emailauthorization-config-notauthorized": "$1 nie jest autoryzowany.",
+	"emailauthorization-config-label-username": "Nazwa użytkownika",
+	"emailauthorization-config-label-userpage": "Strona użytkownika",
+	"emailauthorization-config-label-authorized": "Autoryzowany",
+	"emailauthorization-config-value-no": "nie",
+	"emailauthorization-config-button-next": "Następny",
+	"emailauthorization-config-button-previous": "Poprzedni",
+	"right-emailauthorizationconfig": "Konfiguruj autoryzację użytkownika poprzez adres poczty elektronicznej."
+}

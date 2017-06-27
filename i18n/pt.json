@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"emailauthorization-desc": "Autorizar utilizadores pelo endereço de correio eletrónico",
+	"emailauthorizationconfig": "Configurar autorização pelo correio eletrónico",
+	"emailauthorization-config-instructions": "Para adicionar ou revogar todos os endereços de correio eletrónico de um domínio, use '@domínio'', onde ''domínio'' é o domínio do correio eletrónico. Isto não afetará outros endereços de correio eletrónico adicionados explicitamente nesse domínio.",
+	"emailauthorization-config-authorized": "''$1'' está autorizado.",
+	"emailauthorization-config-notauthorized": "''$1'' não está autorizado.",
+	"emailauthorization-config-added": "Autorizou ''$1''.",
+	"emailauthorization-config-alreadyauthorized": "''$1'' já está autorizado.",
+	"emailauthorization-config-revoked": "Revogou a autorização de ''$1''.",
+	"emailauthorization-config-noauthfound": "Não foi encontrado nenhum endereço de correio eletrónico ou domínio autorizado.",
+	"emailauthorization-config-nousersfound": "Não foi encontrado nenhum utilizador.",
+	"emailauthorization-config-invalidemail": "''$1'' não é um endereço de correio eletrónico ou domínio válido.",
+	"emailauthorization-config-label-email": "Correio eletrónico",
+	"emailauthorization-config-label-username": "Nome de utilizador",
+	"emailauthorization-config-label-realname": "Nome real",
+	"emailauthorization-config-label-userpage": "Página de utilizador",
+	"emailauthorization-config-label-authorized": "Autorizado",
+	"emailauthorization-config-value-domain": "todos os utilizadores com um endereço de correio eletrónico terminado em $1",
+	"emailauthorization-config-value-yes": "sim",
+	"emailauthorization-config-value-no": "não",
+	"emailauthorization-config-legend-search": "Procurar endereços de correio eletrónico",
+	"emailauthorization-config-legend-add": "Adicionar endereço de correio eletrónico ou domínio autorizado",
+	"emailauthorization-config-legend-revoke": "Revogar endereço de correio eletrónico ou domínio autorizado",
+	"emailauthorization-config-button-next": "Seguinte",
+	"emailauthorization-config-button-previous": "Anterior",
+	"emailauthorization-config-button-search": "Pesquisar",
+	"emailauthorization-config-button-add": "Adicionar",
+	"emailauthorization-config-button-revoke": "Revogar",
+	"emailauthorization-config-button-showauth": "Mostrar endereços de correio eletrónico e domínios autorizados",
+	"emailauthorization-config-button-showall": "Mostrar todos os utilizadores da wiki",
+	"right-emailauthorizationconfig": "Configurar autorização de utilizadores pelo endereço de correio eletrónico",
+	"action-emailauthorizationconfig": "configurar autorização pelo correio eletrónico"
+}
