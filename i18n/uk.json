@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piramidion"
+		]
+	},
+	"emailauthorization-desc": "Авторизація користувачів через електронну адресу",
+	"emailauthorizationconfig": "Налаштувати авторизацію через електронну адресу",
+	"emailauthorization-config-instructions": "Щоб додати чи відкликати всі електронні адреси домену, використайте ''@домен'', де ''домен'' — це назва домену електронної пошти. Це не вплине на інші електронні адреси під цим доменом, які будуть додані окремо.",
+	"emailauthorization-config-authorized": "''$1'' авторизовано.",
+	"emailauthorization-config-notauthorized": "''$1'' не авторизовано.",
+	"emailauthorization-config-added": "Успішно авторизовано ''$1''.",
+	"emailauthorization-config-alreadyauthorized": "''$1'' вже авторизовано.",
+	"emailauthorization-config-revoked": "Успішно відкликано авторизацію ''$1''.",
+	"emailauthorization-config-noauthfound": "Не знайдено авторизованих адрес електронної пошти чи доменів.",
+	"emailauthorization-config-nousersfound": "Не знайдено користувачів.",
+	"emailauthorization-config-invalidemail": "''$1'' не є валідною електронною адресою чи доменом.",
+	"emailauthorization-config-label-email": "Ел. пошта",
+	"emailauthorization-config-label-username": "Ім'я користувача",
+	"emailauthorization-config-label-realname": "Справжнє ім'я",
+	"emailauthorization-config-label-userpage": "Сторінка користувача",
+	"emailauthorization-config-label-authorized": "Авторизовано",
+	"emailauthorization-config-value-domain": "усі користувачі з електронними адресами, які закінчуються на $1",
+	"emailauthorization-config-value-yes": "так",
+	"emailauthorization-config-value-no": "ні",
+	"emailauthorization-config-legend-search": "Пошук електронних адрес",
+	"emailauthorization-config-legend-add": "Додати авторизовану електронну адресу чи домен",
+	"emailauthorization-config-legend-revoke": "Відкликати авторизовану електронну адресу чи домен",
+	"emailauthorization-config-button-next": "Наступне",
+	"emailauthorization-config-button-previous": "Попереднє",
+	"emailauthorization-config-button-search": "Пошук",
+	"emailauthorization-config-button-add": "Додати",
+	"emailauthorization-config-button-revoke": "Відкликати",
+	"emailauthorization-config-button-showauth": "Показати авторизовані електронні адреси та домени",
+	"emailauthorization-config-button-showall": "Показати всіх користувачів вікі",
+	"right-emailauthorizationconfig": "Налаштувати авторизацію користувача через електронну пошту",
+	"action-emailauthorizationconfig": "налаштувати авторизацію через електронну пошту"
+}
