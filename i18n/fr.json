@@ -5,6 +5,7 @@
 			"Wladek92"
 		]
 	},
+	"emailauthorization-desc": "Autoriser les utilisateurs en fonctions des adresses courriel",
 	"emailauthorizationconfig": "Configurer les droits concernant les courriels",
 	"emailauthorization-config-authorized": "« $1 » est autorisé.",
 	"emailauthorization-config-notauthorized": "« $1 » n'est pas autorisé.",
@@ -18,10 +19,12 @@
 	"emailauthorization-config-label-authorized": "Autorisé",
 	"emailauthorization-config-value-yes": "oui",
 	"emailauthorization-config-value-no": "non",
+	"emailauthorization-config-legend-search": "Rechercher des adresses de courriels",
 	"emailauthorization-config-button-next": "Suivant",
 	"emailauthorization-config-button-previous": "Précédent",
 	"emailauthorization-config-button-search": "Chercher",
 	"emailauthorization-config-button-add": "Ajouter",
 	"emailauthorization-config-button-revoke": "Révoquer",
-	"emailauthorization-config-button-showall": "Afficher tous les utilisateurs du wiki"
+	"emailauthorization-config-button-showall": "Afficher tous les utilisateurs du wiki",
+	"action-emailauthorizationconfig": "configure les autorisations concernant les courriels"
 }

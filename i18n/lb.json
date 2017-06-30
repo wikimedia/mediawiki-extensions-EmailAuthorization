@@ -9,6 +9,7 @@
 	"emailauthorization-config-authorized": "\"$1\" ass autoriséiert.",
 	"emailauthorization-config-notauthorized": "\"$1\" ass net autoriséiert.",
 	"emailauthorization-config-alreadyauthorized": "\"$1\" ass schonn autoriséiert.",
+	"emailauthorization-config-noauthfound": "Keng autoriséiert E-Mail-Adressen oder Domaine fonnt.",
 	"emailauthorization-config-nousersfound": "Keng Benotzer fonnt.",
 	"emailauthorization-config-invalidemail": "\"$1\" ass keng valabel E-Mail-Adress oder Domain.",
 	"emailauthorization-config-label-email": "E-Mail",
