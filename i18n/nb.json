@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pmt"
+		]
+	},
+	"emailauthorization-config-label-email": "E-post",
+	"emailauthorization-config-label-username": "Brukernavn",
+	"emailauthorization-config-label-realname": "Virkelig navn",
+	"emailauthorization-config-value-yes": "ja"
+}

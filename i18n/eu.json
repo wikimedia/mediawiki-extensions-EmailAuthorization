@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Subi"
+			"Subi",
+			"Mikel Ibaiba"
 		]
 	},
+	"emailauthorization-config-label-username": "Erabiltzaile izena",
+	"emailauthorization-config-label-realname": "Benetako izena",
+	"emailauthorization-config-label-userpage": "Erabiltzaile orria",
 	"emailauthorization-config-button-next": "Hurrengoa",
-	"emailauthorization-config-button-previous": "Aurrekoa"
+	"emailauthorization-config-button-previous": "Aurrekoa",
+	"emailauthorization-config-button-add": "Gehitu"
 }
