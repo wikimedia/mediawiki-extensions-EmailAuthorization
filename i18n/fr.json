@@ -25,6 +25,8 @@
 	"emailauthorization-config-button-search": "Chercher",
 	"emailauthorization-config-button-add": "Ajouter",
 	"emailauthorization-config-button-revoke": "Révoquer",
+	"emailauthorization-config-button-showauth": "Afficher les adresses courriel et les domaines autorisés",
 	"emailauthorization-config-button-showall": "Afficher tous les utilisateurs du wiki",
+	"right-emailauthorizationconfig": "Configurer les droits utilisateur selon les adresses courriel",
 	"action-emailauthorizationconfig": "configure les autorisations concernant les courriels"
 }
