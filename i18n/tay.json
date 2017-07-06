@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hitaypayan"
+			"Hitaypayan",
+			"Corainn"
 		]
 	},
+	"emailauthorization-config-label-email": "e-meyo’",
 	"emailauthorization-config-button-search": "hhkangi’",
 	"emailauthorization-config-button-add": "tnwang"
 }
