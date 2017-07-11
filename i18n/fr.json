@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Great11",
-			"Wladek92"
+			"Wladek92",
+			"Gomoko"
 		]
 	},
 	"emailauthorization-desc": "Autoriser les utilisateurs en fonctions des adresses courriel",
 	"emailauthorizationconfig": "Configurer les droits concernant les courriels",
+	"emailauthorization-config-instructions": "Pour ajouter ou supprimer toutes les adresses de courriel dans un domaine, utiliser « @domaine », où « domaine » est le domaine de l’adresse. Cela n’affectera pas les autres adresses de messagerie explicitement ajoutées dans ce domaine.",
 	"emailauthorization-config-authorized": "« $1 » est autorisé.",
 	"emailauthorization-config-notauthorized": "« $1 » n'est pas autorisé.",
 	"emailauthorization-config-added": "« $1 » a été autorisé avec succès.",
