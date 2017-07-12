@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mainframe98"
+		]
+	},
+	"emailauthorization-config-nousersfound": "Geen gebruikers gevonden.",
+	"emailauthorization-config-label-email": "E-mail",
+	"emailauthorization-config-label-username": "Gebruikersnaam",
+	"emailauthorization-config-label-realname": "Volledige naam",
+	"emailauthorization-config-label-userpage": "Gebruikerspagina",
+	"emailauthorization-config-value-domain": "alle gebruikers met een e-mailadres eindigend met $1",
+	"emailauthorization-config-value-yes": "ja",
+	"emailauthorization-config-value-no": "nee",
+	"emailauthorization-config-legend-search": "Naar een e-mailadres zoeken",
+	"emailauthorization-config-button-next": "Volgende",
+	"emailauthorization-config-button-previous": "Vorige",
+	"emailauthorization-config-button-search": "Zoeken",
+	"emailauthorization-config-button-add": "Toevoegen",
+	"emailauthorization-config-button-revoke": "Intrekken"
+}

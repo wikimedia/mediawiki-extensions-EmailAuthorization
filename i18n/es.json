@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"emailauthorization-config-authorized": "''$1'' está autorizado.",
+	"emailauthorization-config-notauthorized": "''$1'' no está autorizado.",
+	"emailauthorization-config-added": "Exitosamente autorizado a ''$1''.",
+	"emailauthorization-config-alreadyauthorized": "''$1'' ya está autorizado.",
+	"emailauthorization-config-nousersfound": "No se encontraron usuarios.",
+	"emailauthorization-config-invalidemail": "''$1'' no es una dirección de correo electrónico o dominio válidos.",
+	"emailauthorization-config-label-email": "Correo electrónico",
+	"emailauthorization-config-label-username": "Nombre de usuario",
+	"emailauthorization-config-label-realname": "Nombre real",
+	"emailauthorization-config-label-userpage": "Página de usuario",
+	"emailauthorization-config-label-authorized": "Autorizado",
+	"emailauthorization-config-value-yes": "sí",
+	"emailauthorization-config-value-no": "no",
+	"emailauthorization-config-button-next": "Siguiente",
+	"emailauthorization-config-button-previous": "Anterior",
+	"emailauthorization-config-button-search": "Buscar",
+	"emailauthorization-config-button-add": "Añadir",
+	"emailauthorization-config-button-revoke": "Revocar",
+	"action-emailauthorizationconfig": "configuraa autorización de correo electrónico"
+}
