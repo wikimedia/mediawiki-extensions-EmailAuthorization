@@ -32,7 +32,7 @@
 	"emailauthorization-config-button-previous": "Button text\n{{Identical|Previous}}",
 	"emailauthorization-config-button-search": "Button text\n{{Identical|Search}}",
 	"emailauthorization-config-button-add": "Button text\n{{Identical|Add}}",
-	"emailauthorization-config-button-revoke": "Button text",
+	"emailauthorization-config-button-revoke": "Button text\n{{Identical|Revoke}}",
 	"emailauthorization-config-button-showauth": "Button text",
 	"emailauthorization-config-button-showall": "Button text",
 	"right-emailauthorizationconfig": "{{doc-right|emailauthorizationconfig}}",
