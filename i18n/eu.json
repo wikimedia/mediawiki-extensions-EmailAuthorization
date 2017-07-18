@@ -5,10 +5,21 @@
 			"Mikel Ibaiba"
 		]
 	},
+	"emailauthorization-desc": "Erabiltzaileak baimendu helbide elektronikoen bidez",
+	"emailauthorization-config-authorized": "''$1'' onartzen da.",
+	"emailauthorization-config-nousersfound": "Ez da erabiltzailerik aurkitu.",
 	"emailauthorization-config-label-username": "Erabiltzaile izena",
 	"emailauthorization-config-label-realname": "Benetako izena",
 	"emailauthorization-config-label-userpage": "Erabiltzaile orria",
+	"emailauthorization-config-label-authorized": "Baimenduta",
+	"emailauthorization-config-value-yes": "bai",
+	"emailauthorization-config-value-no": "ez",
+	"emailauthorization-config-legend-search": "Bilatu helbideak",
 	"emailauthorization-config-button-next": "Hurrengoa",
 	"emailauthorization-config-button-previous": "Aurrekoa",
-	"emailauthorization-config-button-add": "Gehitu"
+	"emailauthorization-config-button-search": "Bilatu",
+	"emailauthorization-config-button-add": "Gehitu",
+	"emailauthorization-config-button-revoke": "Ezeztatu",
+	"emailauthorization-config-button-showall": "Wiki erabiltzaile guztiak erakutsi",
+	"action-emailauthorizationconfig": "email onarpena konfiguratu"
 }
