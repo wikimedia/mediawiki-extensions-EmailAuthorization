@@ -404,8 +404,8 @@ class EmailAuthorizationConfig extends SpecialPage {
 			. Html::element( 'legend', null,
 				wfMessage( 'emailauthorization-config-legend-search' ) . ':' );
 		list( $label, $input ) =
-			Xml::inputLabelSep( 'Email address:', 'searchemail', 'searchemail',
-			50 );
+			Xml::inputLabelSep( wfMessage( 'emailauthorization-config-label-email' ) . ':',
+				'searchemail', 'searchemail', 50 );
 		$html .= $label . ' ' . $input . ' '
 			. Xml::submitButton(
 				wfMessage( 'emailauthorization-config-button-search' ),
@@ -425,8 +425,8 @@ class EmailAuthorizationConfig extends SpecialPage {
 			. Html::element( 'legend', null,
 				wfMessage( 'emailauthorization-config-legend-add' ) . ':' );
 		list( $label, $input ) =
-			Xml::inputLabelSep( 'Email address:', 'addemail', 'addemail', 50,
-			$default );
+			Xml::inputLabelSep( wfMessage( 'emailauthorization-config-label-email' ) . ':',
+				'addemail', 'addemail', 50, $default );
 		$html .= $label . ' ' . $input . ' '
 			. Xml::submitButton(
 				wfMessage( 'emailauthorization-config-button-add' ),
@@ -446,8 +446,8 @@ class EmailAuthorizationConfig extends SpecialPage {
 			. Html::element( 'legend', null,
 				wfMessage( 'emailauthorization-config-legend-revoke' ) . ':' );
 		list( $label, $input ) =
-			Xml::inputLabelSep( 'Email address:', 'revokeemail', 'revokeemail',
-			50, $default );
+			Xml::inputLabelSep( wfMessage( 'emailauthorization-config-label-email' ) . ':',
+				'revokeemail', 'revokeemail', 50, $default );
 		$html .= $label . ' ' . $input . ' '
 			. Xml::submitButton(
 				wfMessage( 'emailauthorization-config-button-revoke' ),

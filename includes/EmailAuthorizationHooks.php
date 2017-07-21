@@ -28,12 +28,60 @@ class EmailAuthorizationHooks {
 		$dir = $GLOBALS['wgExtensionDirectory'] . DIRECTORY_SEPARATOR .
 			'EmailAuthorization' . DIRECTORY_SEPARATOR . 'sql' . DIRECTORY_SEPARATOR;
 		$updater->addExtensionTable( 'emailauth',
-			$dir . 'EmailAuthorization.sql', true );
+			$dir . 'EmailAuth.sql', true );
+		$updater->addExtensionTable( 'emailrequest',
+			$dir . 'EmailRequest.sql', true );
 		return true;
 	}
 
 	public static function authorize( $user, &$authorized ) {
 		$authorized = EmailAuthorization::isEmailAuthorized( $user->mEmail );
 		return $authorized;
+	}
+
+	public static function onRegistration() {
+		$GLOBALS['wgHooks']['SpecialPage_initList'][] = function ( &$list ) {
+			if ( !$GLOBALS['wgEmailAuthorization_EnableRequests'] ) {
+				unset( $list['EmailAuthorizationRequest'] );
+			}
+		};
+	}
+
+	public static function onBeforeCreateEchoEvent( &$notifications,
+		&$notificationCategories, &$icons ) {
+
+		$notificationCategories['emailauthorization-notification-category'] = [
+			'priority' => 3
+		];
+
+		$notifications['emailauthorization-account-request'] = [
+			'category' => 'emailauthorization-notification-category',
+			'group' => 'positive',
+			'section' => 'alert',
+			'presentation-model' => EchoEAPresentationModel::class,
+			'user-locators' => [ 'EmailAuthorizationHooks::locateBureaucrats' ]
+		];
+	}
+
+	public static function locateBureaucrats( $event ) {
+		$db = wfGetDB( DB_REPLICA );
+		$res = $db->select(
+			[ 'user_groups', 'user' ],
+			[ 'ug_user', 'ug_expiry' ],
+			[ 'ug_group' => 'bureaucrat' ],
+			__METHOD__,
+			[],
+			[ 'user' => [ 'INNER JOIN', [ 'ug_user = user_id' ] ] ]
+		);
+		$users = [];
+		foreach ( $res as $row ) {
+			$id = $row->ug_user;
+			$user = User::newFromId( $id );
+			$expiry = $row->ug_expiry;
+			if ( !$expiry || wfTimestampNow() < $expiry ) {
+				$users[$id] = $user;
+			}
+		}
+		return $users;
 	}
 }
