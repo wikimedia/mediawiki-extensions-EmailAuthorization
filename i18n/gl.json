@@ -8,6 +8,7 @@
 	"emailauthorization-desc": "Autorizar usuarios por enderezo de correo electrónico",
 	"emailauthorization-config-authorized": "''$1'' está autorizado.",
 	"emailauthorization-config-notauthorized": "''$1'' non está autorizado.",
+	"emailauthorization-config-alreadyauthorized": "''$1'' xa está autorizado.",
 	"emailauthorization-config-nousersfound": "Non se atopou ningún usuario.",
 	"emailauthorization-config-invalidemail": "''$1'' non é un enderezo de correo electrónico válido ou dominio.",
 	"emailauthorization-config-label-email": "Correo electrónico",
@@ -27,5 +28,6 @@
 	"emailauthorization-config-button-add": "Engadir",
 	"emailauthorization-config-button-revoke": "Revogar",
 	"emailauthorization-config-button-showauth": "Amosar enderezos de correo electrónico e dominios autorizados",
-	"emailauthorization-config-button-showall": "Amosar tódolos usuarios wiki"
+	"emailauthorization-config-button-showall": "Amosar tódolos usuarios wiki",
+	"action-emailauthorizationconfig": "configura as autorizacións para o enderezo electrónico"
 }
