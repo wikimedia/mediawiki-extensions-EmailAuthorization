@@ -12,7 +12,7 @@
 	"emailauthorization-config-noauthfound": "Keng autoriséiert E-Mail-Adressen oder Domaine fonnt.",
 	"emailauthorization-config-nousersfound": "Keng Benotzer fonnt.",
 	"emailauthorization-config-invalidemail": "\"$1\" ass keng valabel E-Mail-Adress oder Domain.",
-	"emailauthorization-config-label-email": "E-Mail",
+	"emailauthorization-config-label-email": "E-Mail-Adress",
 	"emailauthorization-config-label-username": "Benotzernumm",
 	"emailauthorization-config-label-realname": "Richtegen Numm",
 	"emailauthorization-config-label-userpage": "Benotzersäit",
@@ -27,5 +27,16 @@
 	"emailauthorization-config-button-add": "Derbäisetzen",
 	"emailauthorization-config-button-revoke": "Zréckruffen",
 	"emailauthorization-config-button-showauth": "Autoriséiert E-Mail-Adressen an Domaine weisen",
-	"emailauthorization-config-button-showall": "All Wikibenotzer weisen"
+	"emailauthorization-config-button-showall": "All Wikibenotzer weisen",
+	"emailauthorizationrequest": "E Benotzerkont ufroen",
+	"emailauthorization-request-label-email": "E-Mail-Adress",
+	"emailauthorization-request-invalidemail": "Net valabel E-Mail-Adress: $1",
+	"echo-category-title-emailauthorization-notification-category": "Nei Ufroe fir Benotzerkonten",
+	"notification-subject-emailauthorization-account-request": "Nei Ufroe fir e Benotzerkont.",
+	"emailauthorization-approve-label-email": "E-Mail-Adress",
+	"emailauthorization-approve-label-action": "Aktiounen",
+	"emailauthorization-approve-button-approve": "Zoustëmmen",
+	"emailauthorization-approve-button-next": "Weider",
+	"emailauthorization-approve-button-previous": "Vireg",
+	"emailauthorization-approve-norequestsfound": "Keng Ufroe fir Benotzerkonte fonnt."
 }

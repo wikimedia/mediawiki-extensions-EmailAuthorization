@@ -8,7 +8,7 @@
 	"emailauthorization-config-notauthorized": "''$1'' non è autorizzato.",
 	"emailauthorization-config-alreadyauthorized": "''$1'' è già autorizzato.",
 	"emailauthorization-config-nousersfound": "Nessun utente trovato.",
-	"emailauthorization-config-label-email": "Email",
+	"emailauthorization-config-label-email": "Indirizzo email",
 	"emailauthorization-config-label-username": "Nome utente",
 	"emailauthorization-config-label-realname": "Nome vero",
 	"emailauthorization-config-label-userpage": "Pagina utente",
@@ -20,5 +20,13 @@
 	"emailauthorization-config-button-previous": "Precedente",
 	"emailauthorization-config-button-search": "Cerca",
 	"emailauthorization-config-button-add": "Aggiungi",
-	"emailauthorization-config-button-revoke": "Revoca"
+	"emailauthorization-config-button-revoke": "Revoca",
+	"emailauthorization-request-label-email": "Indirizzo email",
+	"emailauthorization-request-button-submit": "Invia",
+	"notification-body-emailauthorization-account-request": "$1 ha richiesto un'utenza.",
+	"emailauthorization-approve-label-action": "Azioni",
+	"emailauthorization-approve-button-approve": "Approva",
+	"emailauthorization-approve-button-reject": "Rifiuta",
+	"emailauthorization-approve-button-next": "Avanti",
+	"emailauthorization-approve-approved": "Approvato $1."
 }

@@ -49,7 +49,7 @@
 	"emailauthorizationapprove": "Special page name",
 	"emailauthorization-approve-label-email": "Table column label\n{{Identical|E-mail}}",
 	"emailauthorization-approve-label-extra": "Table Column Label",
-	"emailauthorization-approve-label-action": "Table Column Label",
+	"emailauthorization-approve-label-action": "Table Column Label\n{{Identical|Action}}",
 	"emailauthorization-approve-button-approve": "Button text\n{{Identical|Approve}}",
 	"emailauthorization-approve-button-reject": "Button text\n{{Identical|Reject}}",
 	"emailauthorization-approve-button-next": "Button text\n{{Identical|Next}}",

@@ -10,7 +10,7 @@
 	"emailauthorization-config-alreadyauthorized": "''$1'' ya está autorizado.",
 	"emailauthorization-config-nousersfound": "No se encontraron usuarios.",
 	"emailauthorization-config-invalidemail": "''$1'' no es una dirección de correo electrónico o dominio válidos.",
-	"emailauthorization-config-label-email": "Correo electrónico",
+	"emailauthorization-config-label-email": "Dirección de correo electrónico",
 	"emailauthorization-config-label-username": "Nombre de usuario",
 	"emailauthorization-config-label-realname": "Nombre real",
 	"emailauthorization-config-label-userpage": "Página de usuario",
@@ -22,5 +22,17 @@
 	"emailauthorization-config-button-search": "Buscar",
 	"emailauthorization-config-button-add": "Añadir",
 	"emailauthorization-config-button-revoke": "Revocar",
-	"action-emailauthorizationconfig": "configuraa autorización de correo electrónico"
+	"action-emailauthorizationconfig": "configuraa autorización de correo electrónico",
+	"emailauthorizationrequest": "Solicitar una cuenta",
+	"emailauthorization-request-label-email": "Dirección de correo electrónico",
+	"emailauthorization-request-button-submit": "Enviar",
+	"echo-category-title-emailauthorization-notification-category": "Solicitudes de cuentas nuevas",
+	"notification-body-emailauthorization-account-request": "$1 ha solicitado una cuenta.",
+	"emailauthorization-approve-label-email": "Dirección de correo electrónico",
+	"emailauthorization-approve-label-action": "Acciones",
+	"emailauthorization-approve-button-approve": "Aprobar",
+	"emailauthorization-approve-button-reject": "Rechazar",
+	"emailauthorization-approve-button-next": "Siguiente",
+	"emailauthorization-approve-button-previous": "Anterior",
+	"emailauthorization-approve-approved": "Aprobado $1."
 }

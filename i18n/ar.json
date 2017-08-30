@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"محمد أحمد عبد الفتاح"
+		]
+	},
+	"emailauthorization-config-label-email": "عنوان البريد الإلكتروني",
+	"echo-category-title-emailauthorization-notification-category": "طلبات الحساب الجديد",
+	"emailauthorization-approve-label-email": "عنوان البريد الإلكتروني",
+	"emailauthorization-approve-button-approve": "موافقة",
+	"emailauthorization-approve-button-next": "التالي",
+	"emailauthorization-approve-button-previous": "السابق"
+}
