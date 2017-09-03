@@ -12,6 +12,7 @@
 	"emailauthorization-request-error": "$1 کے لیے نئے کھاتے کی درخواست دیتے ہوئے غلطی ہوئی ہے۔",
 	"echo-category-title-emailauthorization-notification-category": "نئے کھاتوں کی درخواستیں",
 	"notification-header-emailauthorization-account-request": "ایک نئے کھاتے کے لیے درخواست دی گئی ہے۔",
+	"notification-subject-emailauthorization-account-request": "نئے کھاتے کی درخواست",
 	"notification-body-emailauthorization-account-request": "$1 نے ایک کھاتے کی درخواست کی ہے۔",
 	"notification-link-label-emailauthorization-account-request": "کھاتوں کی منظوری کے صفحے کا دورہ کیجیے",
 	"emailauthorizationapprove": "کھاتوں کی درخواستوں کو منظور کیجیے",
