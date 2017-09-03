@@ -11,7 +11,7 @@
 	"emailauthorization-config-noauthfound": "Nie znaleziono autoryzowanych adresów poczty elektronicznej lub domen.",
 	"emailauthorization-config-nousersfound": "Nie znaleziono żadnego użytkownika.",
 	"emailauthorization-config-invalidemail": "\"$1\" nie jest prawidłowym adresem poczty elektronicznej lub domeną.",
-	"emailauthorization-config-label-email": "E-mail",
+	"emailauthorization-config-label-email": "Adres e-mail",
 	"emailauthorization-config-label-username": "Nazwa użytkownika",
 	"emailauthorization-config-label-realname": "Imię i nazwisko",
 	"emailauthorization-config-label-userpage": "Strona użytkownika",
@@ -23,5 +23,12 @@
 	"emailauthorization-config-button-search": "Szukaj",
 	"emailauthorization-config-button-add": "Dodaj",
 	"emailauthorization-config-button-showall": "Pokaż wszystkich użytkowników wiki",
-	"right-emailauthorizationconfig": "Konfiguruj autoryzację użytkownika poprzez adres poczty elektronicznej."
+	"right-emailauthorizationconfig": "Konfiguruj autoryzację użytkownika poprzez adres poczty elektronicznej.",
+	"emailauthorization-request-label-email": "Adres e-mail",
+	"emailauthorization-request-button-submit": "Wyślij",
+	"emailauthorization-request-invalidemail": "Nieprawidłowy adres e-mail: $1",
+	"emailauthorization-approve-label-email": "Adres e-mail",
+	"emailauthorization-approve-label-action": "Działania",
+	"emailauthorization-approve-button-approve": "Akceptuj",
+	"emailauthorization-approve-button-reject": "Odrzuć"
 }

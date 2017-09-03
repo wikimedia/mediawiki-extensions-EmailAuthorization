@@ -21,5 +21,11 @@
 	"emailauthorization-config-button-add": "Gehitu",
 	"emailauthorization-config-button-revoke": "Ezeztatu",
 	"emailauthorization-config-button-showall": "Wiki erabiltzaile guztiak erakutsi",
-	"action-emailauthorizationconfig": "email onarpena konfiguratu"
+	"action-emailauthorizationconfig": "email onarpena konfiguratu",
+	"emailauthorization-request-button-submit": "Bidali",
+	"emailauthorization-approve-label-action": "Ekintzak",
+	"emailauthorization-approve-button-approve": "Onartu",
+	"emailauthorization-approve-button-reject": "Ukatu",
+	"emailauthorization-approve-button-next": "Hurrengoa",
+	"emailauthorization-approve-button-previous": "Aurrekoa"
 }

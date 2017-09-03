@@ -5,7 +5,7 @@
 		]
 	},
 	"emailauthorization-desc": "Benotzer duerch E-Mail-Adressen autoriséieren",
-	"emailauthorizationconfig": "E-Mail-Autorisatioun astellen",
+	"emailauthorizationconfig": "E-Mail-Autorisatioun Gestiounssäit",
 	"emailauthorization-config-authorized": "\"$1\" ass autoriséiert.",
 	"emailauthorization-config-notauthorized": "\"$1\" ass net autoriséiert.",
 	"emailauthorization-config-alreadyauthorized": "\"$1\" ass schonn autoriséiert.",
@@ -30,13 +30,22 @@
 	"emailauthorization-config-button-showall": "All Wikibenotzer weisen",
 	"emailauthorizationrequest": "E Benotzerkont ufroen",
 	"emailauthorization-request-label-email": "E-Mail-Adress",
+	"emailauthorization-request-button-submit": "Schécken",
+	"emailauthorization-request-requested": "Fir d'E-Mail-Adress $1 gouf e Benotzerkont ugefrot.",
 	"emailauthorization-request-invalidemail": "Net valabel E-Mail-Adress: $1",
+	"emailauthorization-request-error": "Beim Ufroe vun engem Benotzerkont fir $1 ass e Feeler geschitt.",
 	"echo-category-title-emailauthorization-notification-category": "Nei Ufroe fir Benotzerkonten",
+	"notification-header-emailauthorization-account-request": "e gouf eng Ufro fir en neie Benotzerkont eragereecht.",
 	"notification-subject-emailauthorization-account-request": "Nei Ufroe fir e Benotzerkont.",
+	"notification-body-emailauthorization-account-request": "$1 huet e Benotzerkont ugefrot.",
 	"emailauthorization-approve-label-email": "E-Mail-Adress",
+	"emailauthorization-approve-label-extra": "Zousätzlech Felder",
 	"emailauthorization-approve-label-action": "Aktiounen",
 	"emailauthorization-approve-button-approve": "Zoustëmmen",
+	"emailauthorization-approve-button-reject": "Refuséieren",
 	"emailauthorization-approve-button-next": "Weider",
 	"emailauthorization-approve-button-previous": "Vireg",
-	"emailauthorization-approve-norequestsfound": "Keng Ufroe fir Benotzerkonte fonnt."
+	"emailauthorization-approve-norequestsfound": "Keng Ufroe fir Benotzerkonte fonnt.",
+	"emailauthorization-approve-approved": "$1 akzeptéiert.",
+	"emailauthorization-approve-rejected": "$1 refuséiert."
 }

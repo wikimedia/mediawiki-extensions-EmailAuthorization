@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Fitoschido"
 		]
 	},
+	"emailauthorizationconfig": "Tablero de autorización de correo electrónico",
 	"emailauthorization-config-authorized": "''$1'' está autorizado.",
 	"emailauthorization-config-notauthorized": "''$1'' no está autorizado.",
 	"emailauthorization-config-added": "Exitosamente autorizado a ''$1''.",
@@ -26,13 +28,22 @@
 	"emailauthorizationrequest": "Solicitar una cuenta",
 	"emailauthorization-request-label-email": "Dirección de correo electrónico",
 	"emailauthorization-request-button-submit": "Enviar",
+	"emailauthorization-request-requested": "Se solicitó una cuenta para la dirección de correo $1.",
+	"emailauthorization-request-invalidemail": "Dirección de correo electrónico no válida: $1",
+	"emailauthorization-request-error": "Se produjo un error al solicitar una cuenta para $1.",
 	"echo-category-title-emailauthorization-notification-category": "Solicitudes de cuentas nuevas",
+	"notification-header-emailauthorization-account-request": "Se envió una solicitud de cuenta nueva.",
+	"notification-subject-emailauthorization-account-request": "Solicitud de cuenta nueva.",
 	"notification-body-emailauthorization-account-request": "$1 ha solicitado una cuenta.",
+	"notification-link-label-emailauthorization-account-request": "Visitar la página de aprobación de cuentas",
+	"emailauthorizationapprove": "Aprobar solicitudes de cuentas",
 	"emailauthorization-approve-label-email": "Dirección de correo electrónico",
+	"emailauthorization-approve-label-extra": "Campos adicionales",
 	"emailauthorization-approve-label-action": "Acciones",
 	"emailauthorization-approve-button-approve": "Aprobar",
 	"emailauthorization-approve-button-reject": "Rechazar",
 	"emailauthorization-approve-button-next": "Siguiente",
 	"emailauthorization-approve-button-previous": "Anterior",
-	"emailauthorization-approve-approved": "Aprobado $1."
+	"emailauthorization-approve-norequestsfound": "No se encontró ninguna solicitud de cuenta.",
+	"emailauthorization-approve-approved": "$1 aprobado."
 }
