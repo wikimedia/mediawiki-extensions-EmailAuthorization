@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cûndûllah el-Kurdî"
+		]
+	},
+	"emailauthorization-config-label-email": "Navnîşana E-nameyê",
+	"emailauthorization-request-label-email": "Navnîşana E-nameyê",
+	"emailauthorization-request-button-submit": "Biweşîne",
+	"emailauthorization-approve-label-email": "Navnîşana E-nameyê",
+	"emailauthorization-approve-label-action": "Çalakî",
+	"emailauthorization-approve-button-previous": "« Yê berê"
+}
