@@ -9,5 +9,7 @@
 	"emailauthorization-request-button-submit": "Biweşîne",
 	"emailauthorization-approve-label-email": "Navnîşana E-nameyê",
 	"emailauthorization-approve-label-action": "Çalakî",
-	"emailauthorization-approve-button-previous": "« Yê berê"
+	"emailauthorization-approve-button-reject": "Nepejirîne",
+	"emailauthorization-approve-button-previous": "« Yê berê",
+	"emailauthorization-approve-approved": "$1 hat sepandin"
 }
