@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Benel"
 		]
 	},
-	"emailauthorization-config-button-search": "kilim"
+	"emailauthorization-config-button-search": "kilim",
+	"emailauthorization-approve-label-action": "saungay"
 }
