@@ -4,6 +4,9 @@
 			"Baba Tabita"
 		]
 	},
+	"emailauthorization-approve-button-approve": "Kʉruma",
+	"emailauthorization-approve-button-reject": "Kʉsiita",
 	"emailauthorization-approve-button-next": "Yookʉʉja",
-	"emailauthorization-approve-button-previous": "Yalookire"
+	"emailauthorization-approve-button-previous": "Yalookire",
+	"emailauthorization-approve-rejected": "$1 yasíitirwe."
 }
