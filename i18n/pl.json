@@ -28,7 +28,10 @@
 	"emailauthorization-request-button-submit": "Wyślij",
 	"emailauthorization-request-invalidemail": "Nieprawidłowy adres e-mail: $1",
 	"emailauthorization-approve-label-email": "Adres e-mail",
+	"emailauthorization-approve-label-extra": "Pola dodatkowe.",
 	"emailauthorization-approve-label-action": "Działania",
 	"emailauthorization-approve-button-approve": "Akceptuj",
-	"emailauthorization-approve-button-reject": "Odrzuć"
+	"emailauthorization-approve-button-reject": "Odrzuć",
+	"emailauthorization-approve-approved": "Zaakceptowano $1.",
+	"emailauthorization-approve-rejected": "Odrzucono $1."
 }
