@@ -41,7 +41,7 @@
 	"emailauthorizationrequest": "Special page name",
 	"emailauthorization-request-instructions": "Instructions",
 	"emailauthorization-request-label-email": "Field label",
-	"emailauthorization-request-button-submit": "Button text",
+	"emailauthorization-request-button-submit": "Button text\n{{Identical|Submit}}",
 	"emailauthorization-request-requested": "Status message",
 	"emailauthorization-request-missingmandatory": "Error message",
 	"emailauthorization-request-invalidemail": "Error message",
