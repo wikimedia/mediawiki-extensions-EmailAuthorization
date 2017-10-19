@@ -1,8 +1,9 @@
 {
 	"name": "Email Authorization",
-	"version": "1.5",
+	"version": "2.0-dev",
 	"author": [
-		"[https://www.mediawiki.org/wiki/User:Cindy.cicalese Cindy Cicalese]"
+		"[https://www.mediawiki.org/wiki/User:Cindy.cicalese Cindy Cicalese]",
+		"[https://www.mediawiki.org/wiki/User:Matthew-a-thompson Mint Thompson]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Email_Authorization",
 	"descriptionmsg": "emailauthorization-desc",
@@ -30,17 +31,41 @@
 	"ResourceModules": {
 		"ext.EmailAuthorization": {
 			"styles": [
-				"EmailAuthorization.css"
+				"resources/EmailAuthorization.css"
 			],
 			"targets": [
 				"desktop",
 				"mobile"
 			]
+		},
+		"ext.EmailAuthorizationConfig": {
+			"scripts": [
+				"resources/EmailAuthorizationConfig.js"
+			],
+			"dependencies": [
+				"mediawiki.api",
+				"ext.EmailAuthorization.datatables"
+			],
+			"messages": [
+				"emailauthorization-config-label-email",
+				"emailauthorization-config-label-username",
+				"emailauthorization-config-label-realname",
+				"emailauthorization-config-label-userpage",
+				"emailauthorization-config-label-authorized"
+			]
+		},
+		"ext.EmailAuthorization.datatables": {
+			"styles": [
+				"modules/datatables/media/css/jquery.dataTables.min.css"
+			],
+			"scripts": [
+				"modules/datatables/media/js/jquery.dataTables.min.js"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
-		"localBasePath": "resources",
-		"remoteExtPath": "EmailAuthorization/resources"
+		"localBasePath": "/",
+		"remoteExtPath": "EmailAuthorization"
 	},
 	"AutoloadClasses": {
 		"EmailAuthorization": "includes/EmailAuthorization.php",
@@ -48,7 +73,24 @@
 		"EmailAuthorizationConfig": "includes/EmailAuthorizationConfig.php",
 		"EmailAuthorizationRequest": "includes/EmailAuthorizationRequest.php",
 		"EmailAuthorizationApprove": "includes/EmailAuthorizationApprove.php",
-		"EchoEAPresentationModel": "includes/EchoEAPresentationModel.php"
+		"EchoEAPresentationModel": "includes/EchoEAPresentationModel.php",
+		"ApiEmailAuthorizationBase": "includes/ApiEmailAuthorizationBase.php",
+		"ApiEmailAuthorizationUsers": "includes/ApiEmailAuthorizationUsers.php",
+		"ApiEmailAuthorizationAuthorized": "includes/ApiEmailAuthorizationAuthorized.php"
+	},
+	"APIModules": {
+		"emailauthorization-getall": {
+			"class": "ApiEmailAuthorizationUsers",
+			"services": [
+				"ParserFactory"
+			]
+		},
+		"emailauthorization-getauthorized": {
+			"class": "ApiEmailAuthorizationAuthorized",
+			"services": [
+				"ParserFactory"
+			]
+		}
 	},
 	"Hooks": {
 		"PluggableAuthUserAuthorization": [ "EmailAuthorizationHooks::authorize" ],
@@ -59,8 +101,12 @@
 	},
 	"callback": "EmailAuthorizationHooks::onRegistration",
 	"config": {
-		"EmailAuthorization_EnableRequests": false,
-		"EmailAuthorization_RequestFields": []
+		"EmailAuthorization_EnableRequests": {
+			"value": false
+		},
+		"EmailAuthorization_RequestFields": {
+			"value": []
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }

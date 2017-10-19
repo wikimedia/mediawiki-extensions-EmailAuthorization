@@ -1,8 +1,5 @@
 <?php
-
 /*
- * Copyright (c) 2017 The MITRE Corporation
- *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -25,102 +22,52 @@
 class EmailAuthorizationConfig extends SpecialPage {
 
 	function __construct() {
-		parent::__construct( 'EmailAuthorizationConfig',
-			'emailauthorizationconfig' );
+		parent::__construct( 'EmailAuthorizationConfig', 'emailauthorizationconfig' );
 	}
 
-	function execute( $par ) {
-		if ( !$this->userCanExecute( $this->getUser() ) ) {
-			$this->displayRestrictionError();
+	/**
+	 * @param string|null $subPage
+	 * @throws PermissionsError|ErrorPageError|MWException
+	 */
+	function execute( $subPage ) {
+		$this->setHeaders();
+		$this->checkPermissions();
+		$securityLevel = $this->getLoginSecurityLevel();
+		if ( $securityLevel !== false && !$this->checkLoginSecurityLevel( $securityLevel ) ) {
 			return;
 		}
+		$this->outputHeader();
 
 		$request = $this->getRequest();
-		$this->setHeaders();
-		$this->getOutput()->addModuleStyles( 'ext.EmailAuthorization' );
+		$output = $this->getOutput();
+		$output->addModules( 'ext.EmailAuthorizationConfig' );
+		$output->addModuleStyles( 'ext.EmailAuthorization' );
 
-		$search = self::searchEmail( $request->getText( 'searchemail' ) );
-		self::addEmail( $request->getText( 'addemail' ) );
-		self::revokeEmail( $request->getText( 'revokeemail' ) );
-		self::showAuthorizedUsers( $request->getText( 'authoffset' ) );
-		self::showAllUsers( $request->getText( 'alloffset' ) );
+		$addEmail = trim( $request->getText( 'addemail' ) );
+		$revokeEmail = trim( $request->getText( 'revokeemail' ) );
 
-		$title = Title::newFromText( 'Special:' . __CLASS__ );
-		$url = $title->getFullURL();
+		$this->addEmail( $addEmail );
+		$this->revokeEmail( $revokeEmail );
 
+		$url = $this->getFullTitle()->getFullURL();
+		if ( $request->getBool( 'showAll' ) ) {
+			$this->showAllUsers();
+			$this->showAuthorizedUsersButton( $url );
+		} else {
+			$this->showAuthorizedUsers();
+			$this->showAllUsersButton( $url );
+		}
+
+		$output->addHtml( Html::element( 'hr' ) );
 		$html = Html::openElement( 'p' )
 			. Html::openElement( 'b' )
 			. wfMessage( 'emailauthorization-config-instructions' )->parse()
 			. Html::closeElement( 'b' )
 			. Html::closeElement( 'p' );
-		$this->getOutput()->addHtml( $html );
+		$output->addHtml( $html );
 
-		$defaultAddEmail = '';
-		if ( $search === null ) {
-			$defaultAddEmail = trim( $request->getText( 'revokeemail' ) );
-		} elseif ( !$search ) {
-			$defaultAddEmail = trim( $request->getText( 'searchemail' ) );
-		}
-		self::showAddForm( $url, $defaultAddEmail );
-
-		$defaultRevokeEmail = '';
-		if ( $search === null ) {
-			$defaultRevokeEmail = trim( $request->getText( 'addemail' ) );
-		} elseif ( $search ) {
-			$defaultRevokeEmail = trim( $request->getText( 'searchemail' ) );
-		}
-		self::showRevokeForm( $url, $defaultRevokeEmail );
-
-		self::showSearchForm( $url );
-		self::showAuthorizedUsersForm( $url );
-		self::showAllUsersForm( $url );
-	}
-
-	private function displayMessage( $message ) {
-		$html = Html::openElement( 'p', [
-				'class' => 'emailauth-message'
-			] )
-			. $message
-			. Html::closeElement( 'p' );
-		$this->getOutput()->addHtml( $html );
-	}
-
-	private function validateEmail( $email ) {
-		$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
-		if ( $email[0] === '@' ) {
-			if ( filter_var( 'a' . $email, FILTER_VALIDATE_EMAIL ) ) {
-				return $email;
-			}
-		} else {
-			if ( filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
-				return $email;
-			}
-		}
-		return false;
-	}
-
-	private function searchEmail( $email ) {
-		if ( $email === null || strlen( $email ) < 1 ) {
-			return null;
-		}
-		$validatedemail = $this->validateEmail( $email );
-		if ( $validatedemail !== false ) {
-			if ( EmailAuthorization::isEmailAuthorized( $validatedemail ) ) {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-authorized', $validatedemail )
-				);
-				return true;
-			} else {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-notauthorized', $validatedemail )
-				);
-				return false;
-			}
-		}
-		$this->displayMessage(
-			wfMessage( 'emailauthorization-config-invalidemail', $email )
-		);
-		return null;
+		$this->showAddForm( $url, $revokeEmail );
+		$this->showRevokeForm( $url, $addEmail );
 	}
 
 	private function addEmail( $email ) {
@@ -129,11 +76,11 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 		$validatedemail = $this->validateEmail( $email );
 		if ( $validatedemail !== false ) {
-			if ( self::insertEmail( $validatedemail ) ) {
+			if ( $this->insertEmail( $validatedemail ) ) {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-added', $validatedemail )
 				);
-				Hooks::run( 'EmailAuthorizationAdd', [ $validatedemail ] );
+				$this->getHookContainer()->run( 'EmailAuthorizationAdd', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-alreadyauthorized', $validatedemail )
@@ -152,11 +99,11 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 		$validatedemail = $this->validateEmail( $email );
 		if ( $validatedemail !== false ) {
-			if ( self::deleteEmail( $validatedemail ) ) {
+			if ( $this->deleteEmail( $validatedemail ) ) {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-revoked', $validatedemail )
 				);
-				Hooks::run( 'EmailAuthorizationRevoke', [ $validatedemail ] );
+				$this->getHookContainer()->run( 'EmailAuthorizationRevoke', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-notauthorized', $validatedemail )
@@ -169,255 +116,97 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 	}
 
-	private function showAuthorizedUsers( $authoffset ) {
-		if ( $authoffset === null || strlen( $authoffset ) === 0 ||
-			!is_numeric( $authoffset ) || $authoffset < 0 ) {
-			return;
-		}
-
-		$limit = 20;
-
-		$emails = self::getAuthorizedEmails( $limit + 1, $authoffset );
-		$next = false;
-
-		if ( !$emails->valid() ) {
-			$authoffset = 0;
-			$emails = self::getAuthorizedEmails( $limit + 1, $authoffset );
-			if ( !$emails->valid() ) {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-noauthfound' )
-				);
-				return;
+	private function validateEmail( $email ) {
+		$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
+		if ( $email[0] === '@' ) {
+			if ( filter_var( 'a' . $email, FILTER_VALIDATE_EMAIL ) ) {
+				return $email;
+			}
+		} else {
+			if ( filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
+				return $email;
 			}
 		}
-
-		$wikitext = '{| class="wikitable emailauth-wikitable"' . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-email' ) . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-username' ) . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-realname' ) . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-userpage' ) . PHP_EOL;
-
-		$index = 0;
-		$more = false;
-		foreach ( $emails as $email ) {
-			if ( $index < $limit ) {
-				$wikitext .= '|-' . PHP_EOL;
-				$email_addr = htmlspecialchars( $email->email, ENT_QUOTES );
-				if ( strlen( $email_addr ) > 1 && $email_addr[0] === '@' ) {
-					$wikitext .= '|'
-						. wfMessage( 'emailauthorization-config-value-domain', $email_addr )
-						. PHP_EOL;
-					$wikitext .= '| &nbsp;' . PHP_EOL;
-					$wikitext .= '| &nbsp;' . PHP_EOL;
-					$wikitext .= '| &nbsp;' . PHP_EOL;
-				} else {
-					$wikitext .= '|' . $email_addr . PHP_EOL;
-					$users = self::getUserInfo( $email_addr );
-					if ( !$users->valid() ) {
-						$wikitext .= '| &nbsp;' . PHP_EOL;
-						$wikitext .= '| &nbsp;' . PHP_EOL;
-						$wikitext .= '| &nbsp;' . PHP_EOL;
-					} else {
-						$first = true;
-						$wikitext .= '|';
-						foreach ( $users as $user ) {
-							$user_name = htmlspecialchars( $user->user_name, ENT_QUOTES );
-							if ( $first ) {
-								$first = false;
-							} else {
-								$wikitext .= '<br />';
-							}
-							$wikitext .= $user_name;
-						}
-						$wikitext .= PHP_EOL;
-						$first = true;
-						$wikitext .= '|';
-						foreach ( $users as $user ) {
-							$real_name = htmlspecialchars( $user->user_real_name, ENT_QUOTES );
-							if ( $first ) {
-								$first = false;
-							} else {
-								$wikitext .= '<br />';
-							}
-							$wikitext .= $real_name;
-						}
-						$wikitext .= PHP_EOL;
-						$first = true;
-						$wikitext .= '|';
-						foreach ( $users as $user ) {
-							$user_name = htmlspecialchars( $user->user_name, ENT_QUOTES );
-							if ( $first ) {
-								$first = false;
-							} else {
-								$wikitext .= '<br />';
-							}
-							$wikitext .= '[[User:' . $user_name . ']]';
-						}
-						$wikitext .= PHP_EOL;
-					}
-				}
-				$index++;
-			} else {
-				$more = true;
-			}
-		}
-
-		$wikitext .= '|}' . PHP_EOL;
-		$this->getOutput()->addWikiTextAsInterface( $wikitext );
-
-		if ( $authoffset > 0 || $more ) {
-			$this->addTableNavigation( $authoffset, $more, $limit, 'authoffset' );
-		}
-
-		$html = Html::element( 'hr' );
-		$this->getOutput()->addHtml( $html );
+		return false;
 	}
 
-	private function showAllUsers( $alloffset ) {
-		if ( $alloffset === null || strlen( $alloffset ) === 0 ||
-			!is_numeric( $alloffset ) || $alloffset < 0 ) {
-			return;
-		}
-
-		$limit = 20;
-
-		$users = self::getUsers( $limit + 1, $alloffset );
-		$next = false;
-
-		if ( !$users->valid() ) {
-			$alloffset = 0;
-			$users = self::getUsers( $limit + 1, $alloffset );
-			if ( !$users->valid() ) {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-nousersfound' )
-				);
-				return;
-			}
-		}
-
-		$wikitext = '{| class="wikitable emailauth-wikitable"' . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-email' ) . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-username' ) . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-realname' ) . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-userpage' ) . PHP_EOL;
-		$wikitext .=
-			'!' . wfMessage( 'emailauthorization-config-label-authorized' ) . PHP_EOL;
-
-		$index = 0;
-		$more = false;
-		foreach ( $users as $user ) {
-			if ( $index < $limit ) {
-				$email = htmlspecialchars( $user->user_email, ENT_QUOTES );
-				$user_name = htmlspecialchars( $user->user_name, ENT_QUOTES );
-				$real_name = htmlspecialchars( $user->user_real_name, ENT_QUOTES );
-				$email = htmlspecialchars( $user->user_email, ENT_QUOTES );
-				$wikitext .= '|-' . PHP_EOL;
-				$wikitext .= '|' . $email . PHP_EOL;
-				$wikitext .= '|' . $user_name . PHP_EOL;
-				$wikitext .= '|' . $real_name . PHP_EOL;
-				$wikitext .= '|[[User:' . $user_name . ']]' . PHP_EOL;
-				if ( EmailAuthorization::isEmailAuthorized( $email ) ) {
-					$wikitext .= '| style="text-align:center;" | '
-						. wfMessage( 'emailauthorization-config-value-yes' )
-						. PHP_EOL;
-				} else {
-					$wikitext .= '| style="text-align:center;" | '
-						. wfMessage( 'emailauthorization-config-value-no' )
-						. PHP_EOL;
-				}
-				$index++;
-			} else {
-				$more = true;
-			}
-		}
-
-		$wikitext .= '|}' . PHP_EOL;
-		$this->getOutput()->addWikiTextAsInterface( $wikitext );
-
-		if ( $alloffset > 0 || $more ) {
-			$this->addTableNavigation( $alloffset, $more, $limit, 'alloffset' );
-		}
-
-		$html = Html::element( 'hr' );
-		$this->getOutput()->addHtml( $html );
-	}
-
-	private function addTableNavigation( $offset, $more, $limit, $paramname ) {
-		$title = Title::newFromText( 'Special:EmailAuthorizationConfig' );
-		$url = $title->getFullURL();
-
-		$html = Html::openElement( 'table', [
-				'class' => 'emailauth-navigationtable'
+	private function displayMessage( $message ) {
+		$html = Html::openElement( 'p', [
+				'class' => 'emailauth-message'
 			] )
-			. Html::openElement( 'tr' )
-			. Html::openElement( 'td' );
-
-		if ( $offset > 0 ) {
-			$prevurl = $url . '?' . $paramname . '=' . ( $offset - $limit );
-			$html .= Html::openElement( 'a', [
-					'href' => $prevurl,
-					'class' => 'emailauth-button'
-				] )
-				. wfMessage( 'emailauthorization-config-button-previous' )
-				. Html::closeElement( 'a' );
-		}
-
-		$html .= Html::closeElement( 'td' )
-			. Html::openElement( 'td', [
-				'style' => 'text-align:right;'
-			] );
-
-		if ( $more ) {
-			$nexturl = $url . '?' . $paramname . '=' . ( $offset + $limit );
-			$html .= Html::openElement( 'a', [
-					'href' => $nexturl,
-					'class' => 'emailauth-button'
-				] )
-				. wfMessage( 'emailauthorization-config-button-next' )
-				. Html::closeElement( 'a' );
-		}
-
-		$html .= Html::closeElement( 'td' )
-			. Html::closeElement( 'tr' )
-			. Html::closeElement( 'table' );
+			. $message
+			. Html::closeElement( 'p' );
 		$this->getOutput()->addHtml( $html );
 	}
 
-	private function showSearchForm( $url ) {
-		$formDescriptor = [
-			'textbox' => [
-				'type' => 'text',
-				'name' => 'searchemail',
-				'label-message' => 'emailauthorization-config-label-email',
-				'size' => 50,
-				'nodata' => true,
-			]
-		];
+	private function showAllUsers() {
+		$output = $this->getOutput();
+		$output->addJsConfigVars( 'EmailAuthorizationUserData', true );
 
-		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
+		$userTable = Html::element( 'table', [
+			"id" => "user-table",
+			"class" => "stripe hover cell-border",
+			"style" => "width: 100%"
+		] );
+		$output->addHtml( $userTable );
+	}
+
+	private function showAuthorizedUsers() {
+		$output = $this->getOutput();
+		$output->addJsConfigVars( 'EmailAuthorizationAuthorizedData', true );
+
+		$authorizedTable = Html::element( 'table', [
+			"id" => "authorized-table",
+			"class" => "stripe hover cell-border",
+			"style" => "width: 100%"
+		] );
+		$output->addHtml( $authorizedTable );
+	}
+
+	/**
+	 * @param string $url
+	 * @throws MWException
+	 */
+	private function showAllUsersButton( string $url ) {
+		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
 		$htmlForm
+			->addHiddenField( 'showAll', true )
 			->addButton( [
-				'name' => 'showSearchForm',
-				'value' => wfMessage( 'emailauthorization-config-button-search' )->text(),
+				'name' => 'showAllUsersForm',
+				'value' => wfMessage( 'emailauthorization-config-button-showall' )->text(),
 				'flags' => [ 'progressive' ]
 			] )
 			->setAction( $url )
-			->setMethod( 'post' )
-			->setWrapperLegendMsg( 'emailauthorization-config-legend-search' )
 			->suppressDefaultSubmit()
 			->prepareForm()
 			->displayForm( false );
 	}
 
-	private function showAddForm( $url, $default ) {
+	/**
+	 * @param string $url
+	 * @throws MWException
+	 */
+	private function showAuthorizedUsersButton( string $url ) {
+		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
+		$htmlForm
+			->addHiddenField( 'showAll', false )
+			->addButton( [
+				'name' => 'showAuthorizedUsersForm',
+				'value' => wfMessage( 'emailauthorization-config-button-showauth' )->text(),
+				'flags' => [ 'progressive' ]
+			] )
+			->setAction( $url )
+			->suppressDefaultSubmit()
+			->prepareForm()
+			->displayForm( false );
+	}
+
+	/**
+	 * @param string $url
+	 * @param string $default
+	 * @throws MWException
+	 */
+	private function showAddForm( string $url, string $default ) {
 		$formDescriptor = [
 			'textbox' => [
 				'type' => 'text',
@@ -437,14 +226,18 @@ class EmailAuthorizationConfig extends SpecialPage {
 				'flags' => [ 'progressive' ]
 			] )
 			->setAction( $url )
-			->setMethod( 'post' )
 			->setWrapperLegendMsg( 'emailauthorization-config-legend-add' )
 			->suppressDefaultSubmit()
 			->prepareForm()
 			->displayForm( false );
 	}
 
-	private function showRevokeForm( $url, $default ) {
+	/**
+	 * @param string $url
+	 * @param string $default
+	 * @throws MWException
+	 */
+	private function showRevokeForm( string $url, string $default ) {
 		$formDescriptor = [
 			'textbox' => [
 				'type' => 'text',
@@ -464,103 +257,13 @@ class EmailAuthorizationConfig extends SpecialPage {
 				'flags' => [ 'destructive' ],
 			] )
 			->setAction( $url )
-			->setMethod( 'post' )
 			->setWrapperLegendMsg( 'emailauthorization-config-legend-revoke' )
 			->suppressDefaultSubmit()
 			->prepareForm()
 			->displayForm( false );
 	}
 
-	private function showAuthorizedUsersForm( $url ) {
-		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
-		$htmlForm
-			->addHiddenField( 'authoffset', 0 )
-			->addButton( [
-				'name' => 'showAuthorizedUsersForm',
-				'value' => wfMessage( 'emailauthorization-config-button-showauth' )->text(),
-				'flags' => [ 'progressive' ]
-			] )
-			->setAction( $url )
-			->setMethod( 'post' )
-			->suppressDefaultSubmit()
-			->prepareForm()
-			->displayForm( false );
-	}
-
-	private function showAllUsersForm( $url ) {
-		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
-		$htmlForm
-			->addHiddenField( 'alloffset', 0 )
-			->addButton( [
-				'name' => 'showAllUsersForm',
-				'value' => wfMessage( 'emailauthorization-config-button-showall' )->text(),
-				'flags' => [ 'progressive' ]
-			] )
-			->setAction( $url )
-			->suppressDefaultSubmit()
-			->setMethod( 'post' )
-			->prepareForm()
-			->displayForm( false );
-	}
-
-	private static function getAuthorizedEmails( $limit, $authoffset ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$emails = $dbr->select(
-			'emailauth',
-			[
-				'email'
-			],
-			[],
-			__METHOD__,
-			[
-				'ORDER BY' => 'email',
-				'LIMIT' => $limit,
-				'OFFSET' => $authoffset
-			]
-		);
-		return $emails;
-	}
-
-	private static function getUsers( $limit, $alloffset ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$users = $dbr->select(
-			'user',
-			[
-				'user_name',
-				'user_real_name',
-				'user_email'
-			],
-			[],
-			__METHOD__,
-			[
-				'ORDER BY' => 'user_email',
-				'LIMIT' => $limit,
-				'OFFSET' => $alloffset
-			]
-		);
-		return $users;
-	}
-
-	private static function getUserInfo( $email ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$users = $dbr->select(
-			'user',
-			[
-				'user_name',
-				'user_real_name'
-			],
-			[
-				'user_email' => $email
-			],
-			__METHOD__,
-			[
-				'ORDER BY' => 'user_name',
-			]
-		);
-		return $users;
-	}
-
-	private static function insertEmail( $email ) {
+	private static function insertEmail( $email ): bool {
 		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->upsert(
 			'emailauth',
@@ -573,14 +276,10 @@ class EmailAuthorizationConfig extends SpecialPage {
 			],
 			__METHOD__
 		);
-		if ( $dbw->affectedRows() === 1 ) {
-			return true;
-		} else {
-			return false;
-		}
+		return ( $dbw->affectedRows() === 1 );
 	}
 
-	private static function deleteEmail( $email ) {
+	private static function deleteEmail( $email ): bool {
 		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete(
 			'emailauth',
@@ -589,10 +288,6 @@ class EmailAuthorizationConfig extends SpecialPage {
 			],
 			__METHOD__
 		);
-		if ( $dbw->affectedRows() === 1 ) {
-			return true;
-		} else {
-			return false;
-		}
+		return ( $dbw->affectedRows() === 1 );
 	}
 }
