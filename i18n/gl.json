@@ -33,10 +33,13 @@
 	"emailauthorization-request-label-email": "Enderezo de correo electrónico",
 	"emailauthorization-request-button-submit": "Enviar",
 	"emailauthorization-request-invalidemail": "Enderezo de correo electrónico non válido: $1",
+	"echo-category-title-emailauthorization-notification-category": "Solicitudes de novas contas",
 	"emailauthorization-approve-label-email": "Enderezo de correo electrónico",
 	"emailauthorization-approve-label-action": "Accións",
 	"emailauthorization-approve-button-approve": "Aprobar",
 	"emailauthorization-approve-button-reject": "Rexeitar",
 	"emailauthorization-approve-button-next": "Seguinte",
-	"emailauthorization-approve-button-previous": "Anterior"
+	"emailauthorization-approve-button-previous": "Anterior",
+	"emailauthorization-approve-approved": "$1 aprobado.",
+	"emailauthorization-approve-rejected": "$1 rexeitado."
 }
