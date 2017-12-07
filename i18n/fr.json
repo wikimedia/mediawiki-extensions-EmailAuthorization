@@ -3,7 +3,8 @@
 		"authors": [
 			"Great11",
 			"Wladek92",
-			"Gomoko"
+			"Gomoko",
+			"Urhixidur"
 		]
 	},
 	"emailauthorization-desc": "Autoriser les utilisateurs en fonctions des adresses courriel",
@@ -20,7 +21,7 @@
 	"emailauthorization-config-label-email": "Adresse de messagerie",
 	"emailauthorization-config-label-username": "Nom d’utilisateur",
 	"emailauthorization-config-label-realname": "Nom réel",
-	"emailauthorization-config-label-userpage": "Page utilisateur",
+	"emailauthorization-config-label-userpage": "Page d’utilisateur",
 	"emailauthorization-config-label-authorized": "Autorisé",
 	"emailauthorization-config-value-domain": "tous les utilisateurs dont l'adresse courriel se termine par $1",
 	"emailauthorization-config-value-yes": "oui",
