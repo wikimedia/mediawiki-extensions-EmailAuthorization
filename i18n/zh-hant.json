@@ -8,6 +8,7 @@
 	"emailauthorization-config-label-authorized": "已授權",
 	"emailauthorization-config-value-yes": "是",
 	"emailauthorization-config-value-no": "否",
+	"emailauthorization-config-button-next": "下一步",
 	"emailauthorization-config-button-previous": "上一步",
 	"emailauthorization-config-button-search": "搜尋",
 	"emailauthorization-config-button-add": "新增",
