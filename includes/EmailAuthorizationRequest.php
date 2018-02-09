@@ -177,7 +177,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 		$email = $validatedemail;
 		if ( self::checkEmail( $email ) ) {
 			if ( self::insertRequest( $email, $request ) ) {
-				if ( class_exists( 'EchoEvent' ) ) {
+				if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 					$extra = [
 						'email' => $validatedemail,
 						'notifyAgent' => true
