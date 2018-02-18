@@ -15,7 +15,7 @@
 	"emailauthorization-config-noauthfound": "没有验证的电子邮件地址，或找不到域名。",
 	"emailauthorization-config-nousersfound": "找不到用户。",
 	"emailauthorization-config-invalidemail": "“$1”不是有效的电子邮件地址或域名。",
-	"emailauthorization-config-label-email": "电子邮件",
+	"emailauthorization-config-label-email": "电子邮件地址",
 	"emailauthorization-config-label-username": "用户名",
 	"emailauthorization-config-label-realname": "真实姓名",
 	"emailauthorization-config-label-userpage": "用户页",
