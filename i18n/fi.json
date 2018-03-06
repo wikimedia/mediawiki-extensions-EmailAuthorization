@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyscowicz"
+		]
+	},
+	"emailauthorization-config-label-email": "Sähköpostiosoite",
+	"emailauthorization-request-label-email": "Sähköpostiosoite",
+	"emailauthorization-approve-label-email": "Sähköpostiosoite"
+}
