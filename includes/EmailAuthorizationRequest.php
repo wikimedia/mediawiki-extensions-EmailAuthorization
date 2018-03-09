@@ -259,7 +259,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 			__METHOD__
 		);
 		if ( $res ) {
-			wfRunHooks( 'EmailAuthorizationRequest', [ $email, $data ] );
+			Hooks::run( 'EmailAuthorizationRequest', [ $email, $data ] );
 			return true;
 		} else {
 			return false;

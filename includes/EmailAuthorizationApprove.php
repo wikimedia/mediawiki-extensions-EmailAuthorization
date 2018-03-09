@@ -50,7 +50,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 			$this->displayMessage(
 				wfMessage( 'emailauthorization-approve-approved', $approve_email )
 			);
-			wfRunHooks( 'EmailAuthorizationApprove', [ $approve_email, $fields, $this->getUser() ] );
+			Hooks::run( 'EmailAuthorizationApprove', [ $approve_email, $fields, $this->getUser() ] );
 		}
 
 		$reject_email =  $request->getText( 'reject-email' );
@@ -60,7 +60,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 			$this->displayMessage(
 				wfMessage( 'emailauthorization-approve-rejected', $reject_email )
 			);
-			wfRunHooks( 'EmailAuthorizationReject', [ $reject_email, $fields, $this->getUser() ] );
+			Hooks::run( 'EmailAuthorizationReject', [ $reject_email, $fields, $this->getUser() ] );
 		}
 
 		$offset =  $request->getText( 'offset' );

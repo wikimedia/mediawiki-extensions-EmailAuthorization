@@ -133,7 +133,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-added', $validatedemail )
 				);
-				wfRunHooks( 'EmailAuthorizationAdd', [ $validatedemail ] );
+				Hooks::run( 'EmailAuthorizationAdd', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-alreadyauthorized', $validatedemail )
@@ -156,7 +156,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-revoked', $validatedemail )
 				);
-				wfRunHooks( 'EmailAuthorizationRevoke', [ $validatedemail ] );
+				Hooks::run( 'EmailAuthorizationRevoke', [ $validatedemail ] );
 			} else {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-notauthorized', $validatedemail )
