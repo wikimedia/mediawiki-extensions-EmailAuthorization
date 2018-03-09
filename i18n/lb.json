@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Les Meloures"
 		]
 	},
 	"emailauthorization-desc": "Benotzer duerch E-Mail-Adressen autoriséieren",
@@ -24,7 +25,7 @@
 	"emailauthorization-config-button-next": "Weider",
 	"emailauthorization-config-button-previous": "Vireg",
 	"emailauthorization-config-button-search": "Sichen",
-	"emailauthorization-config-button-add": "Dobäisetzen",
+	"emailauthorization-config-button-add": "Derbäisetzen",
 	"emailauthorization-config-button-revoke": "Zréckruffen",
 	"emailauthorization-config-button-showauth": "Autoriséiert E-Mail-Adressen an Domaine weisen",
 	"emailauthorization-config-button-showall": "All Wikibenotzer weisen",
