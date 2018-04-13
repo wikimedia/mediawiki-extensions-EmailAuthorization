@@ -395,100 +395,96 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function showSearchForm( $url ) {
-
-		$formDescriptor = [
-			'textbox' => [
-				'type' => 'text',
-				'name' => 'searchemail',
-				'id' => 'searchemail',
-				'label-message' => 'emailauthorization-config-label-email',
-				'size' => 50
-			]
-		];
-
-		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
-		$htmlForm
-			->setMethod( 'post' )
-			->setAction( $url )
-			->setId( 'SearchEmail' )
-			->setSubmitTextMsg( 'emailauthorization-config-button-search' )
-			->setWrapperLegendMsg( 'emailauthorization-config-legend-search' )
-			->prepareForm()
-			->displayForm( false );
+		$html = Html::openElement( 'form', [
+				'method' => 'post',
+				'action' => $url,
+				'id' => 'SearchEmail'
+			] )
+			. Html::openElement( 'fieldset' )
+			. Html::element( 'legend', null,
+				wfMessage( 'emailauthorization-config-legend-search' ) . ':' );
+		list( $label, $input ) =
+			Xml::inputLabelSep( wfMessage( 'emailauthorization-config-label-email' ) . ':',
+				'searchemail', 'searchemail', 50 );
+		$html .= $label . ' ' . $input . ' '
+			. Xml::submitButton(
+				wfMessage( 'emailauthorization-config-button-search' ),
+				[ 'class' => 'emailauth-button' ] )
+			. Html::closeElement( 'fieldset' )
+			. Html::closeElement( 'form' );
+		$this->getOutput()->addHtml( $html );
 	}
 
 	private function showAddForm( $url, $default ) {
-
-		$formDescriptor = [
-			'textbox' => [
-				'type' => 'text',
-				'name' => 'addemail',
-				'id' => 'addemail',
-				'label-message' => 'emailauthorization-config-label-email',
-				'size' => 50,
-				'value' => $default
-			]
-		];
-
-		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
-		$htmlForm
-			->setMethod( 'post' )
-			->setAction( $url )
-			->setId( 'AddEmail' )
-			->setSubmitTextMsg( 'emailauthorization-config-button-add' )
-			->setWrapperLegendMsg( 'emailauthorization-config-legend-add' )
-			->prepareForm()
-			->displayForm( false );
+		$html = Html::openElement( 'form', [
+				'method' => 'post',
+				'action' => $url,
+				'id' => 'AddEmail'
+			] )
+			. Html::openElement( 'fieldset' )
+			. Html::element( 'legend', null,
+				wfMessage( 'emailauthorization-config-legend-add' ) . ':' );
+		list( $label, $input ) =
+			Xml::inputLabelSep( wfMessage( 'emailauthorization-config-label-email' ) . ':',
+				'addemail', 'addemail', 50, $default );
+		$html .= $label . ' ' . $input . ' '
+			. Xml::submitButton(
+				wfMessage( 'emailauthorization-config-button-add' ),
+				[ 'class' => 'emailauth-button' ] )
+			. Html::closeElement( 'fieldset' )
+			. Html::closeElement( 'form' );
+		$this->getOutput()->addHtml( $html );
 	}
 
 	private function showRevokeForm( $url, $default ) {
-
-		$formDescriptor = [
-			'textbox' => [
-				'type' => 'text',
-				'name' => 'revokeemail',
-				'id' => 'revokeemail',
-				'label-message' => 'emailauthorization-config-label-email',
-				'size' => 50,
-				'value' => $default
-			]
-		];
-
-		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
-		$htmlForm
-			->setMethod( 'post' )
-			->setAction( $url )
-			->setId( 'RevokeEmail' )
-			->setSubmitTextMsg( 'emailauthorization-config-button-revoke' )
-			->setWrapperLegendMsg( 'emailauthorization-config-legend-revoke' )
-			->prepareForm()
-			->displayForm( false );
+		$html = Html::openElement( 'form', [
+				'method' => 'post',
+				'action' => $url,
+				'id' => 'RevokeEmail'
+			] )
+			. Html::openElement( 'fieldset' )
+			. Html::element( 'legend', null,
+				wfMessage( 'emailauthorization-config-legend-revoke' ) . ':' );
+		list( $label, $input ) =
+			Xml::inputLabelSep( wfMessage( 'emailauthorization-config-label-email' ) . ':',
+				'revokeemail', 'revokeemail', 50, $default );
+		$html .= $label . ' ' . $input . ' '
+			. Xml::submitButton(
+				wfMessage( 'emailauthorization-config-button-revoke' ),
+				[ 'class' => 'emailauth-button' ] )
+			. Html::closeElement( 'fieldset' )
+			. Html::closeElement( 'form' );
+		$this->getOutput()->addHtml( $html );
 	}
 
 	private function showAuthorizedUsersForm( $url ) {
-
-		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
-		$htmlForm
-			->addHiddenField( 'authoffset', 0 )
-			->setMethod( 'post' )
-			->setId( 'ShowAuthorizedUsers' )
-			->setAction( $url )
-			->setSubmitTextMsg( 'emailauthorization-config-button-showauth' )
-			->prepareForm()
-			->displayForm( false );
+		$html = Html::openElement( 'form', [
+				'method' => 'post',
+				'action' => $url,
+				'id' => 'ShowAuthorizedUsers',
+				'style' => 'display:inline;'
+			] )
+			. Html::hidden( 'authoffset', 0 )
+			. Xml::submitButton(
+				wfMessage( 'emailauthorization-config-button-showauth' ),
+				[ 'class' => 'emailauth-button' ] )
+			. Html::closeElement( 'form' );
+		$this->getOutput()->addHtml( $html );
 	}
 
 	private function showAllUsersForm( $url ) {
-
-		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
-		$htmlForm
-			->addHiddenField( 'alloffset', 0 )
-			->setMethod( 'post' )
-			->setId( 'ShowAllUsers' )
-			->setAction( $url )
-			->setSubmitTextMsg( 'emailauthorization-config-button-showall' )
-			->prepareForm()
-			->displayForm( false );
+		$html = Html::openElement( 'form', [
+				'method' => 'post',
+				'action' => $url,
+				'id' => 'ShowAllUsers',
+				'style' => 'display:inline;'
+			] )
+			. Html::hidden( 'alloffset', 0 )
+			. Xml::submitButton(
+				wfMessage( 'emailauthorization-config-button-showall' ),
+				[ 'class' => 'emailauth-button' ] )
+			. Html::closeElement( 'form' );
+		$this->getOutput()->addHtml( $html );
 	}
 
 	private static function getAuthorizedEmails( $limit, $authoffset ) {
