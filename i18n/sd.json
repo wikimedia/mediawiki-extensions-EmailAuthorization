@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mehtab ahmed"
+			"Mehtab ahmed",
+			"Tweety"
 		]
 	},
+	"emailauthorization-config-button-next": "اڳيون",
+	"emailauthorization-approve-button-next": "اڳيون",
 	"emailauthorization-approve-button-previous": "پويون"
 }
