@@ -7,6 +7,12 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:Email_Authorization",
 	"descriptionmsg": "emailauthorization-desc",
 	"license-name": "MIT",
+	"requires": {
+		"MediaWiki": ">= 1.27.0",
+		"extensions": {
+			"PluggableAuth": "*"
+		}
+	},
 	"type": "other",
 	"SpecialPages": {
 		"EmailAuthorizationConfig": "EmailAuthorizationConfig",
