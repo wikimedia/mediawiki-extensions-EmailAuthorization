@@ -170,7 +170,6 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function showAuthorizedUsers( $authoffset ) {
-
 		if ( is_null( $authoffset ) || strlen( $authoffset ) === 0 ||
 			!is_numeric( $authoffset ) || $authoffset < 0 ) {
 			return;
@@ -230,11 +229,11 @@ class EmailAuthorizationConfig extends SpecialPage {
 							if ( $first ) {
 								$first = false;
 							} else {
- 								$wikitext .= '<br />';
+								$wikitext .= '<br />';
 							}
- 							$wikitext .= $user_name;
+							$wikitext .= $user_name;
 						}
- 						$wikitext .= PHP_EOL;
+						$wikitext .= PHP_EOL;
 						$first = true;
 						$wikitext .= '|';
 						foreach ( $users as $user ) {
@@ -242,11 +241,11 @@ class EmailAuthorizationConfig extends SpecialPage {
 							if ( $first ) {
 								$first = false;
 							} else {
- 								$wikitext .= '<br />';
+								$wikitext .= '<br />';
 							}
- 							$wikitext .= $real_name;
+							$wikitext .= $real_name;
 						}
- 						$wikitext .= PHP_EOL;
+						$wikitext .= PHP_EOL;
 						$first = true;
 						$wikitext .= '|';
 						foreach ( $users as $user ) {
@@ -254,11 +253,11 @@ class EmailAuthorizationConfig extends SpecialPage {
 							if ( $first ) {
 								$first = false;
 							} else {
- 								$wikitext .= '<br />';
+								$wikitext .= '<br />';
 							}
 							$wikitext .= '[[User:' . $user_name . ']]';
 						}
- 						$wikitext .= PHP_EOL;
+						$wikitext .= PHP_EOL;
 					}
 				}
 				$index ++;
@@ -279,7 +278,6 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function showAllUsers( $alloffset ) {
-
 		if ( is_null( $alloffset ) || strlen( $alloffset ) === 0 ||
 			!is_numeric( $alloffset ) || $alloffset < 0 ) {
 			return;
@@ -353,7 +351,6 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function addTableNavigation( $offset, $more, $limit, $paramname ) {
-
 		$title = Title::newFromText( 'Special:EmailAuthorizationConfig' );
 		$url = $title->getFullURL();
 
@@ -488,7 +485,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private static function getAuthorizedEmails( $limit, $authoffset ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$emails = $dbr->select(
 			'emailauth',
 			[
@@ -506,7 +503,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private static function getUsers( $limit, $alloffset ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$users = $dbr->select(
 			'user',
 			[
@@ -526,7 +523,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private static function getUserInfo( $email ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$users = $dbr->select(
 			'user',
 			[

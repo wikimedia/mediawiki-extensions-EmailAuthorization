@@ -201,7 +201,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 	}
 
 	private static function checkEmail( $email ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$users = $dbr->select(
 			'user',
 			[
@@ -237,12 +237,12 @@ class EmailAuthorizationRequest extends SpecialPage {
 		foreach ( $GLOBALS['wgEmailAuthorization_RequestFields'] as $field ) {
 			$id = 'emailauthorization-request-field-' . $i;
 			$i++;
-			$value = $request->getText( $id ) ;
+			$value = $request->getText( $id );
 			if ( $value ) {
 				$data[$field['label']] = $value;
 			}
 		}
-		$json = json_encode($data);
+		$json = json_encode( $data );
 		$dbw = wfGetDB( DB_MASTER );
 		$res = $dbw->upsert(
 			'emailrequest',

@@ -42,7 +42,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 		$title = Title::newFromText( 'Special:' . __CLASS__ );
 		$url = $title->getFullURL();
 
-		$approve_email =  $request->getText( 'approve-email' );
+		$approve_email = $request->getText( 'approve-email' );
 		if ( !is_null( $approve_email ) && strlen( $approve_email ) ) {
 			$fields = self::getRequestFields( $approve_email );
 			self::insertEmail( $approve_email );
@@ -53,7 +53,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 			Hooks::run( 'EmailAuthorizationApprove', [ $approve_email, $fields, $this->getUser() ] );
 		}
 
-		$reject_email =  $request->getText( 'reject-email' );
+		$reject_email = $request->getText( 'reject-email' );
 		if ( !is_null( $reject_email ) && strlen( $reject_email ) ) {
 			$fields = self::getRequestFields( $reject_email );
 			self::deleteRequest( $reject_email );
@@ -63,7 +63,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 			Hooks::run( 'EmailAuthorizationReject', [ $reject_email, $fields, $this->getUser() ] );
 		}
 
-		$offset =  $request->getText( 'offset' );
+		$offset = $request->getText( 'offset' );
 
 		if ( is_null( $offset ) || strlen( $offset ) === 0 ||
 			!is_numeric( $offset ) || $offset < 0 ) {
@@ -174,7 +174,6 @@ class EmailAuthorizationApprove extends SpecialPage {
 	}
 
 	private function addTableNavigation( $offset, $more, $limit, $paramname ) {
-
 		$title = Title::newFromText( 'Special:EmailAuthorizationApprove' );
 		$url = $title->getFullURL();
 
@@ -225,7 +224,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 	}
 
 	private static function getRequests( $limit, $offset ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$requests = $dbr->select(
 			'emailrequest',
 			[
@@ -244,7 +243,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 	}
 
 	private static function getRequestFields( $email ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$request = $dbr->selectRow(
 			'emailrequest',
 			[

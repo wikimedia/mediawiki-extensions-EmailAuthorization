@@ -49,7 +49,6 @@ class EmailAuthorizationHooks {
 
 	public static function onBeforeCreateEchoEvent( &$notifications,
 		&$notificationCategories, &$icons ) {
-
 		$notificationCategories['emailauthorization-notification-category'] = [
 			'priority' => 3
 		];

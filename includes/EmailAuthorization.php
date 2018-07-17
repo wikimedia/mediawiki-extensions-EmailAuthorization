@@ -25,7 +25,7 @@
 class EmailAuthorization {
 
 	public static function isEmailAuthorized( $email ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$row = $dbr->selectRow(
 			'emailauth',
 			[
