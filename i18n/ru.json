@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Alexey zakharenkov",
-			"Evs"
+			"Evs",
+			"Okras"
 		]
 	},
 	"emailauthorization-desc": "Авторизация пользователей по адресу электронной почты",
@@ -21,7 +22,7 @@
 	"emailauthorization-config-label-realname": "Настоящее имя",
 	"emailauthorization-config-label-userpage": "Страница участника",
 	"emailauthorization-config-label-authorized": "Авторизирован",
-	"emailauthorization-config-value-domain": "все пользователи с адресами электронной почты, заканчивающиеся на",
+	"emailauthorization-config-value-domain": "все участники с адресами электронной почты, которые заканчиваются на $1",
 	"emailauthorization-config-value-yes": "да",
 	"emailauthorization-config-value-no": "нет",
 	"emailauthorization-config-legend-search": "Поиск адресов электронной почты",
