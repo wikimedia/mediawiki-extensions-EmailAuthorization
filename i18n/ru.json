@@ -3,7 +3,8 @@
 		"authors": [
 			"Alexey zakharenkov",
 			"Evs",
-			"Okras"
+			"Okras",
+			"Kaganer"
 		]
 	},
 	"emailauthorization-desc": "Авторизация пользователей по адресу электронной почты",
@@ -15,7 +16,7 @@
 	"emailauthorization-config-alreadyauthorized": "''$1'' уже авторизирован.",
 	"emailauthorization-config-revoked": "Авторизация ''$1'' успешно отозвана.",
 	"emailauthorization-config-noauthfound": "Авторизованные адреса электронной почты или домены не найдены.",
-	"emailauthorization-config-nousersfound": "Пользователи не найдены.",
+	"emailauthorization-config-nousersfound": "Участники не найдены.",
 	"emailauthorization-config-invalidemail": "''$1'' не является действительным адресом электронной почты или доменом.",
 	"emailauthorization-config-label-email": "Адрес электронной почты",
 	"emailauthorization-config-label-username": "Имя участника",
@@ -49,9 +50,9 @@
 	"notification-header-emailauthorization-account-request": "Запрос для новой учётной записи был отправлен .",
 	"notification-subject-emailauthorization-account-request": "Запрос новой учётной записи.",
 	"notification-body-emailauthorization-account-request": "$1 запросил учётную запись.",
-	"notification-link-label-emailauthorization-account-request": "Посетить страницу авторизаций учётных записей",
-	"emailauthorizationapprove": "Утверждение запросов учётной записи",
-	"emailauthorization-approve-label-email": "Адрес электронной почты",
+	"notification-link-label-emailauthorization-account-request": "Посетите страницу утверждения учётных записей",
+	"emailauthorizationapprove": "Утверждение запросов учётных записей",
+	"emailauthorization-approve-label-email": "Адреса электронной почты",
 	"emailauthorization-approve-label-extra": "Дополнительные поля",
 	"emailauthorization-approve-label-action": "Действия",
 	"emailauthorization-approve-button-approve": "Одобрить",
