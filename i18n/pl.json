@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"InternerowyGołąb",
-			"Chrumps"
+			"Chrumps",
+			"Railfail536"
 		]
 	},
+	"emailauthorization-desc": "Autoryzuje użytkowników przez adresy e-mail",
 	"emailauthorization-config-authorized": "\"$1\" jest autoryzowany.",
 	"emailauthorization-config-notauthorized": "$1 nie jest autoryzowany.",
 	"emailauthorization-config-added": "Pomyślnie zautoryzowano \"$1\".",
