@@ -260,7 +260,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 						$wikitext .= PHP_EOL;
 					}
 				}
-				$index ++;
+				$index++;
 			} else {
 				$more = true;
 			}
@@ -333,7 +333,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 						. wfMessage( 'emailauthorization-config-value-no' )
 						. PHP_EOL;
 				}
-				$index ++;
+				$index++;
 			} else {
 				$more = true;
 			}

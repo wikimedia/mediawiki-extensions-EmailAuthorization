@@ -131,7 +131,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 					. $this->createRejectButton( $url, $email )
 					. Html::closeElement( 'td' )
 					. Html::closeElement( 'tr' );
-				$index ++;
+				$index++;
 			} else {
 				$more = true;
 			}
