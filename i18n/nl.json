@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"Xbaked potatox"
 		]
 	},
 	"emailauthorization-config-nousersfound": "Geen gebruikers gevonden.",
-	"emailauthorization-config-label-email": "E-mail",
+	"emailauthorization-config-label-email": "E-mailadres",
 	"emailauthorization-config-label-username": "Gebruikersnaam",
 	"emailauthorization-config-label-realname": "Volledige naam",
 	"emailauthorization-config-label-userpage": "Gebruikerspagina",
