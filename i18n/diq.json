@@ -6,7 +6,9 @@
 	},
 	"emailauthorization-config-value-yes": "eya",
 	"emailauthorization-config-value-no": "nê",
+	"emailauthorization-config-button-previous": "Verên",
 	"emailauthorization-config-button-search": "Cı geyre",
 	"emailauthorization-config-button-add": "Cı ke",
-	"emailauthorization-approve-button-approve": "Qebul ke"
+	"emailauthorization-approve-button-approve": "Qebul ke",
+	"emailauthorization-approve-button-previous": "Verên"
 }
