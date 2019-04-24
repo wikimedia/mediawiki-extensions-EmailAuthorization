@@ -19,10 +19,12 @@
 	"emailauthorization-config-button-search": "Zoeken",
 	"emailauthorization-config-button-add": "Toevoegen",
 	"emailauthorization-config-button-revoke": "Intrekken",
+	"emailauthorization-request-label-email": "E-mailadres",
 	"emailauthorization-request-button-submit": "Verzenden",
 	"emailauthorization-approve-button-approve": "Goedkeuren",
 	"emailauthorization-approve-button-reject": "Afwijzen",
 	"emailauthorization-approve-button-next": "Volgende",
+	"emailauthorization-approve-button-previous": "Vorige",
 	"emailauthorization-approve-approved": "$1 goedgekeurd.",
 	"emailauthorization-approve-rejected": "$1 afgewezen."
 }
