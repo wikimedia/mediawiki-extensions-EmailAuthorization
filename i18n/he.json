@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Steeve815"
+			"Steeve815",
+			"Strayblues"
 		]
 	},
 	"emailauthorization-config-label-email": "כתובת דוא\"ל",
 	"emailauthorization-config-label-username": "שם משתמש",
-	"emailauthorization-config-label-realname": "שם אמתי",
+	"emailauthorization-config-label-realname": "שם אמיתי",
 	"emailauthorization-config-label-userpage": "דף משתמש",
 	"emailauthorization-config-label-authorized": "מורשה",
 	"emailauthorization-config-value-domain": "כל המשתמשים עם כתובת דוא\"ל המסתיימת ב־$1",
