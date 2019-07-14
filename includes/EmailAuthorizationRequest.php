@@ -231,6 +231,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 			return true;
 		return true;
 	}
+
 	private static function insertRequest( $email, $request ) {
 		$i = 1;
 		$data = [];
