@@ -9,5 +9,6 @@
 	"emailauthorization-config-value-yes": "да",
 	"emailauthorization-config-value-no": "не",
 	"emailauthorization-config-button-add": "Добавяне",
-	"emailauthorization-request-button-submit": "Изпращане"
+	"emailauthorization-request-button-submit": "Изпращане",
+	"emailauthorization-approve-button-next": "Следваща"
 }
