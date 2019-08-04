@@ -267,7 +267,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 
 		$wikitext .= '|}' . PHP_EOL;
-		$this->getOutput()->addWikiText( $wikitext );
+		$this->getOutput()->addWikiTextAsInterface( $wikitext );
 
 		if ( $authoffset > 0 || $more ) {
 			$this->addTableNavigation( $authoffset, $more, $limit, 'authoffset' );
@@ -340,7 +340,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 
 		$wikitext .= '|}' . PHP_EOL;
-		$this->getOutput()->addWikiText( $wikitext );
+		$this->getOutput()->addWikiTextAsInterface( $wikitext );
 
 		if ( $alloffset > 0 || $more ) {
 			$this->addTableNavigation( $alloffset, $more, $limit, 'alloffset' );
