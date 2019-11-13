@@ -129,7 +129,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 		$validatedemail = $this->validateEmail( $email );
 		if ( $validatedemail !== false ) {
-			if ( self::insertEmail( $email ) ) {
+			if ( self::insertEmail( $validatedemail ) ) {
 				$this->displayMessage(
 					wfMessage( 'emailauthorization-config-added', $validatedemail )
 				);
