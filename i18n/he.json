@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Steeve815",
-			"Strayblues"
+			"Strayblues",
+			"Amire80"
 		]
 	},
 	"emailauthorization-config-label-email": "כתובת דוא\"ל",
@@ -14,7 +15,7 @@
 	"emailauthorization-config-value-yes": "כן",
 	"emailauthorization-config-value-no": "לא",
 	"emailauthorization-config-legend-search": "חיפוש אחר כתובות דוא\"ל",
-	"emailauthorization-config-legend-add": "הוספת כתובת דוא\"ל או דומיין מורשים",
+	"emailauthorization-config-legend-add": "הוספת כתובת דוא\"ל או תחום מורשים",
 	"emailauthorization-config-legend-revoke": "הסרת כתובת דוא\"ל או דומיין מורשים",
 	"emailauthorization-config-button-next": "הבא",
 	"emailauthorization-config-button-previous": "הקודם",
