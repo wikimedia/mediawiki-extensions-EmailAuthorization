@@ -142,7 +142,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 	}
 
 	private function validateEmail( $email ) {
-		if ( is_null( $email ) || strlen( $email ) < 1 ) {
+		if ( $email === null || strlen( $email ) < 1 ) {
 			return false;
 		}
 		$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );

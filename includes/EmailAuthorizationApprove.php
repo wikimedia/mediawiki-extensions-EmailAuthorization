@@ -43,7 +43,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 		$url = $title->getFullURL();
 
 		$approve_email = $request->getText( 'approve-email' );
-		if ( !is_null( $approve_email ) && strlen( $approve_email ) ) {
+		if ( $approve_email !== null && strlen( $approve_email ) ) {
 			$fields = self::getRequestFields( $approve_email );
 			self::insertEmail( $approve_email );
 			self::deleteRequest( $approve_email );
@@ -54,7 +54,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 		}
 
 		$reject_email = $request->getText( 'reject-email' );
-		if ( !is_null( $reject_email ) && strlen( $reject_email ) ) {
+		if ( $reject_email !== null && strlen( $reject_email ) ) {
 			$fields = self::getRequestFields( $reject_email );
 			self::deleteRequest( $reject_email );
 			$this->displayMessage(
@@ -65,7 +65,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 
 		$offset = $request->getText( 'offset' );
 
-		if ( is_null( $offset ) || strlen( $offset ) === 0 ||
+		if ( $offset === null || strlen( $offset ) === 0 ||
 			!is_numeric( $offset ) || $offset < 0 ) {
 			$offset = 0;
 		}

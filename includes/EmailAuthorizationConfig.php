@@ -56,7 +56,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 		$this->getOutput()->addHtml( $html );
 
 		$defaultAddEmail = '';
-		if ( is_null( $search ) ) {
+		if ( $search === null ) {
 			$defaultAddEmail = trim( $request->getText( 'revokeemail' ) );
 		} elseif ( !$search ) {
 			$defaultAddEmail = trim( $request->getText( 'searchemail' ) );
@@ -64,7 +64,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 		self::showAddForm( $url, $defaultAddEmail );
 
 		$defaultRevokeEmail = '';
-		if ( is_null( $search ) ) {
+		if ( $search === null ) {
 			$defaultRevokeEmail = trim( $request->getText( 'addemail' ) );
 		} elseif ( $search ) {
 			$defaultRevokeEmail = trim( $request->getText( 'searchemail' ) );
@@ -100,7 +100,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function searchEmail( $email ) {
-		if ( is_null( $email ) || strlen( $email ) < 1 ) {
+		if ( $email === null || strlen( $email ) < 1 ) {
 			return null;
 		}
 		$validatedemail = $this->validateEmail( $email );
@@ -124,7 +124,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function addEmail( $email ) {
-		if ( is_null( $email ) || strlen( $email ) < 1 ) {
+		if ( $email === null || strlen( $email ) < 1 ) {
 			return;
 		}
 		$validatedemail = $this->validateEmail( $email );
@@ -147,7 +147,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function revokeEmail( $email ) {
-		if ( is_null( $email ) || strlen( $email ) < 1 ) {
+		if ( $email === null || strlen( $email ) < 1 ) {
 			return;
 		}
 		$validatedemail = $this->validateEmail( $email );
@@ -170,7 +170,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function showAuthorizedUsers( $authoffset ) {
-		if ( is_null( $authoffset ) || strlen( $authoffset ) === 0 ||
+		if ( $authoffset === null || strlen( $authoffset ) === 0 ||
 			!is_numeric( $authoffset ) || $authoffset < 0 ) {
 			return;
 		}
@@ -278,7 +278,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private function showAllUsers( $alloffset ) {
-		if ( is_null( $alloffset ) || strlen( $alloffset ) === 0 ||
+		if ( $alloffset === null || strlen( $alloffset ) === 0 ||
 			!is_numeric( $alloffset ) || $alloffset < 0 ) {
 			return;
 		}
