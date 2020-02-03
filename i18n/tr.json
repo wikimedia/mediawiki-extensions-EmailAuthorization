@@ -16,7 +16,7 @@
 	"emailauthorization-config-nousersfound": "Kullanıcı bulunamadı.",
 	"emailauthorization-config-invalidemail": "''$1'' geçerli bir e-posta adresi veya alan adı değil.",
 	"emailauthorization-config-label-email": "E-posta Adresi",
-	"emailauthorization-config-label-username": "Kullanıcı Adı",
+	"emailauthorization-config-label-username": "Kullanıcı adı",
 	"emailauthorization-config-label-realname": "Gerçek Adı",
 	"emailauthorization-config-label-userpage": "Kullanıcı Sayfası",
 	"emailauthorization-config-label-authorized": "Yetkilendirildi",
