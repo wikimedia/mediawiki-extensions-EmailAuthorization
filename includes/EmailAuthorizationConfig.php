@@ -548,9 +548,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 			[
 				'email' => $email
 			],
-			[
-				'email' => $email
-			],
+			[ 'email' ],
 			[
 				'email' => $email
 			],

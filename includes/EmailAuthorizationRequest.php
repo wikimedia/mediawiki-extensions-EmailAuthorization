@@ -251,9 +251,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 				'email' => $email,
 				'request' => $json,
 			],
-			[
-				'email' => $email
-			],
+			[ 'email' ],
 			[
 				'request' => $json,
 			],

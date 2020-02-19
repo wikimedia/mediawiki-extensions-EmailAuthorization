@@ -267,9 +267,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 			[
 				'email' => $email
 			],
-			[
-				'email' => $email
-			],
+			[ 'email' ],
 			[
 				'email' => $email
 			],
