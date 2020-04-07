@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Pmt",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Pmt"
 		]
 	},
 	"emailauthorization-desc": "Autoriser brukere etter epostadresse",

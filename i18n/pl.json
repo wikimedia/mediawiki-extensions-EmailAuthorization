@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"InternerowyGołąb",
 			"Chrumps",
-			"Railfail536",
-			"Rail"
+			"InternerowyGołąb",
+			"Rail",
+			"Railfail536"
 		]
 	},
 	"emailauthorization-desc": "Autoryzuje użytkowników przez adresy e-mail",

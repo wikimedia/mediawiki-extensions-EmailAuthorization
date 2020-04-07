@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Great11",
-			"Wladek92",
 			"Gomoko",
+			"Great11",
+			"Thibaut120094",
 			"Urhixidur",
-			"Thibaut120094"
+			"Wladek92"
 		]
 	},
 	"emailauthorization-desc": "Autoriser les utilisateurs en fonctions des adresses courriel",
