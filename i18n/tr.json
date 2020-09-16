@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"MuratTheTurkish"
 		]
 	},
 	"emailauthorization-desc": "Kullanıcıları e-posta adresine göre yetkilendir",
@@ -30,7 +31,7 @@
 	"emailauthorization-config-button-previous": "Önceki",
 	"emailauthorization-config-button-search": "Ara",
 	"emailauthorization-config-button-add": "Ekle",
-	"emailauthorization-config-button-revoke": "Geri Al",
+	"emailauthorization-config-button-revoke": "Geri al",
 	"emailauthorization-config-button-showauth": "Yetkili e-posta adreslerini ve alan adlarını göster",
 	"emailauthorization-config-button-showall": "Tüm viki kullanıcılarını göster",
 	"right-emailauthorizationconfig": "Kullanıcı yetkisini e-posta adresine göre yapılandır",
