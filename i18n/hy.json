@@ -4,5 +4,8 @@
 			"Kareyac"
 		]
 	},
-	"emailauthorization-approve-label-action": "Գործողություններ"
+	"emailauthorization-config-value-yes": "այո",
+	"emailauthorization-config-button-add": "Ավելացնել",
+	"emailauthorization-approve-label-action": "Գործողություններ",
+	"emailauthorization-approve-button-reject": "Մերժել"
 }
