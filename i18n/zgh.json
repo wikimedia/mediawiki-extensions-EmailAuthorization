@@ -6,5 +6,6 @@
 	},
 	"emailauthorization-config-value-yes": "ⵢⴰⵀ",
 	"emailauthorization-config-value-no": "ⵓⵀⵓ",
-	"emailauthorization-config-button-search": "ⵔⵣⵓ"
+	"emailauthorization-config-button-search": "ⵔⵣⵓ",
+	"emailauthorization-config-button-add": "ⵔⵏⵓ"
 }
