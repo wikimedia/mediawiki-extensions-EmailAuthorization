@@ -226,9 +226,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 			if ( $users->valid() ) {
 				return false;
 			}
-			return true;
 		}
-			return true;
 		return true;
 	}
 
