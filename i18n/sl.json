@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"emailauthorization-config-value-yes": "da",
+	"emailauthorization-config-value-no": "ne"
+}
