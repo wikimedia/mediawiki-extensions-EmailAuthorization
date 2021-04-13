@@ -21,7 +21,7 @@
 	"emailauthorization-config-invalidemail": "« $1 » n'est pas une adresse courriel ou un domaine valide.",
 	"emailauthorization-config-label-email": "Adresse de messagerie",
 	"emailauthorization-config-label-username": "Nom d’utilisateur",
-	"emailauthorization-config-label-realname": "Nom réel",
+	"emailauthorization-config-label-realname": "Vrai nom",
 	"emailauthorization-config-label-userpage": "Page d’utilisateur",
 	"emailauthorization-config-label-authorized": "Autorisé",
 	"emailauthorization-config-value-domain": "tous les utilisateurs dont l'adresse courriel se termine par $1",
