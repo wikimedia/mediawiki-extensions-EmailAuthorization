@@ -40,7 +40,7 @@ class EmailAuthorizationHooks {
 	}
 
 	public static function onRegistration() {
-		$GLOBALS['wgHooks']['SpecialPage_initList'][] = function ( &$list ) {
+		$GLOBALS['wgHooks']['SpecialPage_initList'][] = static function ( &$list ) {
 			if ( !$GLOBALS['wgEmailAuthorization_EnableRequests'] ) {
 				unset( $list['EmailAuthorizationRequest'] );
 			}
