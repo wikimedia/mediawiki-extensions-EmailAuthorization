@@ -4,6 +4,9 @@
 			"Joao Xavier"
 		]
 	},
+	"emailauthorization-config-label-email": "E-postal adreso",
 	"emailauthorization-config-label-userpage": "Uzero-pagino",
-	"emailauthorization-config-button-search": "Serchez"
+	"emailauthorization-config-button-search": "Serchez",
+	"emailauthorization-request-label-email": "E-postal adreso",
+	"emailauthorization-approve-label-email": "E-postal adreso"
 }
