@@ -5,5 +5,7 @@
 		]
 	},
 	"emailauthorization-config-label-username": "Nomu utenti",
+	"emailauthorization-config-value-yes": "sì",
+	"emailauthorization-config-value-no": "no",
 	"emailauthorization-approve-label-action": "Azzioni"
 }
