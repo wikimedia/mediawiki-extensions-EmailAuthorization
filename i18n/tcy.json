@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"BHARATHESHA ALASANDEMAJALU"
+			"BHARATHESHA ALASANDEMAJALU",
+			"Chidananda Kampa"
 		]
 	},
-	"emailauthorization-config-label-username": "ಸದಸ್ಯೆರ್ನ ಪುದರ್",
+	"emailauthorization-config-label-username": "ಬಳಕೆದಾರೆರೆಪುದರ್",
 	"emailauthorization-config-label-realname": "ನಿಜವಾಯಿನ ಪುದರ್",
 	"emailauthorization-config-label-userpage": "ಸದಸ್ಯೆರೆನ ಪುಟೊ",
 	"emailauthorization-config-value-yes": "ಅಂದ್",
