@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
+			"Romaine",
 			"Xbaked potatox"
 		]
 	},
@@ -10,6 +11,7 @@
 	"emailauthorization-config-label-username": "Gebruikersnaam",
 	"emailauthorization-config-label-realname": "Volledige naam",
 	"emailauthorization-config-label-userpage": "Gebruikerspagina",
+	"emailauthorization-config-label-authorized": "Geautoriseerd",
 	"emailauthorization-config-value-domain": "alle gebruikers met een e-mailadres eindigend met $1",
 	"emailauthorization-config-value-yes": "ja",
 	"emailauthorization-config-value-no": "nee",
@@ -19,6 +21,7 @@
 	"emailauthorization-config-button-search": "Zoeken",
 	"emailauthorization-config-button-add": "Toevoegen",
 	"emailauthorization-config-button-revoke": "Intrekken",
+	"emailauthorization-config-button-showall": "Toon alle wikigebruikers",
 	"emailauthorizationrequest": "Account aanvragen",
 	"emailauthorization-request-label-email": "E-mailadres",
 	"emailauthorization-request-button-submit": "Verzenden",
