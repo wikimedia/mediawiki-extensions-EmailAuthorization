@@ -261,7 +261,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 	}
 
 	private static function insertEmail( $email ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->upsert(
 			'emailauth',
 			[
@@ -281,7 +281,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 	}
 
 	private static function deleteRequest( $email ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete(
 			'emailrequest',
 			[

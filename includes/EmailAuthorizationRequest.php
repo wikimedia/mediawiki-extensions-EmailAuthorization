@@ -242,7 +242,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 			}
 		}
 		$json = json_encode( $data );
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$res = $dbw->upsert(
 			'emailrequest',
 			[

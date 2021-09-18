@@ -542,7 +542,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private static function insertEmail( $email ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->upsert(
 			'emailauth',
 			[
@@ -562,7 +562,7 @@ class EmailAuthorizationConfig extends SpecialPage {
 	}
 
 	private static function deleteEmail( $email ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete(
 			'emailauth',
 			[
