@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeeputer"
+		]
+	},
+	"emailauthorization-config-nousersfound": "کاربری یافت نشد.",
+	"emailauthorization-config-label-email": "نشانی ایمیل",
+	"emailauthorization-config-label-username": "نام کاربری",
+	"emailauthorization-config-label-realname": "نام واقعی",
+	"emailauthorization-config-label-userpage": "صفحهٔ کاربری",
+	"emailauthorization-config-value-yes": "بله",
+	"emailauthorization-config-value-no": "خیر",
+	"emailauthorization-config-button-next": "بعدی",
+	"emailauthorization-config-button-previous": "قبلی",
+	"emailauthorization-config-button-search": "جستجو",
+	"emailauthorization-config-button-add": "افزودن",
+	"emailauthorization-config-button-revoke": "ابطال",
+	"emailauthorization-config-button-showall": "نمایش تمام کاربران ویکی",
+	"emailauthorizationrequest": "درخواست حساب",
+	"emailauthorization-request-label-email": "نشانی ایمیل",
+	"emailauthorization-request-button-submit": "ثبت",
+	"emailauthorization-request-invalidemail": "نشانی ایمیل نامعتبر: $1",
+	"notification-subject-emailauthorization-account-request": "درخواست حساب تازه.",
+	"notification-body-emailauthorization-account-request": "$1 درخواست یک حساب کرده‌است.",
+	"notification-link-label-emailauthorization-account-request": "رفتن به صفحهٔ تأیید حساب",
+	"emailauthorizationapprove": "تأیید درخواست‌های حساب",
+	"emailauthorization-approve-label-email": "نشانی ایمیل",
+	"emailauthorization-approve-label-action": "کنش‌ها",
+	"emailauthorization-approve-button-approve": "تأیید",
+	"emailauthorization-approve-button-reject": "رد",
+	"emailauthorization-approve-button-next": "بعدی",
+	"emailauthorization-approve-button-previous": "قبلی",
+	"emailauthorization-approve-norequestsfound": "هیچ درخواست حسابی یافت نشد.",
+	"emailauthorization-approve-approved": "$1 تأیید شد.",
+	"emailauthorization-approve-rejected": "$1 رد شد."
+}
