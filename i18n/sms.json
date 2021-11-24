@@ -4,5 +4,9 @@
 			"Yupik"
 		]
 	},
-	"emailauthorization-config-label-userpage": "Õõʹnniseidd"
+	"emailauthorization-config-label-email": "E-pååʹštaddrõs",
+	"emailauthorization-config-label-username": "Õõʹnninõmm",
+	"emailauthorization-config-label-userpage": "Õõʹnniseidd",
+	"emailauthorization-config-button-search": "Ooʒʒ",
+	"emailauthorization-config-button-add": "Lââʹzzet"
 }
