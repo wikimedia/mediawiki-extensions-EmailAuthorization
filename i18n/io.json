@@ -12,5 +12,8 @@
 	"emailauthorization-config-button-search": "Serchez",
 	"emailauthorization-request-label-email": "E-postal adreso",
 	"emailauthorization-request-button-submit": "Sendar",
-	"emailauthorization-approve-label-email": "E-postal adreso"
+	"emailauthorization-approve-label-email": "E-postal adreso",
+	"emailauthorization-approve-button-approve": "Aprobar",
+	"emailauthorization-approve-approved": "Aprobita $1.",
+	"emailauthorization-approve-rejected": "Neaceptita $1."
 }
