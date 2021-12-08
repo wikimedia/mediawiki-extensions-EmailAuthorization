@@ -8,5 +8,8 @@
 	"emailauthorization-config-label-username": "Õõʹnninõmm",
 	"emailauthorization-config-label-userpage": "Õõʹnniseidd",
 	"emailauthorization-config-button-search": "Ooʒʒ",
-	"emailauthorization-config-button-add": "Lââʹzzet"
+	"emailauthorization-config-button-add": "Lââʹzzet",
+	"emailauthorization-request-label-email": "E-pååʹštaddrõs",
+	"emailauthorization-request-invalidemail": "Vââǥǥlaž e-pååʹštaddrõs: $1",
+	"emailauthorization-approve-label-email": "E-pååʹštaddrõs"
 }
