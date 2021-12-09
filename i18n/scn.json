@@ -11,6 +11,7 @@
 	"emailauthorization-config-value-yes": "sì",
 	"emailauthorization-config-value-no": "no",
 	"emailauthorization-config-button-add": "Agghiunci",
+	"emailauthorization-config-button-revoke": "Rèvuca",
 	"emailauthorization-request-label-email": "Nnirizzu email",
 	"emailauthorization-request-invalidemail": "Nnirizzu email nun vàliddu: $1",
 	"emailauthorization-approve-label-action": "Azzioni"
