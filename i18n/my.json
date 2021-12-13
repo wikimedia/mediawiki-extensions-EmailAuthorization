@@ -18,6 +18,7 @@
 	"emailauthorizationrequest": "အကောင့်တစ်ခု တောင်းဆိုရန်",
 	"emailauthorization-request-label-email": "အီးမေးလ် လိပ်စာ",
 	"emailauthorization-request-button-submit": "ထည့်သွင်းရန်",
+	"emailauthorization-request-error": "$1 အတွက် အကောင့်တစ်ခုတောင်းဆိုရာ၌ အမှားတစ်ခုဖြစ်ပွားခဲ့ပါသည်။",
 	"emailauthorization-approve-label-email": "အီးမေးလ် လိပ်စာ",
 	"emailauthorization-approve-button-next": "ရှေ့",
 	"emailauthorization-approve-button-previous": "ယခင်",

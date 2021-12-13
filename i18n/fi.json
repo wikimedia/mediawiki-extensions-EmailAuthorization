@@ -2,19 +2,40 @@
 	"@metadata": {
 		"authors": [
 			"Pyscowicz",
-			"Silvonen"
+			"Silvonen",
+			"MITO"
 		]
 	},
+	"emailauthorization-config-nousersfound": "Käyttäjiä ei löytynyt.",
+	"emailauthorization-config-invalidemail": "'' $1 '' ei ole kelvollinen sähköpostiosoite tai domain.",
 	"emailauthorization-config-label-email": "Sähköpostiosoite",
+	"emailauthorization-config-label-username": "Käyttäjänimi",
+	"emailauthorization-config-label-realname": "Oikea nimi",
+	"emailauthorization-config-label-userpage": "Käyttäjäsivu",
+	"emailauthorization-config-label-authorized": "Hyväksytty",
+	"emailauthorization-config-value-yes": "kyllä",
+	"emailauthorization-config-value-no": "ei",
+	"emailauthorization-config-legend-search": "Hae sähköpostiosoitteita",
 	"emailauthorization-config-button-next": "Seuraava",
 	"emailauthorization-config-button-previous": "Edellinen",
+	"emailauthorization-config-button-search": "Etsi",
 	"emailauthorization-config-button-add": "Lisää",
+	"emailauthorization-config-button-revoke": "Kumoa",
+	"emailauthorization-config-button-showall": "Näytä kaikki wikikäyttäjät",
+	"emailauthorizationrequest": "Pyydä käyttäjätunnusta",
 	"emailauthorization-request-label-email": "Sähköpostiosoite",
 	"emailauthorization-request-button-submit": "Lähetä",
+	"emailauthorization-request-invalidemail": "Väärä sähköpostiosoite: $1",
+	"echo-category-title-emailauthorization-notification-category": "Uudet käyttäjätunnuspyynnöt",
+	"emailauthorizationapprove": "Hyväksy käyttäjätunnuspyyntö",
 	"emailauthorization-approve-label-email": "Sähköpostiosoite",
 	"emailauthorization-approve-label-extra": "Lisäkentät",
+	"emailauthorization-approve-label-action": "Toiminnot",
 	"emailauthorization-approve-button-approve": "Hyväksy",
 	"emailauthorization-approve-button-reject": "Hylkää",
 	"emailauthorization-approve-button-next": "Seuraava",
-	"emailauthorization-approve-button-previous": "Edellinen"
+	"emailauthorization-approve-button-previous": "Edellinen",
+	"emailauthorization-approve-norequestsfound": "Pyydettyjä käyttäjätunnuksia ei löytynyt.",
+	"emailauthorization-approve-approved": "Hyväksynyt $1.",
+	"emailauthorization-approve-rejected": "Hylännyt $1."
 }

@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"emailauthorization-config-label-username": "利用者名",
+	"emailauthorization-config-button-add": "追加"
+}
