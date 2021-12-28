@@ -8,7 +8,7 @@
 		]
 	},
 	"emailauthorization-desc": "透過電子郵件地址驗證使用者",
-	"emailauthorizationconfig": "電子郵件驗證控制面板",
+	"emailauthorizationconfig": "電子郵件驗證儀表板",
 	"emailauthorization-config-instructions": "欲新增或撤銷所有在網域裡的電子郵件，請使用「@domain」，其中「domain」代表該電子郵件的網域。這不會影響其他明確新增至該網域的電子郵件地址。",
 	"emailauthorization-config-authorized": "「$1」已驗證。",
 	"emailauthorization-config-notauthorized": "「$1」未驗證。",
