@@ -19,6 +19,15 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+namespace MediaWiki\Extension\EmailAuthorization;
+
+use ErrorPageError;
+use Html;
+use HTMLForm;
+use MWException;
+use PermissionsError;
+use SpecialPage;
+
 class EmailAuthorizationConfig extends SpecialPage {
 
 	function __construct() {

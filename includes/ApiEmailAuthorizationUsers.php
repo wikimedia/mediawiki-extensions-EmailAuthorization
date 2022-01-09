@@ -19,7 +19,10 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+namespace MediaWiki\Extension\EmailAuthorization;
+
 use OOUI\IconWidget;
+use ParserFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IResultWrapper;
 

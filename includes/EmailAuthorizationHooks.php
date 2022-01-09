@@ -1,8 +1,5 @@
 <?php
-
 /*
- * Copyright (c) 2017 The MITRE Corporation
- *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -22,6 +19,10 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+namespace MediaWiki\Extension\EmailAuthorization;
+
+use User;
+
 class EmailAuthorizationHooks {
 
 	public static function loadExtensionSchemaUpdates( $updater ) {
@@ -31,10 +32,9 @@ class EmailAuthorizationHooks {
 			$dir . 'EmailAuth.sql', true );
 		$updater->addExtensionTable( 'emailrequest',
 			$dir . 'EmailRequest.sql', true );
-		return true;
 	}
 
-	public static function authorize( $user, &$authorized ) {
+	public static function authorize( $user, &$authorized ): bool {
 		$authorized = EmailAuthorization::isEmailAuthorized( $user->mEmail );
 		return $authorized;
 	}
@@ -58,11 +58,11 @@ class EmailAuthorizationHooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'presentation-model' => EchoEAPresentationModel::class,
-			'user-locators' => [ 'EmailAuthorizationHooks::locateBureaucrats' ]
+			'user-locators' => [ '\MediaWiki\Extension\EmailAuthorization\EmailAuthorizationHooks::locateBureaucrats' ]
 		];
 	}
 
-	public static function locateBureaucrats( $event ) {
+	public static function locateBureaucrats( $event ): array {
 		$db = wfGetDB( DB_REPLICA );
 		$res = $db->select(
 			[ 'user_groups', 'user' ],

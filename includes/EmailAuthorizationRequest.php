@@ -1,8 +1,5 @@
 <?php
-
 /*
- * Copyright (c) 2017 The MITRE Corporation
- *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -22,13 +19,28 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+namespace MediaWiki\Extension\EmailAuthorization;
+
+use EchoEvent;
+use ExtensionRegistry;
+use Html;
+use MWException;
+use SpecialPage;
+use Title;
+use WebRequest;
+use Xml;
+
 class EmailAuthorizationRequest extends SpecialPage {
 
 	function __construct() {
 		parent::__construct( 'EmailAuthorizationRequest' );
 	}
 
-	function execute( $par ) {
+	/**
+	 * @param string|null $subPage
+	 * @throws MWException
+	 */
+	public function execute( $subPage ) {
 		$request = $this->getRequest();
 		$this->setHeaders();
 		$this->getOutput()->addModuleStyles( 'ext.EmailAuthorization' );
@@ -152,7 +164,13 @@ class EmailAuthorizationRequest extends SpecialPage {
 		return false;
 	}
 
-	private function processRequest( $request, $fields ) {
+	/**
+	 * @param WebRequest $request
+	 * @param array $fields
+	 * @return bool
+	 * @throws MWException
+	 */
+	private function processRequest( WebRequest $request, array $fields ): bool {
 		$i = 0;
 		foreach ( $fields as $field ) {
 			$id = 'emailauthorization-request-field-' . $i;
@@ -200,7 +218,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 		return false;
 	}
 
-	private static function checkEmail( $email ) {
+	private static function checkEmail( $email ): bool {
 		$dbr = wfGetDB( DB_REPLICA );
 		$users = $dbr->select(
 			'user',
@@ -230,7 +248,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 		return true;
 	}
 
-	private static function insertRequest( $email, $request ) {
+	private function insertRequest( $email, $request ): bool {
 		$i = 1;
 		$data = [];
 		foreach ( $GLOBALS['wgEmailAuthorization_RequestFields'] as $field ) {
@@ -256,7 +274,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 			__METHOD__
 		);
 		if ( $res ) {
-			Hooks::run( 'EmailAuthorizationRequest', [ $email, $data ] );
+			$this->getHookContainer()->run( 'EmailAuthorizationRequest', [ $email, $data ] );
 			return true;
 		} else {
 			return false;

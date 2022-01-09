@@ -1,8 +1,5 @@
 <?php
-
 /*
- * Copyright (c) 2017 The MITRE Corporation
- *
  * Permission is hereby granted, free of charge, to any person obtaining a
  t copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -22,6 +19,15 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+namespace MediaWiki\Extension\EmailAuthorization;
+
+use Html;
+use PermissionsError;
+use SpecialPage;
+use Title;
+use Wikimedia\Rdbms\IResultWrapper;
+use Xml;
+
 class EmailAuthorizationApprove extends SpecialPage {
 
 	function __construct() {
@@ -29,7 +35,11 @@ class EmailAuthorizationApprove extends SpecialPage {
 			'emailauthorizationconfig' );
 	}
 
-	function execute( $par ) {
+	/**
+	 * @param string|null $subPage
+	 * @throws PermissionsError
+	 */
+	public function execute( $subPage ) {
 		if ( !$this->userCanExecute( $this->getUser() ) ) {
 			$this->displayRestrictionError();
 			return;
@@ -50,7 +60,10 @@ class EmailAuthorizationApprove extends SpecialPage {
 			$this->displayMessage(
 				wfMessage( 'emailauthorization-approve-approved', $approve_email )
 			);
-			Hooks::run( 'EmailAuthorizationApprove', [ $approve_email, $fields, $this->getUser() ] );
+			$this->getHookContainer()->run(
+				'EmailAuthorizationApprove',
+				[ $approve_email, $fields, $this->getUser() ]
+			);
 		}
 
 		$reject_email = $request->getText( 'reject-email' );
@@ -60,20 +73,18 @@ class EmailAuthorizationApprove extends SpecialPage {
 			$this->displayMessage(
 				wfMessage( 'emailauthorization-approve-rejected', $reject_email )
 			);
-			Hooks::run( 'EmailAuthorizationReject', [ $reject_email, $fields, $this->getUser() ] );
+			$this->getHookContainer()->run( 'EmailAuthorizationReject', [ $reject_email, $fields, $this->getUser() ] );
 		}
 
 		$offset = $request->getText( 'offset' );
 
-		if ( $offset === null || strlen( $offset ) === 0 ||
-			!is_numeric( $offset ) || $offset < 0 ) {
+		if ( !is_numeric( $offset ) || strlen( $offset ) === 0 || $offset < 0 ) {
 			$offset = 0;
 		}
 
 		$limit = 20;
 
 		$requests = self::getRequests( $limit + 1, $offset );
-		$next = false;
 
 		if ( !$requests->valid() ) {
 			$offset = 0;
@@ -145,8 +156,8 @@ class EmailAuthorizationApprove extends SpecialPage {
 		}
 	}
 
-	private function createApproveButton( $url, $email ) {
-		$html = Html::openElement( 'form', [
+	private function createApproveButton( $url, $email ): string {
+		return Html::openElement( 'form', [
 				'method' => 'post',
 				'action' => $url,
 				'style' => 'display: inline-block;'
@@ -156,11 +167,10 @@ class EmailAuthorizationApprove extends SpecialPage {
 				wfMessage( 'emailauthorization-approve-button-approve' ),
 				[ 'class' => 'emailauth-button' ] )
 			. Html::closeElement( 'form' );
-		return $html;
 	}
 
-	private function createRejectButton( $url, $email ) {
-		$html = Html::openElement( 'form', [
+	private function createRejectButton( $url, $email ): string {
+		return Html::openElement( 'form', [
 				'method' => 'post',
 				'action' => $url,
 				'style' => 'display: inline-block;'
@@ -170,7 +180,6 @@ class EmailAuthorizationApprove extends SpecialPage {
 				wfMessage( 'emailauthorization-approve-button-reject' ),
 				[ 'class' => 'emailauth-button' ] )
 			. Html::closeElement( 'form' );
-		return $html;
 	}
 
 	private function addTableNavigation( $offset, $more, $limit, $paramname ) {
@@ -223,9 +232,9 @@ class EmailAuthorizationApprove extends SpecialPage {
 		$this->getOutput()->addHtml( $html );
 	}
 
-	private static function getRequests( $limit, $offset ) {
+	private static function getRequests( $limit, $offset ): IResultWrapper {
 		$dbr = wfGetDB( DB_REPLICA );
-		$requests = $dbr->select(
+		return $dbr->select(
 			'emailrequest',
 			[
 				'email',
@@ -239,7 +248,6 @@ class EmailAuthorizationApprove extends SpecialPage {
 				'OFFSET' => $offset
 			]
 		);
-		return $requests;
 	}
 
 	private static function getRequestFields( $email ) {
@@ -260,7 +268,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 		return json_decode( $request->request );
 	}
 
-	private static function insertEmail( $email ) {
+	private static function insertEmail( $email ): bool {
 		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->upsert(
 			'emailauth',
@@ -273,11 +281,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 			],
 			__METHOD__
 		);
-		if ( $dbw->affectedRows() === 1 ) {
-			return true;
-		} else {
-			return false;
-		}
+		return $dbw->affectedRows() === 1;
 	}
 
 	private static function deleteRequest( $email ) {

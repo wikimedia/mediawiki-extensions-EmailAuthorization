@@ -19,6 +19,13 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+namespace MediaWiki\Extension\EmailAuthorization;
+
+use ApiBase;
+use ApiUsageException;
+use Parser;
+use ParserFactory;
+use ParserOptions;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\NumericDef;
 

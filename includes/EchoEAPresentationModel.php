@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright (c) 2017 The MITRE Corporation
- *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -21,12 +19,18 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+namespace MediaWiki\Extension\EmailAuthorization;
+
+use EchoEventPresentationModel;
+use Message;
+use Title;
+
 class EchoEAPresentationModel extends EchoEventPresentationModel {
 
 	/**
 	 * @return string The symbolic icon name as defined in $wgEchoNotificationIcons
 	 */
-	public function getIconType() {
+	public function getIconType(): string {
 		return 'user-rights';
 	}
 
@@ -36,7 +40,7 @@ class EchoEAPresentationModel extends EchoEventPresentationModel {
 	 * @return array|bool Array of link data, or false for no link:
 	 *                    ['url' => (string) url, 'label' => (string) link text (non-escaped)]
 	 */
-	public function getPrimaryLink() {
+	public function getPrimaryLink(): array {
 		return [
 			'url' => Title::newFromText( 'Special:EmailAuthorizationApprove' )->getFullURL(),
 			'label' => $this->msg( "notification-link-label-{$this->type}" )
@@ -50,14 +54,14 @@ class EchoEAPresentationModel extends EchoEventPresentationModel {
 	 *
 	 * @return Message
 	 */
-	public function getHeaderMessage() {
+	public function getHeaderMessage(): Message {
 		$msg = wfMessage( "notification-header-{$this->type}" );
 		$msg->params( $this->event->getExtraParam(
 			'email' ) );
 		return $msg;
 	}
 
-	public function getBodyMessage() {
+	public function getBodyMessage(): Message {
 		$msg = wfMessage( "notification-body-{$this->type}" );
 		$msg->params( $this->event->getExtraParam(
 			'email' ) );
@@ -70,7 +74,7 @@ class EchoEAPresentationModel extends EchoEventPresentationModel {
 	 *
 	 * @return bool
 	 */
-	public function canRender() {
+	public function canRender(): bool {
 		return $this->event->getTitle() !== null;
 	}
 }
