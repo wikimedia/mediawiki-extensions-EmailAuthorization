@@ -21,22 +21,46 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use MediaWiki\Config\ServiceOptions;
+use MediaWiki\User\UserGroupManager;
+use User;
+
 class EmailAuthorizationService {
+	public const CONSTRUCTOR_OPTIONS = [
+		'EmailAuthorization_AuthorizedGroups'
+	];
 
 	/**
 	 * @var EmailAuthorizationStore
 	 */
 	private $emailAuthorizationStore;
 
-	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
-		$this->emailAuthorizationStore = $emailAuthorizationStore;
-	}
+	/**
+	 * @var array
+	 */
+	private $authorizedGroups;
 
 	/**
-	 * @param string $email
-	 * @return bool
+	 * @var UserGroupManager
 	 */
-	public function isEmailAuthorized( string $email ): bool {
+	private $userGroupManager;
+
+	public function __construct(
+		ServiceOptions $options,
+		EmailAuthorizationStore $emailAuthorizationStore,
+		UserGroupManager $userGroupManager
+	) {
+		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
+		$this->authorizedGroups = $options->get( 'EmailAuthorization_AuthorizedGroups' );
+		$this->emailAuthorizationStore = $emailAuthorizationStore;
+		$this->userGroupManager = $userGroupManager;
+	}
+
+	public function isUserAuthorized( User $user ): bool {
+		return $this->isEmailAuthorized( $user->getEmail() ) || $this->isUserGroupAuthorized( $user );
+	}
+
+	private function isEmailAuthorized( string $email ): bool {
 		$authorized = $this->emailAuthorizationStore->isEmailAuthorized( $email );
 		if ( $authorized ) {
 			return true;
@@ -45,6 +69,16 @@ class EmailAuthorizationService {
 		if ( $index !== false && $index < strlen( $email ) - 1 ) {
 			$domain = substr( $email, $index );
 			return $this->emailAuthorizationStore->isEmailAuthorized( $domain );
+		}
+		return false;
+	}
+
+	private function isUserGroupAuthorized( $user ): bool {
+		$memberships = $this->userGroupManager->getUserGroupMemberships( $user );
+		foreach ( $this->authorizedGroups as $group ) {
+			if ( isset( $memberships[ $group ] ) && !$memberships[ $group ]->isExpired() ) {
+				return true;
+			}
 		}
 		return false;
 	}

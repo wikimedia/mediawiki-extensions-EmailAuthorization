@@ -21,6 +21,7 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
 
 return [
@@ -31,7 +32,9 @@ return [
 	'EmailAuthorizationService' =>
 		static function ( MediaWikiServices $services ): EmailAuthorizationService {
 			return new EmailAuthorizationService(
-				$services->get( 'EmailAuthorizationStore' )
+				new ServiceOptions( EmailAuthorizationService::CONSTRUCTOR_OPTIONS, $services->getMainConfig() ),
+				$services->get( 'EmailAuthorizationStore' ),
+				$services->getUserGroupManager()
 			);
 		},
 ];

@@ -245,9 +245,7 @@ class EmailAuthorizationStore {
 		return $dbr->select(
 			'user',
 			[
-				'user_name',
-				'user_real_name',
-				'user_email'
+				'user_id'
 			],
 			$conds,
 			__METHOD__,

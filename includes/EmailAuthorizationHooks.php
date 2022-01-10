@@ -35,14 +35,9 @@ class EmailAuthorizationHooks {
 			$dir . 'EmailRequest.sql', true );
 	}
 
-	/**
-	 * @param User $user
-	 * @param bool &$authorized
-	 * @return bool
-	 */
 	public static function authorize( User $user, bool &$authorized ): bool {
 		$emailAuthorizationService = MediaWikiServices::getInstance()->get( "EmailAuthorizationService" );
-		$authorized = $emailAuthorizationService->isEmailAuthorized( $user->mEmail );
+		$authorized = $emailAuthorizationService->isUserAuthorized( $user );
 		return $authorized;
 	}
 

@@ -22,6 +22,7 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use ApiMain;
+use MediaWiki\User\UserFactory;
 use OOUI\IconWidget;
 use ParserFactory;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -33,15 +34,22 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 	 */
 	private $emailAuthorizationService;
 
+	/**
+	 * @var UserFactory
+	 */
+	private $userFactory;
+
 	public function __construct(
 		ApiMain $main,
 		string $action,
 		EmailAuthorizationStore $emailAuthorizationStore,
 		EmailAuthorizationService $emailAuthorizationService,
-		ParserFactory $parserFactory
+		ParserFactory $parserFactory,
+		UserFactory $userFactory
 	) {
 		parent::__construct( $main, $action, $emailAuthorizationStore, $parserFactory );
 		$this->emailAuthorizationService = $emailAuthorizationService;
+		$this->userFactory = $userFactory;
 	}
 
 	public function getAllowedParams(): array {
@@ -54,7 +62,7 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 	}
 
 	public function executeBody( $params ): array {
-		$users = $this->emailAuthorizationStore->getUsers(
+		$rows = $this->emailAuthorizationStore->getUsers(
 			intval( $params["offset"] ),
 			intval( $params["limit"] ),
 			$params["search"],
@@ -63,10 +71,9 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 		);
 		$userData = [];
 		$this->getOutput()->enableOOUI();
-		foreach ( $users as $user ) {
-			$email = htmlspecialchars( $user->user_email, ENT_QUOTES );
-			$user_name = htmlspecialchars( $user->user_name, ENT_QUOTES );
-			if ( $this->emailAuthorizationService->isEmailAuthorized( $email ) ) {
+		foreach ( $rows as $row ) {
+			$user = $this->userFactory->newFromId( $row->user_id );
+			if ( $this->emailAuthorizationService->isUserAuthorized( $user ) ) {
 				$authorized = new IconWidget( [
 					'icon' => 'check',
 					'framed' => false
@@ -80,14 +87,14 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 				] );
 			}
 			$userData[] = [
-				"email" => $email,
-				"userName" => $user_name,
-				"realName" => htmlspecialchars( $user->user_real_name, ENT_QUOTES ),
-				"userPage" => $this->parse( "[[User:$user_name]]" ),
+				"email" => htmlspecialchars( $user->getEmail(), ENT_QUOTES ),
+				"userName" => htmlspecialchars( $user->getName(), ENT_QUOTES ),
+				"realName" => htmlspecialchars( $user->getRealName(), ENT_QUOTES ),
+				"userPage" => $this->parse( '[[' . $user->getUserPage()->getPrefixedText() . ']]' ),
 				"authorized" => $authorized
 			];
 		}
-		$filteredUserCount = count( $users );
+		$filteredUserCount = count( $rows );
 		if ( is_string( $params["search"] ) && strlen( $params["search"] ) > 0 ) {
 			$userCount = $this->emailAuthorizationStore->getUsersCount();
 		} else {

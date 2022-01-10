@@ -94,7 +94,8 @@
 			"services": [
 				"EmailAuthorizationStore",
 				"EmailAuthorizationService",
-				"ParserFactory"
+				"ParserFactory",
+				"UserFactory"
 			]
 		},
 		"emailauthorization-getauthorized": {
@@ -118,6 +119,9 @@
 			"value": false
 		},
 		"EmailAuthorization_RequestFields": {
+			"value": []
+		},
+		"EmailAuthorization_AuthorizedGroups": {
 			"value": []
 		}
 	},
