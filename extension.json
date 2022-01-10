@@ -93,6 +93,7 @@
 			"class": "MediaWiki\\Extension\\EmailAuthorization\\ApiEmailAuthorizationUsers",
 			"services": [
 				"EmailAuthorizationStore",
+				"EmailAuthorizationService",
 				"ParserFactory"
 			]
 		},

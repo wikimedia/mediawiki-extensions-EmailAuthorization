@@ -41,9 +41,8 @@ class EmailAuthorizationHooks {
 	 * @return bool
 	 */
 	public static function authorize( User $user, bool &$authorized ): bool {
-		$emailAuthorizationStore = MediaWikiServices::getInstance()->get( "EmailAuthorizationStore" );
-		$emailAuthorization = new EmailAuthorization( $emailAuthorizationStore );
-		$authorized = $emailAuthorization->isEmailAuthorized( $user->mEmail );
+		$emailAuthorizationService = MediaWikiServices::getInstance()->get( "EmailAuthorizationService" );
+		$authorized = $emailAuthorizationService->isEmailAuthorized( $user->mEmail );
 		return $authorized;
 	}
 

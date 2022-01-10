@@ -28,4 +28,10 @@ return [
 		static function ( MediaWikiServices $services ): EmailAuthorizationStore {
 			return new EmailAuthorizationStore();
 		},
+	'EmailAuthorizationService' =>
+		static function ( MediaWikiServices $services ): EmailAuthorizationService {
+			return new EmailAuthorizationService(
+				$services->get( 'EmailAuthorizationStore' )
+			);
+		},
 ];

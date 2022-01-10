@@ -21,7 +21,7 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
-class EmailAuthorization {
+class EmailAuthorizationService {
 
 	/**
 	 * @var EmailAuthorizationStore

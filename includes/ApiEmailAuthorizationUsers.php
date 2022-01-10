@@ -28,13 +28,20 @@ use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 
+	/**
+	 * @var EmailAuthorizationService
+	 */
+	private $emailAuthorizationService;
+
 	public function __construct(
 		ApiMain $main,
 		string $action,
 		EmailAuthorizationStore $emailAuthorizationStore,
+		EmailAuthorizationService $emailAuthorizationService,
 		ParserFactory $parserFactory
 	) {
 		parent::__construct( $main, $action, $emailAuthorizationStore, $parserFactory );
+		$this->emailAuthorizationService = $emailAuthorizationService;
 	}
 
 	public function getAllowedParams(): array {
@@ -59,8 +66,7 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 		foreach ( $users as $user ) {
 			$email = htmlspecialchars( $user->user_email, ENT_QUOTES );
 			$user_name = htmlspecialchars( $user->user_name, ENT_QUOTES );
-			$emailAuthorization = new EmailAuthorization( $this->emailAuthorizationStore );
-			if ( $emailAuthorization->isEmailAuthorized( $email ) ) {
+			if ( $this->emailAuthorizationService->isEmailAuthorized( $email ) ) {
 				$authorized = new IconWidget( [
 					'icon' => 'check',
 					'framed' => false
