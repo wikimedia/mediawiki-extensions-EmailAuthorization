@@ -22,6 +22,7 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use ApiBase;
+use ApiMain;
 use ApiUsageException;
 use Parser;
 use ParserFactory;
@@ -30,6 +31,11 @@ use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\NumericDef;
 
 abstract class ApiEmailAuthorizationBase extends ApiBase {
+
+	/**
+	 * @var EmailAuthorizationStore
+	 */
+	protected $emailAuthorizationStore;
 
 	/**
 	 * @var Parser
@@ -41,8 +47,14 @@ abstract class ApiEmailAuthorizationBase extends ApiBase {
 	 */
 	private $parserOptions;
 
-	public function __construct( $main, $action, ParserFactory $parserFactory ) {
+	public function __construct(
+		ApiMain $main,
+		string $action,
+		EmailAuthorizationStore $emailAuthorizationStore,
+		ParserFactory $parserFactory
+	) {
 		parent::__construct( $main, $action );
+		$this->emailAuthorizationStore = $emailAuthorizationStore;
 		$this->parser = $parserFactory->create();
 		$this->parserOptions = ParserOptions::newCanonical( $this->getContext() );
 		$this->parserOptions->setOption( 'enableLimitReport', false );

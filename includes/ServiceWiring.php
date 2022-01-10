@@ -21,31 +21,11 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
-class EmailAuthorization {
+use MediaWiki\MediaWikiServices;
 
-	/**
-	 * @var EmailAuthorizationStore
-	 */
-	private $emailAuthorizationStore;
-
-	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
-		$this->emailAuthorizationStore = $emailAuthorizationStore;
-	}
-
-	/**
-	 * @param string $email
-	 * @return bool
-	 */
-	public function isEmailAuthorized( string $email ): bool {
-		$authorized = $this->emailAuthorizationStore->isEmailAuthorized( $email );
-		if ( $authorized ) {
-			return true;
-		}
-		$index = strpos( $email, '@' );
-		if ( $index !== false && $index < strlen( $email ) - 1 ) {
-			$domain = substr( $email, $index );
-			return $this->emailAuthorizationStore->isEmailAuthorized( $domain );
-		}
-		return false;
-	}
-}
+return [
+	'EmailAuthorizationStore' =>
+		static function ( MediaWikiServices $services ): EmailAuthorizationStore {
+			return new EmailAuthorizationStore();
+		},
+];

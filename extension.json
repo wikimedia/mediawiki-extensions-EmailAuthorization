@@ -18,6 +18,9 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\EmailAuthorization\\": "includes/"
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"ResourceFileModulePaths": {
 		"localBasePath": "/",
 		"remoteExtPath": "EmailAuthorization"
@@ -58,9 +61,24 @@
 		}
 	},
 	"SpecialPages": {
-		"EmailAuthorizationConfig": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationConfig",
-		"EmailAuthorizationRequest": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationRequest",
-		"EmailAuthorizationApprove": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationApprove"
+		"EmailAuthorizationConfig": {
+			"class": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationConfig",
+			"services": [
+				"EmailAuthorizationStore"
+			]
+		},
+		"EmailAuthorizationRequest": {
+			"class": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationRequest",
+			"services": [
+				"EmailAuthorizationStore"
+			]
+		},
+		"EmailAuthorizationApprove": {
+			"class": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationApprove",
+			"services": [
+				"EmailAuthorizationStore"
+			]
+		}
 	},
 	"MessagesDirs": {
 		"EmailAuthorization": [
@@ -74,12 +92,14 @@
 		"emailauthorization-getall": {
 			"class": "MediaWiki\\Extension\\EmailAuthorization\\ApiEmailAuthorizationUsers",
 			"services": [
+				"EmailAuthorizationStore",
 				"ParserFactory"
 			]
 		},
 		"emailauthorization-getauthorized": {
 			"class": "MediaWiki\\Extension\\EmailAuthorization\\ApiEmailAuthorizationAuthorized",
 			"services": [
+				"EmailAuthorizationStore",
 				"ParserFactory"
 			]
 		}

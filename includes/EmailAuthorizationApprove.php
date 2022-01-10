@@ -21,45 +21,47 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use ErrorPageError;
 use Html;
 use PermissionsError;
 use SpecialPage;
-use Title;
-use Wikimedia\Rdbms\IResultWrapper;
 use Xml;
 
 class EmailAuthorizationApprove extends SpecialPage {
 
-	function __construct() {
-		parent::__construct( 'EmailAuthorizationApprove',
-			'emailauthorizationconfig' );
+	/**
+	 * @var EmailAuthorizationStore
+	 */
+	private $emailAuthorizationStore;
+
+	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
+		parent::__construct( 'EmailAuthorizationApprove', 'emailauthorizationconfig' );
+		$this->emailAuthorizationStore = $emailAuthorizationStore;
 	}
 
 	/**
 	 * @param string|null $subPage
 	 * @throws PermissionsError
+	 * @throws ErrorPageError
 	 */
 	public function execute( $subPage ) {
-		if ( !$this->userCanExecute( $this->getUser() ) ) {
-			$this->displayRestrictionError();
+		$this->setHeaders();
+		$this->checkPermissions();
+		$securityLevel = $this->getLoginSecurityLevel();
+		if ( $securityLevel !== false && !$this->checkLoginSecurityLevel( $securityLevel ) ) {
 			return;
 		}
+		$this->outputHeader();
 
 		$request = $this->getRequest();
-		$this->setHeaders();
 		$this->getOutput()->addModuleStyles( 'ext.EmailAuthorization' );
-
-		$title = Title::newFromText( 'Special:' . __CLASS__ );
-		$url = $title->getFullURL();
 
 		$approve_email = $request->getText( 'approve-email' );
 		if ( $approve_email !== null && strlen( $approve_email ) ) {
-			$fields = self::getRequestFields( $approve_email );
-			self::insertEmail( $approve_email );
-			self::deleteRequest( $approve_email );
-			$this->displayMessage(
-				wfMessage( 'emailauthorization-approve-approved', $approve_email )
-			);
+			$fields = $this->emailAuthorizationStore->getRequestFields( $approve_email );
+			$this->emailAuthorizationStore->insertEmail( $approve_email );
+			$this->emailAuthorizationStore->deleteRequest( $approve_email );
+			$this->displayMessage( wfMessage( 'emailauthorization-approve-approved', $approve_email ) );
 			$this->getHookContainer()->run(
 				'EmailAuthorizationApprove',
 				[ $approve_email, $fields, $this->getUser() ]
@@ -68,11 +70,9 @@ class EmailAuthorizationApprove extends SpecialPage {
 
 		$reject_email = $request->getText( 'reject-email' );
 		if ( $reject_email !== null && strlen( $reject_email ) ) {
-			$fields = self::getRequestFields( $reject_email );
-			self::deleteRequest( $reject_email );
-			$this->displayMessage(
-				wfMessage( 'emailauthorization-approve-rejected', $reject_email )
-			);
+			$fields = $this->emailAuthorizationStore->getRequestFields( $reject_email );
+			$this->emailAuthorizationStore->deleteRequest( $reject_email );
+			$this->displayMessage( wfMessage( 'emailauthorization-approve-rejected', $reject_email ) );
 			$this->getHookContainer()->run( 'EmailAuthorizationReject', [ $reject_email, $fields, $this->getUser() ] );
 		}
 
@@ -84,15 +84,13 @@ class EmailAuthorizationApprove extends SpecialPage {
 
 		$limit = 20;
 
-		$requests = self::getRequests( $limit + 1, $offset );
+		$requests = $this->emailAuthorizationStore->getRequests( $limit + 1, $offset );
 
 		if ( !$requests->valid() ) {
 			$offset = 0;
-			$requests = self::getRequests( $limit + 1, $offset );
+			$requests = $this->emailAuthorizationStore->getRequests( $limit + 1, $offset );
 			if ( !$requests->valid() ) {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-approve-norequestsfound' )
-				);
+				$this->displayMessage( wfMessage( 'emailauthorization-approve-norequestsfound' ) );
 				return;
 			}
 		}
@@ -114,6 +112,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 
 		$index = 0;
 		$more = false;
+		$url = $this->getFullTitle()->getFullURL();
 		foreach ( $requests as $request ) {
 			if ( $index < $limit ) {
 				$email = htmlspecialchars( $request->email, ENT_QUOTES );
@@ -183,8 +182,7 @@ class EmailAuthorizationApprove extends SpecialPage {
 	}
 
 	private function addTableNavigation( $offset, $more, $limit, $paramname ) {
-		$title = Title::newFromText( 'Special:EmailAuthorizationApprove' );
-		$url = $title->getFullURL();
+		$url = $this->getFullTitle()->getFullURL();
 
 		$html = Html::openElement( 'table', [
 				'class' => 'emailauth-navigationtable'
@@ -230,68 +228,5 @@ class EmailAuthorizationApprove extends SpecialPage {
 			. $message
 			. Html::closeElement( 'p' );
 		$this->getOutput()->addHtml( $html );
-	}
-
-	private static function getRequests( $limit, $offset ): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
-		return $dbr->select(
-			'emailrequest',
-			[
-				'email',
-				'request',
-			],
-			[],
-			__METHOD__,
-			[
-				'ORDER BY' => 'email',
-				'LIMIT' => $limit,
-				'OFFSET' => $offset
-			]
-		);
-	}
-
-	private static function getRequestFields( $email ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$request = $dbr->selectRow(
-			'emailrequest',
-			[
-				'request',
-			],
-			[
-				'email' => $email
-			],
-			__METHOD__
-		);
-		if ( $request === false ) {
-			return '';
-		}
-		return json_decode( $request->request );
-	}
-
-	private static function insertEmail( $email ): bool {
-		$dbw = wfGetDB( DB_PRIMARY );
-		$dbw->upsert(
-			'emailauth',
-			[
-				'email' => $email
-			],
-			[ 'email' ],
-			[
-				'email' => $email
-			],
-			__METHOD__
-		);
-		return $dbw->affectedRows() === 1;
-	}
-
-	private static function deleteRequest( $email ) {
-		$dbw = wfGetDB( DB_PRIMARY );
-		$dbw->delete(
-			'emailrequest',
-			[
-				'email' => $email
-			],
-			__METHOD__
-		);
 	}
 }

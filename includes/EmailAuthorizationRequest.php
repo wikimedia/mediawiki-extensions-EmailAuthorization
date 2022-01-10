@@ -26,14 +26,19 @@ use ExtensionRegistry;
 use Html;
 use MWException;
 use SpecialPage;
-use Title;
 use WebRequest;
 use Xml;
 
 class EmailAuthorizationRequest extends SpecialPage {
 
-	function __construct() {
+	/**
+	 * @var EmailAuthorizationStore
+	 */
+	private $emailAuthorizationStore;
+
+	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
 		parent::__construct( 'EmailAuthorizationRequest' );
+		$this->emailAuthorizationStore = $emailAuthorizationStore;
 	}
 
 	/**
@@ -41,32 +46,33 @@ class EmailAuthorizationRequest extends SpecialPage {
 	 * @throws MWException
 	 */
 	public function execute( $subPage ) {
-		$request = $this->getRequest();
 		$this->setHeaders();
+		$this->checkPermissions();
+		$securityLevel = $this->getLoginSecurityLevel();
+		if ( $securityLevel !== false && !$this->checkLoginSecurityLevel( $securityLevel ) ) {
+			return;
+		}
+		$this->outputHeader();
+
+		$request = $this->getRequest();
 		$this->getOutput()->addModuleStyles( 'ext.EmailAuthorization' );
 
-		$emailLabel =
-			wfMessage( 'emailauthorization-request-label-email' )->text();
+		$emailLabel = wfMessage( 'emailauthorization-request-label-email' )->text();
 		$emailfield = [
 			'label' => $emailLabel,
 			'mandatory' => true
 		];
-		$fields = array_merge( [ $emailfield ],
-			$GLOBALS['wgEmailAuthorization_RequestFields'] );
+		$fields = array_merge( [ $emailfield ], $GLOBALS['wgEmailAuthorization_RequestFields'] );
 
 		$showform = true;
 
-		$submitted = $request->getBool(
-			'emailauthorization-request-field-submitted' );
+		$submitted = $request->getBool( 'emailauthorization-request-field-submitted' );
 
 		if ( $submitted ) {
-
 			$showform = self::processRequest( $request, $fields );
-
 		}
 
 		if ( $showform ) {
-
 			$html = Html::openElement( 'p' )
 				. Html::openElement( 'b' )
 				. wfMessage( 'emailauthorization-request-instructions' )->parse()
@@ -75,9 +81,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 				. Html::element( 'br' );
 			$this->getOutput()->addHtml( $html );
 
-			$title = Title::newFromText( 'Special:' . __CLASS__ );
-			$url = $title->getFullURL();
-
+			$url = $this->getFullTitle()->getFullURL();
 			$html = Html::openElement( 'form', [
 					'method' => 'post',
 					'action' => $url,
@@ -187,13 +191,11 @@ class EmailAuthorizationRequest extends SpecialPage {
 		$email = $request->getText( 'emailauthorization-request-field-0' );
 		$validatedemail = $this->validateEmail( $email );
 		if ( $validatedemail === false ) {
-			$this->displayMessage(
-				wfMessage( 'emailauthorization-request-invalidemail', $email )
-			);
+			$this->displayMessage( wfMessage( 'emailauthorization-request-invalidemail', $email ) );
 			return true;
 		}
 		$email = $validatedemail;
-		if ( self::checkEmail( $email ) ) {
+		if ( $this->isEmailRequestable( $email ) ) {
 			if ( self::insertRequest( $email, $request ) ) {
 				if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 					$extra = [
@@ -205,45 +207,21 @@ class EmailAuthorizationRequest extends SpecialPage {
 						'extra' => $extra
 					] );
 				}
+				$this->displayMessage( wfMessage( 'emailauthorization-request-requested', $validatedemail ) );
+				return false;
 			} else {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-request-error', $validatedemail )
-				);
+				$this->displayMessage( wfMessage( 'emailauthorization-request-error', $validatedemail ) );
 				return true;
 			}
 		}
-		$this->displayMessage(
-			wfMessage( 'emailauthorization-request-requested', $validatedemail )
-		);
-		return false;
+		$this->displayMessage( wfMessage( 'emailauthorization-request-unavailable', $validatedemail ) );
+		return true;
 	}
 
-	private static function checkEmail( $email ): bool {
-		$dbr = wfGetDB( DB_REPLICA );
-		$users = $dbr->select(
-			'user',
-			[
-				'user_email'
-			],
-			[
-				'user_email' => $email
-			],
-			__METHOD__
-		);
+	private function isEmailRequestable( $email ): bool {
+		$users = $this->emailAuthorizationStore->getUserInfo( $email );
 		if ( $users->valid() ) {
-			$users = $dbr->select(
-				'emailauth',
-				[
-					'email'
-				],
-				[
-					'email' => $email
-				],
-				__METHOD__
-			);
-			if ( $users->valid() ) {
-				return false;
-			}
+			return !$this->emailAuthorizationStore->isEmailAuthorized( $email );
 		}
 		return true;
 	}
@@ -260,24 +238,11 @@ class EmailAuthorizationRequest extends SpecialPage {
 			}
 		}
 		$json = json_encode( $data );
-		$dbw = wfGetDB( DB_PRIMARY );
-		$res = $dbw->upsert(
-			'emailrequest',
-			[
-				'email' => $email,
-				'request' => $json,
-			],
-			[ 'email' ],
-			[
-				'request' => $json,
-			],
-			__METHOD__
-		);
+		$res = $this->emailAuthorizationStore->insertRequest( $email, $json );
 		if ( $res ) {
 			$this->getHookContainer()->run( 'EmailAuthorizationRequest', [ $email, $data ] );
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 }

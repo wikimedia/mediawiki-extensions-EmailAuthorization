@@ -21,14 +21,19 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use ApiMain;
 use ParserFactory;
 use Wikimedia\ParamValidator\ParamValidator;
-use Wikimedia\Rdbms\IResultWrapper;
 
 class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 
-	public function __construct( $main, $action, ParserFactory $parserFactory ) {
-		parent::__construct( $main, $action, $parserFactory );
+	public function __construct(
+		ApiMain $main,
+		string $action,
+		EmailAuthorizationStore $emailAuthorizationStore,
+		ParserFactory $parserFactory
+	) {
+		parent::__construct( $main, $action, $emailAuthorizationStore, $parserFactory );
 	}
 
 	public function getAllowedParams(): array {
@@ -41,7 +46,7 @@ class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 	}
 
 	public function executeBody( $params ): array {
-		$authorized = $this->getAuthorized(
+		$authorized = $this->emailAuthorizationStore->getAuthorizedEmails(
 			intval( $params["offset"] ),
 			intval( $params["limit"] ),
 			$params["search"],
@@ -59,7 +64,7 @@ class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 					"userPages" => []
 				];
 			} else {
-				$users = $this->getUserInfo( $email );
+				$users = $this->emailAuthorizationStore->getUserInfo( $email );
 				if ( !$users->valid() ) {
 					$authorizedData[] = [
 						"email" => $email,
@@ -88,7 +93,7 @@ class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 		}
 		$filteredAuthorizedCount = count( $authorizedData );
 		if ( is_string( $params["search"] ) && strlen( $params["search"] ) > 0 ) {
-			$authorizedCount = $this->getAllAuthorizedCount();
+			$authorizedCount = $this->emailAuthorizationStore->getAuthorizedEmailsCount();
 		} else {
 			$authorizedCount = $filteredAuthorizedCount;
 		}
@@ -98,100 +103,6 @@ class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 			"recordsFiltered" => $filteredAuthorizedCount,
 			"data" => $authorizedData
 		];
-	}
-
-	private function getAllAuthorizedCount(): int {
-		$dbr = wfGetDB( DB_REPLICA );
-		return $dbr->estimateRowCount( 'emailauth' );
-	}
-
-	private function getAuthorized(
-		string $offset,
-		string $limit,
-		string $contains,
-		array $columns,
-		array $order
-	): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
-		$orderOptions = array_map( static function ( $orderOption ) use ( $columns ) {
-			$validOption = preg_match( "/(\d+)(asc|desc)/i", $orderOption, $matches );
-			if ( $validOption === 1 ) {
-				switch ( $columns[intval( $matches[1] )] ) {
-					case 'email':
-						return "emailauth.email $matches[2]";
-					case 'userNames':
-						return "user.user_name $matches[2]";
-					case 'realNames':
-						return "user.user_real_name $matches[2]";
-					default:
-						return '';
-				}
-			} else {
-				return '';
-			}
-		}, $order );
-		$orderOptions = array_filter( $orderOptions );
-		$orderOptions = implode( ', ', $orderOptions );
-		if ( $orderOptions === '' ) {
-			$orderOptions = 'emailauth.email asc';
-		}
-		if ( strlen( $contains ) > 0 ) {
-			$likeClause = $dbr->buildLike( $dbr->anyString(), $contains, $dbr->anyString() );
-			$conds = $dbr->makeList( [
-				"emailauth.email $likeClause",
-				"user.user_name $likeClause",
-				"user.user_real_name $likeClause"
-			], $dbr::LIST_OR );
-		} else {
-			$conds = "";
-		}
-		$tables = [
-			'emailauth',
-			'user'
-		];
-		$joinConds = [
-			'user' => [
-				'LEFT JOIN',
-				'emailauth.email = user.user_email'
-			]
-		];
-		return $dbr->select(
-			$tables,
-			[
-				'emailauth.email'
-			],
-			$conds,
-			__METHOD__,
-			[
-				'ORDER BY' => $orderOptions,
-				'LIMIT' => $limit,
-				'OFFSET' => $offset,
-				'DISTINCT'
-			],
-			$joinConds
-		);
-	}
-
-	/**
-	 * @param string $email
-	 * @return IResultWrapper
-	 */
-	private function getUserInfo( string $email ): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
-		return $dbr->select(
-			'user',
-			[
-				'user_name',
-				'user_real_name'
-			],
-			[
-				'user_email' => $email
-			],
-			__METHOD__,
-			[
-				'ORDER BY' => 'user_name',
-			]
-		);
 	}
 
 	public function getExamplesMessages(): array {

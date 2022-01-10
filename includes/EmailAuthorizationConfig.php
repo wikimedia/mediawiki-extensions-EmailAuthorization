@@ -30,15 +30,21 @@ use SpecialPage;
 
 class EmailAuthorizationConfig extends SpecialPage {
 
-	function __construct() {
+	/**
+	 * @var EmailAuthorizationStore
+	 */
+	private $emailAuthorizationStore;
+
+	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
 		parent::__construct( 'EmailAuthorizationConfig', 'emailauthorizationconfig' );
+		$this->emailAuthorizationStore = $emailAuthorizationStore;
 	}
 
 	/**
 	 * @param string|null $subPage
 	 * @throws PermissionsError|ErrorPageError|MWException
 	 */
-	function execute( $subPage ) {
+	public function execute( $subPage ) {
 		$this->setHeaders();
 		$this->checkPermissions();
 		$securityLevel = $this->getLoginSecurityLevel();
@@ -85,20 +91,14 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 		$validatedemail = $this->validateEmail( $email );
 		if ( $validatedemail !== false ) {
-			if ( $this->insertEmail( $validatedemail ) ) {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-added', $validatedemail )
-				);
+			if ( $this->emailAuthorizationStore->insertEmail( $validatedemail ) ) {
+				$this->displayMessage( wfMessage( 'emailauthorization-config-added', $validatedemail ) );
 				$this->getHookContainer()->run( 'EmailAuthorizationAdd', [ $validatedemail ] );
 			} else {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-alreadyauthorized', $validatedemail )
-				);
+				$this->displayMessage( wfMessage( 'emailauthorization-config-alreadyauthorized', $validatedemail ) );
 			}
 		} else {
-			$this->displayMessage(
-				wfMessage( 'emailauthorization-config-invalidemail', $email )
-			);
+			$this->displayMessage( wfMessage( 'emailauthorization-config-invalidemail', $email ) );
 		}
 	}
 
@@ -108,20 +108,14 @@ class EmailAuthorizationConfig extends SpecialPage {
 		}
 		$validatedemail = $this->validateEmail( $email );
 		if ( $validatedemail !== false ) {
-			if ( $this->deleteEmail( $validatedemail ) ) {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-revoked', $validatedemail )
-				);
+			if ( $this->emailAuthorizationStore->deleteEmail( $validatedemail ) ) {
+				$this->displayMessage( wfMessage( 'emailauthorization-config-revoked', $validatedemail ) );
 				$this->getHookContainer()->run( 'EmailAuthorizationRevoke', [ $validatedemail ] );
 			} else {
-				$this->displayMessage(
-					wfMessage( 'emailauthorization-config-notauthorized', $validatedemail )
-				);
+				$this->displayMessage( wfMessage( 'emailauthorization-config-notauthorized', $validatedemail ) );
 			}
 		} else {
-			$this->displayMessage(
-				wfMessage( 'emailauthorization-config-invalidemail', $email )
-			);
+			$this->displayMessage( wfMessage( 'emailauthorization-config-invalidemail', $email ) );
 		}
 	}
 
@@ -270,33 +264,5 @@ class EmailAuthorizationConfig extends SpecialPage {
 			->suppressDefaultSubmit()
 			->prepareForm()
 			->displayForm( false );
-	}
-
-	private static function insertEmail( $email ): bool {
-		$dbw = wfGetDB( DB_PRIMARY );
-		$dbw->upsert(
-			'emailauth',
-			[
-				'email' => $email
-			],
-			[ 'email' ],
-			[
-				'email' => $email
-			],
-			__METHOD__
-		);
-		return ( $dbw->affectedRows() === 1 );
-	}
-
-	private static function deleteEmail( $email ): bool {
-		$dbw = wfGetDB( DB_PRIMARY );
-		$dbw->delete(
-			'emailauth',
-			[
-				'email' => $email
-			],
-			__METHOD__
-		);
-		return ( $dbw->affectedRows() === 1 );
 	}
 }

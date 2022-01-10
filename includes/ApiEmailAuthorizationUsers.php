@@ -21,15 +21,20 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use ApiMain;
 use OOUI\IconWidget;
 use ParserFactory;
 use Wikimedia\ParamValidator\ParamValidator;
-use Wikimedia\Rdbms\IResultWrapper;
 
 class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 
-	public function __construct( $main, $action, ParserFactory $parserFactory ) {
-		parent::__construct( $main, $action, $parserFactory );
+	public function __construct(
+		ApiMain $main,
+		string $action,
+		EmailAuthorizationStore $emailAuthorizationStore,
+		ParserFactory $parserFactory
+	) {
+		parent::__construct( $main, $action, $emailAuthorizationStore, $parserFactory );
 	}
 
 	public function getAllowedParams(): array {
@@ -42,7 +47,7 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 	}
 
 	public function executeBody( $params ): array {
-		$users = $this->getUsers(
+		$users = $this->emailAuthorizationStore->getUsers(
 			intval( $params["offset"] ),
 			intval( $params["limit"] ),
 			$params["search"],
@@ -54,7 +59,8 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 		foreach ( $users as $user ) {
 			$email = htmlspecialchars( $user->user_email, ENT_QUOTES );
 			$user_name = htmlspecialchars( $user->user_name, ENT_QUOTES );
-			if ( EmailAuthorization::isEmailAuthorized( $email ) ) {
+			$emailAuthorization = new EmailAuthorization( $this->emailAuthorizationStore );
+			if ( $emailAuthorization->isEmailAuthorized( $email ) ) {
 				$authorized = new IconWidget( [
 					'icon' => 'check',
 					'framed' => false
@@ -77,7 +83,7 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 		}
 		$filteredUserCount = count( $users );
 		if ( is_string( $params["search"] ) && strlen( $params["search"] ) > 0 ) {
-			$userCount = $this->getAllUsersCount();
+			$userCount = $this->emailAuthorizationStore->getUsersCount();
 		} else {
 			$userCount = $filteredUserCount;
 		}
@@ -87,68 +93,6 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 			"recordsFiltered" => $filteredUserCount,
 			"data" => $userData
 		];
-	}
-
-	private function getAllUsersCount(): int {
-		$dbr = wfGetDB( DB_REPLICA );
-		return $dbr->estimateRowCount( 'user' );
-	}
-
-	private function getUsers(
-		string $offset,
-		string $limit,
-		string $contains,
-		array $columns,
-		array $order
-	): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
-		$orderOptions = array_map( static function ( $orderOption ) use ( $columns ) {
-			$validOption = preg_match( "/(\d+)(asc|desc)/i", $orderOption, $matches );
-			if ( $validOption === 1 ) {
-				switch ( $columns[intval( $matches[1] )] ) {
-					case 'email':
-						return "user_email $matches[2]";
-					case 'userName':
-						return "user_name $matches[2]";
-					case 'realName':
-						return "user_real_name $matches[2]";
-					default:
-						return '';
-				}
-			} else {
-				return '';
-			}
-		}, $order );
-		$orderOptions = array_filter( $orderOptions );
-		$orderOptions = implode( ', ', $orderOptions );
-		if ( $orderOptions === '' ) {
-			$orderOptions = 'user_email asc';
-		}
-		if ( strlen( $contains ) > 0 ) {
-			$likeClause = $dbr->buildLike( $dbr->anyString(), $contains, $dbr->anyString() );
-			$conds = $dbr->makeList( [
-				"user_name $likeClause",
-				"user_real_name $likeClause",
-				"user_email $likeClause"
-			], $dbr::LIST_OR );
-		} else {
-			$conds = "";
-		}
-		return $dbr->select(
-			'user',
-			[
-				'user_name',
-				'user_real_name',
-				'user_email'
-			],
-			$conds,
-			__METHOD__,
-			[
-				'ORDER BY' => $orderOptions,
-				'LIMIT' => $limit,
-				'OFFSET' => $offset
-			]
-		);
 	}
 
 	public function getExamplesMessages(): array {

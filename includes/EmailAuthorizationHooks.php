@@ -21,6 +21,7 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use MediaWiki\MediaWikiServices;
 use User;
 
 class EmailAuthorizationHooks {
@@ -34,8 +35,15 @@ class EmailAuthorizationHooks {
 			$dir . 'EmailRequest.sql', true );
 	}
 
-	public static function authorize( $user, &$authorized ): bool {
-		$authorized = EmailAuthorization::isEmailAuthorized( $user->mEmail );
+	/**
+	 * @param User $user
+	 * @param bool &$authorized
+	 * @return bool
+	 */
+	public static function authorize( User $user, bool &$authorized ): bool {
+		$emailAuthorizationStore = MediaWikiServices::getInstance()->get( "EmailAuthorizationStore" );
+		$emailAuthorization = new EmailAuthorization( $emailAuthorizationStore );
+		$authorized = $emailAuthorization->isEmailAuthorized( $user->mEmail );
 		return $authorized;
 	}
 
@@ -63,19 +71,14 @@ class EmailAuthorizationHooks {
 	}
 
 	public static function locateBureaucrats( $event ): array {
-		$db = wfGetDB( DB_REPLICA );
-		$res = $db->select(
-			[ 'user_groups', 'user' ],
-			[ 'ug_user', 'ug_expiry' ],
-			[ 'ug_group' => 'bureaucrat' ],
-			__METHOD__,
-			[],
-			[ 'user' => [ 'INNER JOIN', [ 'ug_user = user_id' ] ] ]
-		);
+		$services = MediaWikiServices::getInstance();
+		$emailAuthorizationStore = $services->get( "EmailAuthorizationStore" );
+		$userFactory = $services->getUserFactory();
+		$res = $emailAuthorizationStore->getBureaucrats();
 		$users = [];
 		foreach ( $res as $row ) {
 			$id = $row->ug_user;
-			$user = User::newFromId( $id );
+			$user = $userFactory->newFromId( $id );
 			$expiry = $row->ug_expiry;
 			if ( !$expiry || wfTimestampNow() < $expiry ) {
 				$users[$id] = $user;
