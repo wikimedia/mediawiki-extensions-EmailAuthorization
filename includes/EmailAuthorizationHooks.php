@@ -25,16 +25,6 @@ use MediaWiki\MediaWikiServices;
 use User;
 
 class EmailAuthorizationHooks {
-
-	public static function loadExtensionSchemaUpdates( $updater ) {
-		$dir = $GLOBALS['wgExtensionDirectory'] . DIRECTORY_SEPARATOR .
-			'EmailAuthorization' . DIRECTORY_SEPARATOR . 'sql' . DIRECTORY_SEPARATOR;
-		$updater->addExtensionTable( 'emailauth',
-			$dir . 'EmailAuth.sql', true );
-		$updater->addExtensionTable( 'emailrequest',
-			$dir . 'EmailRequest.sql', true );
-	}
-
 	public static function authorize( User $user, bool &$authorized ): bool {
 		$emailAuthorizationService = MediaWikiServices::getInstance()->get( "EmailAuthorizationService" );
 		$authorized = $emailAuthorizationService->isUserAuthorized( $user );

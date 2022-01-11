@@ -1,0 +1,20 @@
+[
+	{
+		"name": "emailauth",
+		"columns": [
+			{
+				"name": "email",
+				"comment": "Authorized email address",
+				"type": "string",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [
+			"email"
+		]
+	}
+]

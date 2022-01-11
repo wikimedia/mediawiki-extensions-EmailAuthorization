@@ -1,0 +1,28 @@
+[
+	{
+		"name": "emailrequest",
+		"columns": [
+			{
+				"name": "email",
+				"comment": "Authorized email address",
+				"type": "string",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "request",
+				"comment": "Additional information for the request",
+				"type": "text",
+				"options": {
+					"notnull": true
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [
+			"email"
+		]
+	}
+]

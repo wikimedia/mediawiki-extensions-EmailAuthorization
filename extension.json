@@ -107,11 +107,14 @@
 			]
 		}
 	},
+	"HookHandlers": {
+		"schema": {
+			"class": "MediaWiki\\Extension\\EmailAuthorization\\SchemaHooks"
+		}
+	},
 	"Hooks": {
-		"PluggableAuthUserAuthorization": [ "\\MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::authorize" ],
-		"LoadExtensionSchemaUpdates": [
-			"MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::loadExtensionSchemaUpdates"
-		],
+		"LoadExtensionSchemaUpdates": "schema",
+		"PluggableAuthUserAuthorization": "\\MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::authorize",
 		"BeforeCreateEchoEvent": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::onBeforeCreateEchoEvent"
 	},
 	"callback": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::onRegistration",
