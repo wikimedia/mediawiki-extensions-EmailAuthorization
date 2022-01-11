@@ -70,7 +70,8 @@
 		"EmailAuthorizationRequest": {
 			"class": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationRequest",
 			"services": [
-				"EmailAuthorizationStore"
+				"EmailAuthorizationStore",
+				"MainConfig"
 			]
 		},
 		"EmailAuthorizationApprove": {

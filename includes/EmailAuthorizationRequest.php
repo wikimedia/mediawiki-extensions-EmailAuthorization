@@ -21,24 +21,37 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use Config;
 use EchoEvent;
 use ExtensionRegistry;
 use Html;
+use MediaWiki\Config\ServiceOptions;
 use MWException;
 use SpecialPage;
 use WebRequest;
 use Xml;
 
 class EmailAuthorizationRequest extends SpecialPage {
+	public const CONSTRUCTOR_OPTIONS = [
+		'EmailAuthorization_RequestFields'
+	];
 
 	/**
 	 * @var EmailAuthorizationStore
 	 */
 	private $emailAuthorizationStore;
 
-	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
+	/**
+	 * @var array
+	 */
+	private $requestFields;
+
+	public function __construct( EmailAuthorizationStore $emailAuthorizationStore, Config $config ) {
 		parent::__construct( 'EmailAuthorizationRequest' );
 		$this->emailAuthorizationStore = $emailAuthorizationStore;
+		$options = new ServiceOptions( self::CONSTRUCTOR_OPTIONS, $config );
+		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
+		$this->requestFields = $options->get( 'EmailAuthorization_RequestFields' );
 	}
 
 	/**
@@ -62,7 +75,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 			'label' => $emailLabel,
 			'mandatory' => true
 		];
-		$fields = array_merge( [ $emailfield ], $GLOBALS['wgEmailAuthorization_RequestFields'] );
+		$fields = array_merge( [ $emailfield ], $this->requestFields );
 
 		$showform = true;
 
@@ -229,7 +242,7 @@ class EmailAuthorizationRequest extends SpecialPage {
 	private function insertRequest( $email, $request ): bool {
 		$i = 1;
 		$data = [];
-		foreach ( $GLOBALS['wgEmailAuthorization_RequestFields'] as $field ) {
+		foreach ( $this->requestFields as $field ) {
 			$id = 'emailauthorization-request-field-' . $i;
 			$i++;
 			$value = $request->getText( $id );
