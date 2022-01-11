@@ -27,19 +27,10 @@ use Title;
 
 class EchoEAPresentationModel extends EchoEventPresentationModel {
 
-	/**
-	 * @return string The symbolic icon name as defined in $wgEchoNotificationIcons
-	 */
 	public function getIconType(): string {
 		return 'user-rights';
 	}
 
-	/**
-	 * Array of primary link details, with possibly-relative URL & label.
-	 *
-	 * @return array|bool Array of link data, or false for no link:
-	 *                    ['url' => (string) url, 'label' => (string) link text (non-escaped)]
-	 */
 	public function getPrimaryLink(): array {
 		return [
 			'url' => Title::newFromText( 'Special:EmailAuthorizationApprove' )->getFullURL(),
@@ -47,34 +38,15 @@ class EchoEAPresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
-	/**
-	 * Get a message object and add the performer's name as
-	 * a parameter. It is expected that subclasses will override
-	 * this.
-	 *
-	 * @return Message
-	 */
 	public function getHeaderMessage(): Message {
 		$msg = wfMessage( "notification-header-{$this->type}" );
-		$msg->params( $this->event->getExtraParam(
-			'email' ) );
+		$msg->params( $this->event->getExtraParam( 'email' ) );
 		return $msg;
 	}
 
 	public function getBodyMessage(): Message {
 		$msg = wfMessage( "notification-body-{$this->type}" );
-		$msg->params( $this->event->getExtraParam(
-			'email' ) );
+		$msg->params( $this->event->getExtraParam( 'email' ) );
 		return $msg;
-	}
-
-	/**
-	 * If this function returns false, no other methods will be called
-	 * on the object.
-	 *
-	 * @return bool
-	 */
-	public function canRender(): bool {
-		return $this->event->getTitle() !== null;
 	}
 }
