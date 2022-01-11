@@ -110,14 +110,20 @@
 	"HookHandlers": {
 		"schema": {
 			"class": "MediaWiki\\Extension\\EmailAuthorization\\SchemaHooks"
+		},
+		"main": {
+			"class": "MediaWiki\\Extension\\EmailAuthorization\\MainHooks",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "schema",
-		"PluggableAuthUserAuthorization": "\\MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::authorize",
-		"BeforeCreateEchoEvent": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::onBeforeCreateEchoEvent"
+		"SpecialPage_initList": "main",
+		"PluggableAuthUserAuthorization": "\\MediaWiki\\Extension\\EmailAuthorization\\LegacyHooks::authorize",
+		"BeforeCreateEchoEvent": "MediaWiki\\Extension\\EmailAuthorization\\LegacyHooks::onBeforeCreateEchoEvent"
 	},
-	"callback": "MediaWiki\\Extension\\EmailAuthorization\\EmailAuthorizationHooks::onRegistration",
 	"config": {
 		"EmailAuthorization_EnableRequests": {
 			"value": false

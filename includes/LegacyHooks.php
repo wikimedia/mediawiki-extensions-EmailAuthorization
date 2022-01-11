@@ -24,19 +24,11 @@ namespace MediaWiki\Extension\EmailAuthorization;
 use MediaWiki\MediaWikiServices;
 use User;
 
-class EmailAuthorizationHooks {
+class LegacyHooks {
 	public static function authorize( User $user, bool &$authorized ): bool {
 		$emailAuthorizationService = MediaWikiServices::getInstance()->get( "EmailAuthorizationService" );
 		$authorized = $emailAuthorizationService->isUserAuthorized( $user );
 		return $authorized;
-	}
-
-	public static function onRegistration() {
-		$GLOBALS['wgHooks']['SpecialPage_initList'][] = static function ( &$list ) {
-			if ( !$GLOBALS['wgEmailAuthorization_EnableRequests'] ) {
-				unset( $list['EmailAuthorizationRequest'] );
-			}
-		};
 	}
 
 	public static function onBeforeCreateEchoEvent( &$notifications,
@@ -50,7 +42,7 @@ class EmailAuthorizationHooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'presentation-model' => EchoEAPresentationModel::class,
-			'user-locators' => [ '\MediaWiki\Extension\EmailAuthorization\EmailAuthorizationHooks::locateBureaucrats' ]
+			'user-locators' => [ '\MediaWiki\Extension\EmailAuthorization\LegacyHooks::locateBureaucrats' ]
 		];
 	}
 

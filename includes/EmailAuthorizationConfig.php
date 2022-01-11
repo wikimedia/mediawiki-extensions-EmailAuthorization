@@ -40,6 +40,10 @@ class EmailAuthorizationConfig extends SpecialPage {
 		$this->emailAuthorizationStore = $emailAuthorizationStore;
 	}
 
+	public function getGroupName() {
+		return 'login';
+	}
+
 	/**
 	 * @param string|null $subPage
 	 * @throws PermissionsError|ErrorPageError|MWException

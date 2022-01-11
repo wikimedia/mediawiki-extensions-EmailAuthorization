@@ -54,6 +54,10 @@ class EmailAuthorizationRequest extends SpecialPage {
 		$this->requestFields = $options->get( 'EmailAuthorization_RequestFields' );
 	}
 
+	public function getGroupName() {
+		return 'login';
+	}
+
 	/**
 	 * @param string|null $subPage
 	 * @throws MWException

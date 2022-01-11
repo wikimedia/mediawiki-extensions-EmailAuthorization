@@ -21,11 +21,35 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
-$specialPageAliases = [];
+use Config;
+use MediaWiki\Config\ServiceOptions;
+use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
 
-/** English */
-$specialPageAliases['en'] = [
-	'EmailAuthorizationConfig' => [ 'ConfigureEmailAuthorization', 'EmailAuthorizationDashboard' ],
-	'EmailAuthorizationRequest' => [ 'RequestEmailAuthorization' ],
-	'EmailAuthorizationApprove' => [ 'ApproveEmailAuthorization' ],
-];
+class MainHooks implements SpecialPage_initListHook {
+	public const CONSTRUCTOR_OPTIONS = [
+		'EmailAuthorization_EnableRequests'
+	];
+
+	/**
+	 * @var bool
+	 */
+	private $enableRequests;
+
+	public function __construct( Config $config ) {
+		$options = new ServiceOptions( self::CONSTRUCTOR_OPTIONS, $config );
+		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
+		$this->enableRequests = $options->get( 'EmailAuthorization_EnableRequests' );
+	}
+
+	/**
+	 * @param array &$list
+	 * @return bool|void
+	 * @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+	 */
+	public function onSpecialPage_initList( &$list ) {
+		if ( !$this->enableRequests ) {
+			unset( $list['EmailAuthorizationRequest'] );
+			unset( $list['EmailAuthorizationApprove'] );
+		}
+	}
+}

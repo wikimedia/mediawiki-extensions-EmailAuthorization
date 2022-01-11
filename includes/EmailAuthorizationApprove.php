@@ -39,6 +39,10 @@ class EmailAuthorizationApprove extends SpecialPage {
 		$this->emailAuthorizationStore = $emailAuthorizationStore;
 	}
 
+	public function getGroupName() {
+		return 'login';
+	}
+
 	/**
 	 * @param string|null $subPage
 	 * @throws PermissionsError
