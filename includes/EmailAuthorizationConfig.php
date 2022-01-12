@@ -26,37 +26,16 @@ use Html;
 use HTMLForm;
 use MWException;
 use PermissionsError;
-use SpecialPage;
 
-class EmailAuthorizationConfig extends SpecialPage {
-
-	/**
-	 * @var EmailAuthorizationStore
-	 */
-	private $emailAuthorizationStore;
-
+class EmailAuthorizationConfig extends EmailAuthorizationSpecialPage {
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
-		parent::__construct( 'EmailAuthorizationConfig', 'emailauthorizationconfig' );
-		$this->emailAuthorizationStore = $emailAuthorizationStore;
-	}
-
-	public function getGroupName() {
-		return 'login';
+		parent::__construct( 'EmailAuthorizationConfig', 'emailauthorizationconfig', $emailAuthorizationStore );
 	}
 
 	/**
-	 * @param string|null $subPage
 	 * @throws PermissionsError|ErrorPageError|MWException
 	 */
-	public function execute( $subPage ) {
-		$this->setHeaders();
-		$this->checkPermissions();
-		$securityLevel = $this->getLoginSecurityLevel();
-		if ( $securityLevel !== false && !$this->checkLoginSecurityLevel( $securityLevel ) ) {
-			return;
-		}
-		$this->outputHeader();
-
+	public function executeBody() {
 		$request = $this->getRequest();
 		$output = $this->getOutput();
 		$output->addModules( 'ext.EmailAuthorizationConfig' );
@@ -121,29 +100,6 @@ class EmailAuthorizationConfig extends SpecialPage {
 		} else {
 			$this->displayMessage( wfMessage( 'emailauthorization-config-invalidemail', $email ) );
 		}
-	}
-
-	private function validateEmail( $email ) {
-		$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
-		if ( $email[0] === '@' ) {
-			if ( filter_var( 'a' . $email, FILTER_VALIDATE_EMAIL ) ) {
-				return $email;
-			}
-		} else {
-			if ( filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
-				return $email;
-			}
-		}
-		return false;
-	}
-
-	private function displayMessage( $message ) {
-		$html = Html::openElement( 'p', [
-				'class' => 'emailauth-message'
-			] )
-			. $message
-			. Html::closeElement( 'p' );
-		$this->getOutput()->addHtml( $html );
 	}
 
 	private function showAllUsers() {

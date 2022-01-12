@@ -21,44 +21,22 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
-use ErrorPageError;
 use Html;
-use PermissionsError;
-use SpecialPage;
-use Xml;
+use HTMLForm;
+use MWException;
 
-class EmailAuthorizationApprove extends SpecialPage {
-
-	/**
-	 * @var EmailAuthorizationStore
-	 */
-	private $emailAuthorizationStore;
-
+class EmailAuthorizationApprove extends EmailAuthorizationSpecialPage {
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
-		parent::__construct( 'EmailAuthorizationApprove', 'emailauthorizationconfig' );
-		$this->emailAuthorizationStore = $emailAuthorizationStore;
-	}
-
-	public function getGroupName() {
-		return 'login';
+		parent::__construct( 'EmailAuthorizationApprove', 'emailauthorizationconfig', $emailAuthorizationStore );
 	}
 
 	/**
-	 * @param string|null $subPage
-	 * @throws PermissionsError
-	 * @throws ErrorPageError
+	 * @throws MWException
 	 */
-	public function execute( $subPage ) {
-		$this->setHeaders();
-		$this->checkPermissions();
-		$securityLevel = $this->getLoginSecurityLevel();
-		if ( $securityLevel !== false && !$this->checkLoginSecurityLevel( $securityLevel ) ) {
-			return;
-		}
-		$this->outputHeader();
-
+	public function executeBody() {
 		$request = $this->getRequest();
-		$this->getOutput()->addModuleStyles( 'ext.EmailAuthorization' );
+		$output = $this->getOutput();
+		$output->addModuleStyles( 'ext.EmailAuthorization' );
 
 		$approve_email = $request->getText( 'approve-email' );
 		if ( $approve_email !== null && strlen( $approve_email ) ) {
@@ -81,13 +59,10 @@ class EmailAuthorizationApprove extends SpecialPage {
 		}
 
 		$offset = $request->getText( 'offset' );
-
 		if ( !is_numeric( $offset ) || strlen( $offset ) === 0 || $offset < 0 ) {
 			$offset = 0;
 		}
-
-		$limit = 20;
-
+		$limit = 10;
 		$requests = $this->emailAuthorizationStore->getRequests( $limit + 1, $offset );
 
 		if ( !$requests->valid() ) {
@@ -140,10 +115,12 @@ class EmailAuthorizationApprove extends SpecialPage {
 					Html::closeElement( 'td' )
 					. Html::openElement( 'td', [
 							'style' => 'text-align: center;'
-						] )
-					. $this->createApproveButton( $url, $email )
-					. $this->createRejectButton( $url, $email )
-					. Html::closeElement( 'td' )
+						] );
+				$output->addHtml( $html );
+				$this->createApproveButton( $url, $email );
+				$this->createRejectButton( $url, $email );
+				$html =
+					Html::closeElement( 'td' )
 					. Html::closeElement( 'tr' );
 				$index++;
 			} else {
@@ -152,85 +129,126 @@ class EmailAuthorizationApprove extends SpecialPage {
 		}
 
 		$html .= Html::closeElement( 'table' );
-		$this->getOutput()->addHtml( $html );
+		$output->addHtml( $html );
 
 		if ( $offset > 0 || $more ) {
-			$this->addTableNavigation( $offset, $more, $limit, 'offset' );
+			$this->addTableNavigation( $offset, $more, $limit );
 		}
 	}
 
-	private function createApproveButton( $url, $email ): string {
-		return Html::openElement( 'form', [
-				'method' => 'post',
-				'action' => $url,
-				'style' => 'display: inline-block;'
-			] )
-			. Html::hidden( 'approve-email', $email )
-			. Xml::submitButton(
-				wfMessage( 'emailauthorization-approve-button-approve' ),
-				[ 'class' => 'emailauth-button' ] )
-			. Html::closeElement( 'form' );
+	/**
+	 * @param string $url
+	 * @param string $email
+	 * @throws MWException
+	 */
+	private function createApproveButton( string $url, string $email ) {
+		$this->createButton(
+			$url,
+			'approve-email',
+			$email,
+			'emailauthorization-approve-button-approve',
+			[ 'progressive' ]
+		);
 	}
 
-	private function createRejectButton( $url, $email ): string {
-		return Html::openElement( 'form', [
-				'method' => 'post',
-				'action' => $url,
-				'style' => 'display: inline-block;'
-			] )
-			. Html::hidden( 'reject-email', $email )
-			. Xml::submitButton(
-				wfMessage( 'emailauthorization-approve-button-reject' ),
-				[ 'class' => 'emailauth-button' ] )
-			. Html::closeElement( 'form' );
+	/**
+	 * @param string $url
+	 * @param string $email
+	 * @throws MWException
+	 */
+	private function createRejectButton( string $url, string $email ) {
+		$this->createButton(
+			$url,
+			'reject-email',
+			$email,
+			'emailauthorization-approve-button-reject',
+			[ 'destructive' ]
+		);
 	}
 
-	private function addTableNavigation( $offset, $more, $limit, $paramname ) {
+	/**
+	 * @param string $url
+	 * @param string $hiddenFieldName
+	 * @param mixed $hiddenFieldValue
+	 * @param string $buttonMessage
+	 * @param array $flags
+	 * @throws MWException
+	 */
+	private function createButton(
+		string $url,
+		string $hiddenFieldName,
+		$hiddenFieldValue,
+		string $buttonMessage,
+		array $flags
+	) {
+		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
+		$htmlForm
+			->addHiddenField( $hiddenFieldName, $hiddenFieldValue )
+			->addButton( [
+				'name' => $hiddenFieldName . '-button',
+				'value' => wfMessage( $buttonMessage ),
+				'flags' => $flags
+			] )
+			->setAction( $url )
+			->suppressDefaultSubmit()
+			->prepareForm()
+			->displayForm( false );
+	}
+
+	/**
+	 * @param int $offset
+	 * @param bool $more
+	 * @param int $limit
+	 * @throws MWException
+	 */
+	private function addTableNavigation( int $offset, bool $more, int $limit ) {
+		$output = $this->getOutput();
 		$url = $this->getFullTitle()->getFullURL();
-
-		$html = Html::openElement( 'table', [
-				'class' => 'emailauth-navigationtable'
-			] )
+		$output->addHtml(
+			Html::openElement(
+				'table',
+				[
+					'class' => 'emailauth-navigationtable'
+				]
+			)
 			. Html::openElement( 'tr' )
-			. Html::openElement( 'td' );
+			. Html::openElement( 'td' )
+		);
 
 		if ( $offset > 0 ) {
-			$prevurl = $url . '?' . $paramname . '=' . ( $offset - $limit );
-			$html .= Html::openElement( 'a', [
-					'href' => $prevurl,
-					'class' => 'emailauth-button'
-				] )
-				. wfMessage( 'emailauthorization-approve-button-previous' )
-				. Html::closeElement( 'a' );
+			$this->createButton(
+				$url,
+				'offset',
+				$offset - $limit,
+				'emailauthorization-approve-button-previous',
+				[]
+			);
 		}
 
-		$html .= Html::closeElement( 'td' )
-			. Html::openElement( 'td', [
-				'style' => 'text-align:right;'
-			] );
+		$output->addHtml(
+			Html::closeElement( 'td' )
+			. Html::openElement(
+				'td',
+				[
+					'style' => 'text-align:right;'
+				]
+			)
+		);
 
 		if ( $more ) {
-			$nexturl = $url . '?' . $paramname . '=' . ( $offset + $limit );
-			$html .= Html::openElement( 'a', [
-					'href' => $nexturl,
-					'class' => 'emailauth-button'
-				] )
-				. wfMessage( 'emailauthorization-approve-button-next' )
-				. Html::closeElement( 'a' );
+			$this->createButton(
+				$url,
+				'offset',
+				$offset + $limit,
+				'emailauthorization-approve-button-next',
+				[]
+			);
 		}
 
-		$html .= Html::closeElement( 'td' )
+		$output->addHtml(
+			Html::closeElement( 'td' )
 			. Html::closeElement( 'tr' )
-			. Html::closeElement( 'table' );
-		$this->getOutput()->addHtml( $html );
-	}
-
-	private function displayMessage( $message ) {
-		$html = Html::openElement( 'p', [
-				'class' => 'emailauth-message'
-			] )
-			. $message
-			. Html::closeElement( 'p' );
-		$this->getOutput()->addHtml( $html );
+			. Html::closeElement( 'table' )
+		);
 	}
 }

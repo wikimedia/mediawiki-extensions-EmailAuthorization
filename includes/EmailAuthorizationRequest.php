@@ -24,22 +24,15 @@ namespace MediaWiki\Extension\EmailAuthorization;
 use Config;
 use EchoEvent;
 use ExtensionRegistry;
-use Html;
+use HTMLForm;
 use MediaWiki\Config\ServiceOptions;
 use MWException;
-use SpecialPage;
 use WebRequest;
-use Xml;
 
-class EmailAuthorizationRequest extends SpecialPage {
+class EmailAuthorizationRequest extends EmailAuthorizationSpecialPage {
 	public const CONSTRUCTOR_OPTIONS = [
 		'EmailAuthorization_RequestFields'
 	];
-
-	/**
-	 * @var EmailAuthorizationStore
-	 */
-	private $emailAuthorizationStore;
 
 	/**
 	 * @var array
@@ -47,32 +40,19 @@ class EmailAuthorizationRequest extends SpecialPage {
 	private $requestFields;
 
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore, Config $config ) {
-		parent::__construct( 'EmailAuthorizationRequest' );
-		$this->emailAuthorizationStore = $emailAuthorizationStore;
+		parent::__construct( 'EmailAuthorizationRequest', '', $emailAuthorizationStore );
 		$options = new ServiceOptions( self::CONSTRUCTOR_OPTIONS, $config );
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 		$this->requestFields = $options->get( 'EmailAuthorization_RequestFields' );
 	}
 
-	public function getGroupName() {
-		return 'login';
-	}
-
 	/**
-	 * @param string|null $subPage
 	 * @throws MWException
 	 */
-	public function execute( $subPage ) {
-		$this->setHeaders();
-		$this->checkPermissions();
-		$securityLevel = $this->getLoginSecurityLevel();
-		if ( $securityLevel !== false && !$this->checkLoginSecurityLevel( $securityLevel ) ) {
-			return;
-		}
-		$this->outputHeader();
-
+	public function executeBody() {
 		$request = $this->getRequest();
-		$this->getOutput()->addModuleStyles( 'ext.EmailAuthorization' );
+		$output = $this->getOutput();
+		$output->addModuleStyles( 'ext.EmailAuthorization' );
 
 		$emailLabel = wfMessage( 'emailauthorization-request-label-email' )->text();
 		$emailfield = [
@@ -80,109 +60,78 @@ class EmailAuthorizationRequest extends SpecialPage {
 			'mandatory' => true
 		];
 		$fields = array_merge( [ $emailfield ], $this->requestFields );
-
-		$showform = true;
-
-		$submitted = $request->getBool( 'emailauthorization-request-field-submitted' );
-
+		$submitted = $request->getBool( 'wpemailauthorization-request-field-submitted' );
 		if ( $submitted ) {
 			$showform = self::processRequest( $request, $fields );
+		} else {
+			$showform = true;
 		}
 
 		if ( $showform ) {
-			$html = Html::openElement( 'p' )
-				. Html::openElement( 'b' )
-				. wfMessage( 'emailauthorization-request-instructions' )->parse()
-				. Html::closeElement( 'b' )
-				. Html::closeElement( 'p' )
-				. Html::element( 'br' );
-			$this->getOutput()->addHtml( $html );
-
 			$url = $this->getFullTitle()->getFullURL();
-			$html = Html::openElement( 'form', [
-					'method' => 'post',
-					'action' => $url,
-					'id' => 'RequestEmail'
-				] );
 			$id = 'emailauthorization-request-field-submitted';
-			$html .= Html::hidden( $id, true );
 			$i = 0;
+			$formDescriptor = [
+				$id => [
+					'id' => $id,
+					'type' => 'hidden',
+					'default' => true
+				]
+			];
 			foreach ( $fields as $field ) {
-				$id = 'emailauthorization-request-field-' . $i;
-				$i++;
-				if ( isset( $field['label'] ) ) {
-					$html .= Xml::label( $field['label'] . ': ', $id );
-					$mandatory = false;
-					if ( isset( $field['mandatory'] ) && $field['mandatory'] ) {
-						$html .= '* ';
-						$mandatory = true;
+				if ( isset( $field[ 'label' ] ) ) {
+					$id = 'emailauthorization-request-field-' . $i;
+					$i++;
+					$element = [];
+					$element[ 'id' ] = $id;
+					$element[ 'label' ] = $field[ 'label' ];
+					if ( isset( $field[ 'mandatory' ] ) && $field[ 'mandatory' ] ) {
+						$element[ 'required' ] = true;
 					}
-					$attribs = [ 'id' => $id ];
-					if ( $submitted && $mandatory && $request->getText( $id ) === '' ) {
-						$attribs['style'] = "border-color:red;";
-					}
-					if ( isset( $field['values'] ) ) {
-						$attribs['name'] = $id;
-						$html .= Xml::openElement( 'select', $attribs );
-						foreach ( $field['values'] as $value ) {
-							$html .= Xml::option( $value, $value );
+					if ( isset( $field[ 'values' ] ) ) {
+						$element[ 'type' ] = 'select';
+						$options = [];
+						foreach ( $field[ 'values' ] as $value ) {
+							$options[ $value ] = $value;
 						}
-						$html .= Xml::closeElement( 'select' );
-						$html .= Html::element( 'br' );
-					} elseif ( isset( $field['rows'] ) ) {
-						$rows = $field['rows'];
-						$columns = 50;
-						if ( isset( $field['columns'] ) ) {
-							$columns = $field['columns'];
+						$element[ 'options' ] = $options;
+					} elseif ( isset( $field[ 'rows' ] ) ) {
+						$element[ 'type' ] = 'textarea';
+						$element[ 'rows' ] = $field[ 'rows' ];
+						$element[ 'size' ] = 50;
+						if ( isset( $field[ 'columns' ] ) ) {
+							$element[ 'size' ] = $field[ 'columns' ];
 						}
-						$value = '';
 						if ( $submitted ) {
-							$value = $request->getText( $id );
+							$element[ 'default' ] = $request->getText( $id );
 						}
-						$input = Xml::textarea( $id, $value, $columns, $rows, $attribs );
-						$html .= $input;
 					} else {
-						$columns = 50;
-						if ( isset( $field['columns'] ) ) {
-							$columns = $field['columns'];
+						$element[ 'type' ] = 'text';
+						$element[ 'size' ] = 50;
+						if ( isset( $field[ 'columns' ] ) ) {
+							$element[ 'size' ] = $field[ 'columns' ];
 						}
-						$value = '';
 						if ( $submitted ) {
-							$value = $request->getText( $id );
+							$element[ 'default' ] = $request->getText( $id );
 						}
-						$input = Xml::input( $id, $columns, $value, $attribs );
-						$html .= $input;
-						$html .= Html::element( 'br' );
 					}
-					$html .= Html::element( 'br' );
+					$formDescriptor[ $id ] = $element;
 				}
 			}
-			$html .= Xml::submitButton(
-				wfMessage( 'emailauthorization-request-button-submit' ),
-				[ 'class' => 'emailauth-button' ] )
-				. Html::closeElement( 'form' );
-			$this->getOutput()->addHtml( $html );
-		}
-	}
 
-	private function displayMessage( $message ) {
-		$html = Html::openElement( 'p', [
-				'class' => 'emailauth-message'
-			] )
-			. $message
-			. Html::closeElement( 'p' );
-		$this->getOutput()->addHtml( $html );
-	}
-
-	private function validateEmail( $email ) {
-		if ( $email === null || strlen( $email ) < 1 ) {
-			return false;
+			$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
+			$htmlForm
+				->addButton( [
+					'name' => 'RequestEmail',
+					'value' => wfMessage( 'emailauthorization-request-button-submit' ),
+					'flags' => [ 'progressive' ]
+				] )
+				->setAction( $url )
+				->setWrapperLegendMsg( 'emailauthorization-request-instructions' )
+				->suppressDefaultSubmit()
+				->prepareForm()
+				->displayForm( false );
 		}
-		$email = mb_strtolower( htmlspecialchars( trim( $email ), ENT_QUOTES ) );
-		if ( filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
-			return $email;
-		}
-		return false;
 	}
 
 	/**
@@ -194,19 +143,18 @@ class EmailAuthorizationRequest extends SpecialPage {
 	private function processRequest( WebRequest $request, array $fields ): bool {
 		$i = 0;
 		foreach ( $fields as $field ) {
-			$id = 'emailauthorization-request-field-' . $i;
+			$id = 'wpemailauthorization-request-field-' . $i;
 			$i++;
-			if ( isset( $field['label'] ) ) {
-				if ( isset( $field['mandatory'] ) && $field['mandatory'] &&
+			if ( isset( $field[ 'label' ] ) ) {
+				if ( isset( $field[ 'mandatory' ] ) && $field[ 'mandatory' ] &&
 					$request->getText( $id ) === '' ) {
-					$this->displayMessage(
-						wfMessage( 'emailauthorization-request-missingmandatory' ) );
+					$this->displayMessage( wfMessage( 'emailauthorization-request-missingmandatory' ) );
 					return true;
 				}
 			}
 		}
-		$email = $request->getText( 'emailauthorization-request-field-0' );
-		$validatedemail = $this->validateEmail( $email );
+		$email = $request->getText( 'wpemailauthorization-request-field-0' );
+		$validatedemail = $this->validateEmail( $email, false );
 		if ( $validatedemail === false ) {
 			$this->displayMessage( wfMessage( 'emailauthorization-request-invalidemail', $email ) );
 			return true;
@@ -247,11 +195,11 @@ class EmailAuthorizationRequest extends SpecialPage {
 		$i = 1;
 		$data = [];
 		foreach ( $this->requestFields as $field ) {
-			$id = 'emailauthorization-request-field-' . $i;
+			$id = 'wpemailauthorization-request-field-' . $i;
 			$i++;
 			$value = $request->getText( $id );
 			if ( $value ) {
-				$data[$field['label']] = $value;
+				$data[ $field[ 'label' ] ] = $value;
 			}
 		}
 		$json = json_encode( $data );

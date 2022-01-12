@@ -5,25 +5,21 @@
 
 .emailauth-wikitable {
 	width: 100%;
+	margin: 0 !important;
 }
 
 .emailauth-wikitable th {
 	text-align: center;
 }
 
-.emailauth-navigationtable {
-	width: 100%;
+.emailauth-wikitable .mw-htmlform-ooui-wrapper {
+	display: inline-block;
+	padding: 5px 5px 5px 5px;
 }
 
-.emailauth-button {
-	font-size: 1em;
-	padding: 5px 15px;
-	margin: 5px 5px;
-	background: #ccc;
-	border: 0 none;
-	cursor: pointer;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+.emailauth-navigationtable {
+	width: 100%;
+	margin: 0 !important;
 }
 
 /* https://www.gyrocode.com/articles/jquery-datatables-how-to-show-loading-indicator-during-table-reload/ */
