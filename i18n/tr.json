@@ -22,8 +22,6 @@
 	"emailauthorization-config-label-userpage": "Kullanıcı Sayfası",
 	"emailauthorization-config-label-authorized": "Yetkilendirildi",
 	"emailauthorization-config-value-domain": "e-posta adresleri $1 ile biten tüm kullanıcılar",
-	"emailauthorization-config-value-yes": "evet",
-	"emailauthorization-config-value-no": "hayır",
 	"emailauthorization-config-legend-search": "E-posta adreslerini arayın",
 	"emailauthorization-config-legend-add": "Yetkili e-posta adresi veya alan adı ekle",
 	"emailauthorization-config-legend-revoke": "Yetkili e-posta adresini veya alan adını iptal et",

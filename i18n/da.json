@@ -6,8 +6,6 @@
 	},
 	"emailauthorization-config-label-username": "Brugernavn",
 	"emailauthorization-config-label-userpage": "Brugerside",
-	"emailauthorization-config-value-yes": "ja",
-	"emailauthorization-config-value-no": "nej",
 	"emailauthorization-config-button-next": "Næste",
 	"emailauthorization-config-button-previous": "Forrige",
 	"emailauthorization-config-button-search": "Søg",

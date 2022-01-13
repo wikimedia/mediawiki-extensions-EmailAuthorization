@@ -22,8 +22,6 @@
 	"emailauthorization-config-label-userpage": "Korisnička stranica",
 	"emailauthorization-config-label-authorized": "Autorizacija",
 	"emailauthorization-config-value-domain": "svi korisnici čije adrese e-pošte završavaju na $1",
-	"emailauthorization-config-value-yes": "da",
-	"emailauthorization-config-value-no": "ne",
 	"emailauthorization-config-legend-search": "Pronađi adrese e-pošte",
 	"emailauthorization-config-legend-add": "Dodaj autoriziranu adresu e-pošte ili domenu",
 	"emailauthorization-config-legend-revoke": "Opozovi autoriziranu adresu e-pošte ili domenu",

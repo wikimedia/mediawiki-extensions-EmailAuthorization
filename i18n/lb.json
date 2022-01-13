@@ -19,8 +19,6 @@
 	"emailauthorization-config-label-userpage": "Benotzersäit",
 	"emailauthorization-config-label-authorized": "Autoriséiert",
 	"emailauthorization-config-value-domain": "all Benotzer deenen hier E-Mail-Adress mat $1 ophält",
-	"emailauthorization-config-value-yes": "jo",
-	"emailauthorization-config-value-no": "neen",
 	"emailauthorization-config-legend-search": "No E-Mail-Adresse sichen",
 	"emailauthorization-config-button-next": "Weider",
 	"emailauthorization-config-button-previous": "Vireg",

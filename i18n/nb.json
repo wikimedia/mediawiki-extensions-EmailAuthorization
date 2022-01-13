@@ -22,8 +22,6 @@
 	"emailauthorization-config-label-userpage": "Brukerside",
 	"emailauthorization-config-label-authorized": "Autorisert",
 	"emailauthorization-config-value-domain": "alle brukere med epostadresser som slutter med $1",
-	"emailauthorization-config-value-yes": "ja",
-	"emailauthorization-config-value-no": "nei",
 	"emailauthorization-config-legend-search": "Søk etter epostadresser",
 	"emailauthorization-config-legend-add": "Legg til autorisert epostadresse eller domene",
 	"emailauthorization-config-legend-revoke": "Fjern autorisering av epostadresse eller domene",

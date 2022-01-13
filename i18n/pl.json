@@ -19,8 +19,6 @@
 	"emailauthorization-config-label-realname": "Imię i nazwisko",
 	"emailauthorization-config-label-userpage": "Strona użytkownika",
 	"emailauthorization-config-label-authorized": "Autoryzowany",
-	"emailauthorization-config-value-yes": "Tak",
-	"emailauthorization-config-value-no": "nie",
 	"emailauthorization-config-button-next": "Następny",
 	"emailauthorization-config-button-previous": "Poprzedni",
 	"emailauthorization-config-button-search": "Szukaj",

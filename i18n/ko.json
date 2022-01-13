@@ -20,8 +20,6 @@
 	"emailauthorization-config-label-userpage": "사용자 문서",
 	"emailauthorization-config-label-authorized": "인가됨",
 	"emailauthorization-config-value-domain": "$1(으)로 끝나는 이메일 주소를 가진 모든 사용자",
-	"emailauthorization-config-value-yes": "예",
-	"emailauthorization-config-value-no": "아니오",
 	"emailauthorization-config-legend-search": "이메일 주소 검색",
 	"emailauthorization-config-legend-add": "인가된 이메일 주소나 도메인 추가",
 	"emailauthorization-config-legend-revoke": "인가된 이메일 주소나 도메인 해제",

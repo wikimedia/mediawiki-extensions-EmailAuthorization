@@ -21,8 +21,6 @@
 	"emailauthorization-config-label-userpage": "Páxina d'usuariu",
 	"emailauthorization-config-label-authorized": "Autorizáu",
 	"emailauthorization-config-value-domain": "tolos usuarios con direiciones de corréu qu'acaben por $1",
-	"emailauthorization-config-value-yes": "sí",
-	"emailauthorization-config-value-no": "non",
 	"emailauthorization-config-legend-search": "Buscar direiciones de corréu electrónicu",
 	"emailauthorization-config-legend-add": "Añadir una direición de corréu electrónicu o dominiu autorizáu",
 	"emailauthorization-config-legend-revoke": "Anular una direición de corréu electrónicu o dominiu autorizáu",

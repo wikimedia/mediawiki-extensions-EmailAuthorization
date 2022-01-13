@@ -21,8 +21,6 @@
 	"emailauthorization-config-label-userpage": "Benutzerseite",
 	"emailauthorization-config-label-authorized": "Autorisiert",
 	"emailauthorization-config-value-domain": "Alle Benutzer mit E-Mail-Adressen, die auf $1 enden",
-	"emailauthorization-config-value-yes": "Ja",
-	"emailauthorization-config-value-no": "Nein",
 	"emailauthorization-config-legend-search": "Nach E-Mail-Adressen suchen",
 	"emailauthorization-config-legend-add": "Autorisierte E-Mail-Adresse oder Domain hinzufügen",
 	"emailauthorization-config-legend-revoke": "Autorisierte E-Mail-Adresse oder Domain widerrufen",
@@ -58,5 +56,8 @@
 	"emailauthorization-approve-button-previous": "Vorherige",
 	"emailauthorization-approve-norequestsfound": "Keine Benutzerkontenanträge gefunden.",
 	"emailauthorization-approve-approved": "$1 akzeptiert.",
-	"emailauthorization-approve-rejected": "$1 abgelehnt."
+	"emailauthorization-approve-rejected": "$1 abgelehnt.",
+	"emailauthorization-api-error-permissions": "Zugriff verweigert",
+	"apihelp-emailauthorization-getall-summary": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer.",
+	"apihelp-emailauthorization-getall-description": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer."
 }

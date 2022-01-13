@@ -24,8 +24,6 @@
 	"emailauthorization-config-label-userpage": "使用者頁面",
 	"emailauthorization-config-label-authorized": "已授權",
 	"emailauthorization-config-value-domain": "電子郵件地址以 $1 作為結尾的所有使用者",
-	"emailauthorization-config-value-yes": "是",
-	"emailauthorization-config-value-no": "否",
 	"emailauthorization-config-legend-search": "搜尋電子郵件地址",
 	"emailauthorization-config-legend-add": "添加驗證電子郵件地址或網域",
 	"emailauthorization-config-legend-revoke": "撤銷驗證電子郵件地址或網域",

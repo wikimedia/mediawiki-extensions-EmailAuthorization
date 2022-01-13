@@ -13,8 +13,6 @@
 	"emailauthorization-config-label-realname": "Nome vero",
 	"emailauthorization-config-label-userpage": "Pagina utente",
 	"emailauthorization-config-label-authorized": "Autorizzato",
-	"emailauthorization-config-value-yes": "sì",
-	"emailauthorization-config-value-no": "no",
 	"emailauthorization-config-legend-revoke": "Revoca indirizzo email o dominio autorizzati",
 	"emailauthorization-config-button-next": "Successivo",
 	"emailauthorization-config-button-previous": "Precedente",

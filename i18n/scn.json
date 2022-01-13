@@ -8,8 +8,6 @@
 	"emailauthorization-config-label-username": "Nomu utenti",
 	"emailauthorization-config-label-realname": "Nomu veru",
 	"emailauthorization-config-label-userpage": "Pàggina di l'utenti",
-	"emailauthorization-config-value-yes": "sì",
-	"emailauthorization-config-value-no": "no",
 	"emailauthorization-config-button-add": "Agghiunci",
 	"emailauthorization-config-button-revoke": "Rèvuca",
 	"emailauthorization-config-button-showall": "Ammustra tutti li utenti dû wiki",

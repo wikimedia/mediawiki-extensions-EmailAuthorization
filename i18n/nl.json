@@ -13,8 +13,6 @@
 	"emailauthorization-config-label-userpage": "Gebruikerspagina",
 	"emailauthorization-config-label-authorized": "Geautoriseerd",
 	"emailauthorization-config-value-domain": "alle gebruikers met een e-mailadres eindigend met $1",
-	"emailauthorization-config-value-yes": "ja",
-	"emailauthorization-config-value-no": "nee",
 	"emailauthorization-config-legend-search": "Naar een e-mailadres zoeken",
 	"emailauthorization-config-button-next": "Volgende",
 	"emailauthorization-config-button-previous": "Vorige",

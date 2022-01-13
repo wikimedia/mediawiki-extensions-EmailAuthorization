@@ -12,8 +12,6 @@
 	"emailauthorization-config-label-userpage": "Σελίδα χρήστη",
 	"emailauthorization-config-label-authorized": "Εξουσιοδοτημένος",
 	"emailauthorization-config-value-domain": "όλοι οι χρήστες με διευθύνσεις ηλ. ταχυδρομείου που ξεκινούν με $1",
-	"emailauthorization-config-value-yes": "ναι",
-	"emailauthorization-config-value-no": "όχι",
 	"emailauthorization-config-legend-search": "Αναζήτηση για διευθύνσεις ηλεκτρονικού ταχυδρομείου",
 	"emailauthorization-config-button-next": "Επόμενο",
 	"emailauthorization-config-button-previous": "Προηγούμενο",

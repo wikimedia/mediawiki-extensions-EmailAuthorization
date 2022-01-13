@@ -21,8 +21,6 @@
 	"emailauthorization-config-label-userpage": "Pagina de usator",
 	"emailauthorization-config-label-authorized": "Autorisate",
 	"emailauthorization-config-value-domain": "tote le usatores con adresses de e-mail que fini in $1",
-	"emailauthorization-config-value-yes": "si",
-	"emailauthorization-config-value-no": "no",
 	"emailauthorization-config-legend-search": "Cercar adresses de e-mail",
 	"emailauthorization-config-legend-add": "Adder un adresse o dominio de e-mail autorisate",
 	"emailauthorization-config-legend-revoke": "Revocar un adresse o dominio de e-mail autorisate",

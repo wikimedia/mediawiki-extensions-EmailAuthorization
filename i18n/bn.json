@@ -22,8 +22,6 @@
 	"emailauthorization-config-label-userpage": "ব্যবহারকারী পাতা",
 	"emailauthorization-config-label-authorized": "অনুমোদিত",
 	"emailauthorization-config-value-domain": "$1-এ সমাপ্ত হওয়া ইমেল ঠিকানাসহ সমস্ত ব্যবহারকারী",
-	"emailauthorization-config-value-yes": "হ্যাঁ",
-	"emailauthorization-config-value-no": "না",
 	"emailauthorization-config-legend-search": "ইমেল ঠিকানাগুলি অনুসন্ধান করুন",
 	"emailauthorization-config-legend-add": "অনুমোদিত ইমেল ঠিকানা বা ডোমেন যোগ করুন",
 	"emailauthorization-config-legend-revoke": "অনুমোদিত ইমেল ঠিকানা বা ডোমেন প্রত্যাহার করুন",

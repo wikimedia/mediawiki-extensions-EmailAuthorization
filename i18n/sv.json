@@ -24,8 +24,6 @@
 	"emailauthorization-config-label-userpage": "Användarsida",
 	"emailauthorization-config-label-authorized": "Auktoriserade",
 	"emailauthorization-config-value-domain": "alla användare med e-postadresser som slutar med $1",
-	"emailauthorization-config-value-yes": "ja",
-	"emailauthorization-config-value-no": "nej",
 	"emailauthorization-config-legend-search": "Sök efter e-postadresser",
 	"emailauthorization-config-legend-add": "Lägg till auktoriserad e-postadress eller domän.",
 	"emailauthorization-config-legend-revoke": "Återkalla auktoriserad e-postadress eller domän.",

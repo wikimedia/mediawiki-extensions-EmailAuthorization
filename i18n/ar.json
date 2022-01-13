@@ -22,8 +22,6 @@
 	"emailauthorization-config-label-userpage": "صفحة المستخدم",
 	"emailauthorization-config-label-authorized": "مخول",
 	"emailauthorization-config-value-domain": "جميع المستخدمين الذين لديهم عناوين بريد إلكتروني تنتهي بـ$1",
-	"emailauthorization-config-value-yes": " نعم",
-	"emailauthorization-config-value-no": "لا",
 	"emailauthorization-config-legend-search": "البحث عن عناوين البريد الإلكتروني",
 	"emailauthorization-config-legend-add": "إضافة عنوان البريد الإلكتروني أو المجال المعتمد",
 	"emailauthorization-config-legend-revoke": "إبطال عنوان البريد الإلكتروني أو المجال المعتمد",

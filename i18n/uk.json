@@ -22,8 +22,6 @@
 	"emailauthorization-config-label-userpage": "Сторінка користувача",
 	"emailauthorization-config-label-authorized": "Авторизовано",
 	"emailauthorization-config-value-domain": "усі користувачі з електронними адресами, які закінчуються на $1",
-	"emailauthorization-config-value-yes": "так",
-	"emailauthorization-config-value-no": "ні",
 	"emailauthorization-config-legend-search": "Пошук електронних адрес",
 	"emailauthorization-config-legend-add": "Додати авторизовану електронну адресу чи домен",
 	"emailauthorization-config-legend-revoke": "Відкликати авторизовану електронну адресу чи домен",

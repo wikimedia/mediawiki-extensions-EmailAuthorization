@@ -15,8 +15,6 @@
 	"emailauthorization-config-label-realname": "Tunay na Pangalan",
 	"emailauthorization-config-label-userpage": "Pahina ng Tagagamit",
 	"emailauthorization-config-label-authorized": "Awtorisado",
-	"emailauthorization-config-value-yes": "oo",
-	"emailauthorization-config-value-no": "hindi",
 	"emailauthorization-config-button-next": "Kasunod",
 	"emailauthorization-config-button-previous": "Sinundan",
 	"emailauthorization-config-button-search": "Hanapin",

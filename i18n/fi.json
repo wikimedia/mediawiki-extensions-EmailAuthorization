@@ -13,8 +13,6 @@
 	"emailauthorization-config-label-realname": "Oikea nimi",
 	"emailauthorization-config-label-userpage": "Käyttäjäsivu",
 	"emailauthorization-config-label-authorized": "Hyväksytty",
-	"emailauthorization-config-value-yes": "kyllä",
-	"emailauthorization-config-value-no": "ei",
 	"emailauthorization-config-legend-search": "Hae sähköpostiosoitteita",
 	"emailauthorization-config-button-next": "Seuraava",
 	"emailauthorization-config-button-previous": "Edellinen",

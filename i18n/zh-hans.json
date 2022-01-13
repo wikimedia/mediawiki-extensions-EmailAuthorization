@@ -21,8 +21,6 @@
 	"emailauthorization-config-label-userpage": "用户页",
 	"emailauthorization-config-label-authorized": "已验证",
 	"emailauthorization-config-value-domain": "所有电子邮件地址以$1为结尾的用户",
-	"emailauthorization-config-value-yes": "是",
-	"emailauthorization-config-value-no": "否",
 	"emailauthorization-config-legend-search": "搜索电子邮件地址",
 	"emailauthorization-config-legend-add": "添加验证的电子邮件地址或域名",
 	"emailauthorization-config-legend-revoke": "移除验证的电子邮件地址或域名",

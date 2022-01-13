@@ -21,8 +21,6 @@
 	"emailauthorization-config-label-userpage": "Página de utilizador",
 	"emailauthorization-config-label-authorized": "Autorizado",
 	"emailauthorization-config-value-domain": "todos os utilizadores com um endereço de correio eletrónico terminado em $1",
-	"emailauthorization-config-value-yes": "sim",
-	"emailauthorization-config-value-no": "não",
 	"emailauthorization-config-legend-search": "Procurar endereços de correio eletrónico",
 	"emailauthorization-config-legend-add": "Adicionar endereço de correio eletrónico ou domínio autorizado",
 	"emailauthorization-config-legend-revoke": "Revogar endereço de correio eletrónico ou domínio autorizado",

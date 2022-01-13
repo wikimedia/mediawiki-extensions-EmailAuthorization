@@ -12,8 +12,6 @@
 	"emailauthorization-config-label-realname": "Benetako izena",
 	"emailauthorization-config-label-userpage": "Erabiltzaile orria",
 	"emailauthorization-config-label-authorized": "Baimenduta",
-	"emailauthorization-config-value-yes": "bai",
-	"emailauthorization-config-value-no": "ez",
 	"emailauthorization-config-legend-search": "Bilatu helbideak",
 	"emailauthorization-config-button-next": "Hurrengoa",
 	"emailauthorization-config-button-previous": "Aurrekoa",
