@@ -27,10 +27,16 @@ use Title;
 
 class EchoEAPresentationModel extends EchoEventPresentationModel {
 
+	/**
+	 * @return string
+	 */
 	public function getIconType(): string {
 		return 'user-rights';
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getPrimaryLink(): array {
 		return [
 			'url' => Title::newFromText( 'Special:EmailAuthorizationApprove' )->getFullURL(),
@@ -38,12 +44,18 @@ class EchoEAPresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/**
+	 * @return Message
+	 */
 	public function getHeaderMessage(): Message {
 		$msg = wfMessage( "notification-header-{$this->type}" );
 		$msg->params( $this->event->getExtraParam( 'email' ) );
 		return $msg;
 	}
 
+	/**
+	 * @return Message
+	 */
 	public function getBodyMessage(): Message {
 		$msg = wfMessage( "notification-body-{$this->type}" );
 		$msg->params( $this->event->getExtraParam( 'email' ) );

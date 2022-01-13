@@ -39,6 +39,14 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 	 */
 	private $userFactory;
 
+	/**
+	 * @param ApiMain $main
+	 * @param string $action
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 * @param EmailAuthorizationService $emailAuthorizationService
+	 * @param ParserFactory $parserFactory
+	 * @param UserFactory $userFactory
+	 */
 	public function __construct(
 		ApiMain $main,
 		string $action,
@@ -52,6 +60,9 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 		$this->userFactory = $userFactory;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getAllowedParams(): array {
 		$allowedParams = parent::getAllowedParams();
 		$allowedParams["columns"] = [
@@ -61,7 +72,11 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 		return $allowedParams;
 	}
 
-	public function executeBody( $params ): array {
+	/**
+	 * @param array $params
+	 * @return array
+	 */
+	public function executeBody( array $params ): array {
 		$rows = $this->emailAuthorizationStore->getUsers(
 			intval( $params["offset"] ),
 			intval( $params["limit"] ),
@@ -108,6 +123,9 @@ class ApiEmailAuthorizationUsers extends ApiEmailAuthorizationBase {
 		];
 	}
 
+	/**
+	 * @return string[]
+	 */
 	public function getExamplesMessages(): array {
 		return [
 			"action={$this->getModuleName()}&draw=1" =>

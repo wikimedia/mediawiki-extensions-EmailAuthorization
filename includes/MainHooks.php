@@ -35,6 +35,9 @@ class MainHooks implements SpecialPage_initListHook {
 	 */
 	private $enableRequests;
 
+	/**
+	 * @param Config $config
+	 */
 	public function __construct( Config $config ) {
 		$options = new ServiceOptions( self::CONSTRUCTOR_OPTIONS, $config );
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );

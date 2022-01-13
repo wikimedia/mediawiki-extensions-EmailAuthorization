@@ -25,14 +25,25 @@ use MediaWiki\MediaWikiServices;
 use User;
 
 class LegacyHooks {
+	/**
+	 * @param User $user
+	 * @param bool &$authorized
+	 * @return bool
+	 */
 	public static function authorize( User $user, bool &$authorized ): bool {
 		$emailAuthorizationService = MediaWikiServices::getInstance()->get( "EmailAuthorizationService" );
 		$authorized = $emailAuthorizationService->isUserAuthorized( $user );
 		return $authorized;
 	}
 
-	public static function onBeforeCreateEchoEvent( &$notifications,
-		&$notificationCategories, &$icons ) {
+	/**
+	 * @param array &$notifications
+	 * @param array &$notificationCategories
+	 * @param array &$icons
+	 * @return void
+	 */
+	public static function onBeforeCreateEchoEvent( array &$notifications,
+		array &$notificationCategories, array &$icons ) {
 		$notificationCategories['emailauthorization-notification-category'] = [
 			'priority' => 3
 		];
@@ -46,7 +57,11 @@ class LegacyHooks {
 		];
 	}
 
-	public static function locateBureaucrats( $event ): array {
+	/**
+	 * @param EchoEvent $event
+	 * @return array
+	 */
+	public static function locateBureaucrats( EchoEvent $event ): array {
 		$services = MediaWikiServices::getInstance();
 		$emailAuthorizationStore = $services->get( "EmailAuthorizationStore" );
 		$userFactory = $services->getUserFactory();

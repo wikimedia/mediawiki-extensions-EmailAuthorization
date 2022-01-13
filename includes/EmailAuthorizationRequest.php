@@ -39,6 +39,10 @@ class EmailAuthorizationRequest extends EmailAuthorizationSpecialPage {
 	 */
 	private $requestFields;
 
+	/**
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 * @param Config $config
+	 */
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore, Config $config ) {
 		parent::__construct( 'EmailAuthorizationRequest', '', $emailAuthorizationStore );
 		$options = new ServiceOptions( self::CONSTRUCTOR_OPTIONS, $config );
@@ -183,7 +187,11 @@ class EmailAuthorizationRequest extends EmailAuthorizationSpecialPage {
 		return true;
 	}
 
-	private function isEmailRequestable( $email ): bool {
+	/**
+	 * @param string $email
+	 * @return bool
+	 */
+	private function isEmailRequestable( string $email ): bool {
 		$users = $this->emailAuthorizationStore->getUserInfo( $email );
 		if ( $users->valid() ) {
 			return !$this->emailAuthorizationStore->isEmailAuthorized( $email );
@@ -191,7 +199,12 @@ class EmailAuthorizationRequest extends EmailAuthorizationSpecialPage {
 		return true;
 	}
 
-	private function insertRequest( $email, $request ): bool {
+	/**
+	 * @param string $email
+	 * @param WebRequest $request
+	 * @return bool
+	 */
+	private function insertRequest( string $email, WebRequest $request ): bool {
 		$i = 1;
 		$data = [];
 		foreach ( $this->requestFields as $field ) {

@@ -28,6 +28,9 @@ use MWException;
 use PermissionsError;
 
 class EmailAuthorizationConfig extends EmailAuthorizationSpecialPage {
+	/**
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 */
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
 		parent::__construct( 'EmailAuthorizationConfig', 'emailauthorizationconfig', $emailAuthorizationStore );
 	}
@@ -68,8 +71,12 @@ class EmailAuthorizationConfig extends EmailAuthorizationSpecialPage {
 		$this->showRevokeForm( $url, $addEmail );
 	}
 
-	private function addEmail( $email ) {
-		if ( $email === null || strlen( $email ) < 1 ) {
+	/**
+	 * @param string $email
+	 * @return void
+	 */
+	private function addEmail( string $email ) {
+		if ( strlen( $email ) < 1 ) {
 			return;
 		}
 		$validatedemail = $this->validateEmail( $email );
@@ -85,8 +92,12 @@ class EmailAuthorizationConfig extends EmailAuthorizationSpecialPage {
 		}
 	}
 
-	private function revokeEmail( $email ) {
-		if ( $email === null || strlen( $email ) < 1 ) {
+	/**
+	 * @param string $email
+	 * @return void
+	 */
+	private function revokeEmail( string $email ) {
+		if ( strlen( $email ) < 1 ) {
 			return;
 		}
 		$validatedemail = $this->validateEmail( $email );

@@ -27,6 +27,12 @@ use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 
+	/**
+	 * @param ApiMain $main
+	 * @param string $action
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 * @param ParserFactory $parserFactory
+	 */
 	public function __construct(
 		ApiMain $main,
 		string $action,
@@ -36,6 +42,9 @@ class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 		parent::__construct( $main, $action, $emailAuthorizationStore, $parserFactory );
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getAllowedParams(): array {
 		$allowedParams = parent::getAllowedParams();
 		$allowedParams["columns"] = [
@@ -45,7 +54,11 @@ class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 		return $allowedParams;
 	}
 
-	public function executeBody( $params ): array {
+	/**
+	 * @param array $params
+	 * @return array
+	 */
+	public function executeBody( array $params ): array {
 		$authorized = $this->emailAuthorizationStore->getAuthorizedEmails(
 			intval( $params["offset"] ),
 			intval( $params["limit"] ),
@@ -105,6 +118,9 @@ class ApiEmailAuthorizationAuthorized extends ApiEmailAuthorizationBase {
 		];
 	}
 
+	/**
+	 * @return string[]
+	 */
 	public function getExamplesMessages(): array {
 		return [
 			"action={$this->getModuleName()}&draw=1" =>

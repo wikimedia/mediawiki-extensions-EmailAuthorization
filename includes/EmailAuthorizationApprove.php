@@ -26,6 +26,9 @@ use HTMLForm;
 use MWException;
 
 class EmailAuthorizationApprove extends EmailAuthorizationSpecialPage {
+	/**
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 */
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
 		parent::__construct( 'EmailAuthorizationApprove', 'emailauthorizationconfig', $emailAuthorizationStore );
 	}

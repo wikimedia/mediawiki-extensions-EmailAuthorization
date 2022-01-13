@@ -34,6 +34,11 @@ abstract class EmailAuthorizationSpecialPage extends SpecialPage {
 	 */
 	protected $emailAuthorizationStore;
 
+	/**
+	 * @param string $name
+	 * @param string $restriction
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 */
 	public function __construct(
 		string $name,
 		string $restriction,
@@ -43,6 +48,9 @@ abstract class EmailAuthorizationSpecialPage extends SpecialPage {
 		$this->emailAuthorizationStore = $emailAuthorizationStore;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getGroupName(): string {
 		return 'login';
 	}

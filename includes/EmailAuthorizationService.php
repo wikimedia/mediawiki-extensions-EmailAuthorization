@@ -45,6 +45,11 @@ class EmailAuthorizationService {
 	 */
 	private $userGroupManager;
 
+	/**
+	 * @param ServiceOptions $options
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 * @param UserGroupManager $userGroupManager
+	 */
 	public function __construct(
 		ServiceOptions $options,
 		EmailAuthorizationStore $emailAuthorizationStore,
@@ -56,10 +61,18 @@ class EmailAuthorizationService {
 		$this->userGroupManager = $userGroupManager;
 	}
 
+	/**
+	 * @param User $user
+	 * @return bool
+	 */
 	public function isUserAuthorized( User $user ): bool {
 		return $this->isEmailAuthorized( $user->getEmail() ) || $this->isUserGroupAuthorized( $user );
 	}
 
+	/**
+	 * @param string $email
+	 * @return bool
+	 */
 	private function isEmailAuthorized( string $email ): bool {
 		$authorized = $this->emailAuthorizationStore->isEmailAuthorized( $email );
 		if ( $authorized ) {
@@ -73,7 +86,11 @@ class EmailAuthorizationService {
 		return false;
 	}
 
-	private function isUserGroupAuthorized( $user ): bool {
+	/**
+	 * @param User $user
+	 * @return bool
+	 */
+	private function isUserGroupAuthorized( User $user ): bool {
 		$memberships = $this->userGroupManager->getUserGroupMemberships( $user );
 		foreach ( $this->authorizedGroups as $group ) {
 			if ( isset( $memberships[ $group ] ) && !$memberships[ $group ]->isExpired() ) {

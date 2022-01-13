@@ -47,6 +47,12 @@ abstract class ApiEmailAuthorizationBase extends ApiBase {
 	 */
 	private $parserOptions;
 
+	/**
+	 * @param ApiMain $main
+	 * @param string $action
+	 * @param EmailAuthorizationStore $emailAuthorizationStore
+	 * @param ParserFactory $parserFactory
+	 */
 	public function __construct(
 		ApiMain $main,
 		string $action,
@@ -60,6 +66,9 @@ abstract class ApiEmailAuthorizationBase extends ApiBase {
 		$this->parserOptions->setOption( 'enableLimitReport', false );
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getAllowedParams(): array {
 		return [
 			"draw" => [
