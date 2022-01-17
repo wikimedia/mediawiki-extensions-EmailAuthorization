@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Tranve"
 		]
 	},
 	"emailauthorization-desc": "使用电子邮件验证用户",
@@ -33,20 +34,20 @@
 	"emailauthorization-config-button-showall": "显示使用wiki用户",
 	"right-emailauthorizationconfig": "配置用户的电子邮件地址验证",
 	"action-emailauthorizationconfig": "配置电子邮件验证",
-	"emailauthorizationrequest": "申请账户",
+	"emailauthorizationrequest": "申请账号",
 	"emailauthorization-request-instructions": "填写字段并提交来申请账户。标记星号（*）的字段为必填字段。",
 	"emailauthorization-request-label-email": "电子邮件地址",
 	"emailauthorization-request-button-submit": "提交",
-	"emailauthorization-request-requested": "已为电子邮件地址$1申请账户。",
+	"emailauthorization-request-requested": "已为电子邮件地址$1申请账号。",
 	"emailauthorization-request-missingmandatory": "缺少必填的字段值。",
 	"emailauthorization-request-invalidemail": "无效的电子邮件地址：$1",
-	"emailauthorization-request-error": "为$1申请账户时出错。",
-	"echo-category-title-emailauthorization-notification-category": "新账户申请",
-	"notification-header-emailauthorization-account-request": "已提交新账户申请。",
-	"notification-subject-emailauthorization-account-request": "新账户申请。",
-	"notification-body-emailauthorization-account-request": "$1已申请账户。",
-	"notification-link-label-emailauthorization-account-request": "访问账户通过页面",
-	"emailauthorizationapprove": "通过账户申请",
+	"emailauthorization-request-error": "为$1申请账号时出错。",
+	"echo-category-title-emailauthorization-notification-category": "新账号申请",
+	"notification-header-emailauthorization-account-request": "已提交新账号申请。",
+	"notification-subject-emailauthorization-account-request": "新账号申请。",
+	"notification-body-emailauthorization-account-request": "$1已申请账号。",
+	"notification-link-label-emailauthorization-account-request": "访问账号批准页面",
+	"emailauthorizationapprove": "批准账号申请",
 	"emailauthorization-approve-label-email": "电子邮件地址",
 	"emailauthorization-approve-label-extra": "额外字段",
 	"emailauthorization-approve-label-action": "操作",
@@ -54,7 +55,7 @@
 	"emailauthorization-approve-button-reject": "拒绝",
 	"emailauthorization-approve-button-next": "下一步",
 	"emailauthorization-approve-button-previous": "上一步",
-	"emailauthorization-approve-norequestsfound": "未找到账户申请。",
+	"emailauthorization-approve-norequestsfound": "未找到账号申请。",
 	"emailauthorization-approve-approved": "已通过$1。",
 	"emailauthorization-approve-rejected": "已拒绝$1。"
 }

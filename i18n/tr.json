@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Can",
 			"MuratTheTurkish"
 		]
 	},
@@ -57,5 +58,6 @@
 	"emailauthorization-approve-button-previous": "Önceki",
 	"emailauthorization-approve-norequestsfound": "Hesap isteği bulunamadı.",
 	"emailauthorization-approve-approved": "$1 onaylandı.",
-	"emailauthorization-approve-rejected": "$1 reddedildi."
+	"emailauthorization-approve-rejected": "$1 reddedildi.",
+	"emailauthorization-api-error-permissions": "İzin reddedildi."
 }
