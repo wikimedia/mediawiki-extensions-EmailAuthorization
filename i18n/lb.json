@@ -47,5 +47,6 @@
 	"emailauthorization-approve-button-previous": "Vireg",
 	"emailauthorization-approve-norequestsfound": "Keng Ufroe fir Benotzerkonte fonnt.",
 	"emailauthorization-approve-approved": "$1 akzeptéiert.",
-	"emailauthorization-approve-rejected": "$1 refuséiert."
+	"emailauthorization-approve-rejected": "$1 refuséiert.",
+	"emailauthorization-api-error-permissions": "Autorisatioun refuséiert."
 }
