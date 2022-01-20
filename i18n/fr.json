@@ -63,7 +63,7 @@
 	"emailauthorization-approve-approved": "$1 approuvé.",
 	"emailauthorization-approve-rejected": "$1 rejeté.",
 	"emailauthorization-api-error-permissions": "Permission refusée.",
-	"apihelp-emailauthorization-getall-summary": "Renvoyer des informations concernant l’autorisation de courriel pour tous les utilisateurs.",
+	"apihelp-emailauthorization-getall-summary": "Renvoyer les informations concernant l’autorisation de courriel pour tous les utilisateurs.",
 	"apihelp-emailauthorization-getall-description": "Renvoyer les informations concernent l’autorisation de courriel pour tous les utilisateurs.",
 	"apihelp-emailauthorization-getall-param-draw": "Valeur à inclure en réponse. Utilisé pour maintenir l’ordre.",
 	"apihelp-emailauthorization-getall-param-offset": "Nombre d’enregistrements à sauter avant de les ajouter à l’ensemble résultat.",
