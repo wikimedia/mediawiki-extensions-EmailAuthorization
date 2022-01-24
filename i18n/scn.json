@@ -14,6 +14,7 @@
 	"emailauthorization-config-button-revoke": "Rèvuca",
 	"emailauthorization-config-button-showall": "Ammustra tutti li utenti dû wiki",
 	"emailauthorization-request-label-email": "Nnirizzu email",
+	"emailauthorization-request-button-submit": "Manna",
 	"emailauthorization-request-invalidemail": "Nnirizzu email nun vàliddu: $1",
 	"emailauthorization-approve-label-action": "Azzioni"
 }
