@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Steeve815",
-			"Strayblues"
+			"Strayblues",
+			"YaronSh"
 		]
 	},
 	"emailauthorization-config-label-email": "כתובת דוא\"ל",
@@ -20,5 +21,7 @@
 	"emailauthorization-config-button-search": "חיפוש",
 	"emailauthorization-config-button-add": "הוספה",
 	"emailauthorization-config-button-revoke": "שלילה",
-	"emailauthorization-request-invalidemail": "כתובת דוא\"ל לא תקינה: $1"
+	"emailauthorizationrequest": "בקשת חשבון",
+	"emailauthorization-request-invalidemail": "כתובת דוא\"ל לא תקינה: $1",
+	"emailauthorizationapprove": "אישור בקשות חשבון"
 }

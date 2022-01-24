@@ -59,5 +59,7 @@
 	"emailauthorization-approve-norequestsfound": "Hesap isteği bulunamadı.",
 	"emailauthorization-approve-approved": "$1 onaylandı.",
 	"emailauthorization-approve-rejected": "$1 reddedildi.",
-	"emailauthorization-api-error-permissions": "İzin reddedildi."
+	"emailauthorization-api-error-permissions": "İzin reddedildi.",
+	"apihelp-emailauthorization-getall-param-limit": "Döndürülecek maksimum sonuç sayısı.",
+	"apihelp-emailauthorization-getauthorized-param-limit": "Döndürülecek maksimum sonuç sayısı."
 }
