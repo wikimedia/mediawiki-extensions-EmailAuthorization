@@ -14,5 +14,7 @@
 	"emailauthorization-request-label-email": "Nnirizzu email",
 	"emailauthorization-request-button-submit": "Manna",
 	"emailauthorization-request-invalidemail": "Nnirizzu email nun vàliddu: $1",
-	"emailauthorization-approve-label-action": "Azzioni"
+	"emailauthorization-approve-label-action": "Azzioni",
+	"emailauthorization-approve-button-approve": "Appruva",
+	"emailauthorization-approve-approved": "Appruvatu $1."
 }
