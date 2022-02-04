@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dr Lotus Black"
+			"Dr Lotus Black",
+			"Phosai"
 		]
 	},
 	"emailauthorization-config-nousersfound": "အသုံးပြုသူများ မတွေ့ပါ။",
@@ -14,7 +15,7 @@
 	"emailauthorization-config-button-search": "ရှာဖွေရန်",
 	"emailauthorization-config-button-add": "ပေါင်းရန်",
 	"emailauthorization-config-button-showall": "ဝီကီအသုံးပြုသူ အားလုံးကိုရှာရန်",
-	"emailauthorizationrequest": "အကောင့်တစ်ခု တောင်းဆိုရန်",
+	"emailauthorizationrequest": "အကောင့် တောင်းဆိုရန်",
 	"emailauthorization-request-label-email": "အီးမေးလ် လိပ်စာ",
 	"emailauthorization-request-button-submit": "ထည့်သွင်းရန်",
 	"emailauthorization-request-error": "$1 အတွက် အကောင့်တစ်ခုတောင်းဆိုရာ၌ အမှားတစ်ခုဖြစ်ပွားခဲ့ပါသည်။",
