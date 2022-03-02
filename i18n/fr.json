@@ -6,7 +6,8 @@
 			"Great11",
 			"Thibaut120094",
 			"Urhixidur",
-			"Wladek92"
+			"Wladek92",
+			"Verdy p"
 		]
 	},
 	"emailauthorization-desc": "Autoriser les utilisateurs en fonctions des adresses courriel",
@@ -33,7 +34,7 @@
 	"emailauthorization-config-legend-revoke": "Annuler une adresse courriel ou un domaine autorisé",
 	"emailauthorization-config-button-next": "Suivant",
 	"emailauthorization-config-button-previous": "Précédent",
-	"emailauthorization-config-button-search": "Chercher",
+	"emailauthorization-config-button-search": "Rechercher",
 	"emailauthorization-config-button-add": "Ajouter",
 	"emailauthorization-config-button-revoke": "Révoquer",
 	"emailauthorization-config-button-showauth": "Afficher les adresses courriel et les domaines autorisés",
