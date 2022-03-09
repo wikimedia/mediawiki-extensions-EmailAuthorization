@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"MITO",
+			"Markus Mikkonen",
 			"Pyscowicz",
 			"Silvonen"
 		]
@@ -20,7 +21,7 @@
 	"emailauthorization-config-button-add": "Lisää",
 	"emailauthorization-config-button-revoke": "Kumoa",
 	"emailauthorization-config-button-showall": "Näytä kaikki wikikäyttäjät",
-	"emailauthorizationrequest": "Pyydä käyttäjätunnusta",
+	"emailauthorizationrequest": "Pyydä tunnusta",
 	"emailauthorization-request-label-email": "Sähköpostiosoite",
 	"emailauthorization-request-button-submit": "Lähetä",
 	"emailauthorization-request-invalidemail": "Väärä sähköpostiosoite: $1",
