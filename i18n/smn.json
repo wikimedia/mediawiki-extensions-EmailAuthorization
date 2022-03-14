@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik"
+			"Yupik",
+			"Seipinne"
 		]
 	},
 	"emailauthorization-config-label-email": "Šleđgâpostâčujottâs",
+	"emailauthorization-config-label-username": "Kevtteenommâ",
 	"emailauthorization-config-label-userpage": "Kevtteesijđo",
 	"emailauthorization-config-button-next": "Čuávuvâš",
 	"emailauthorization-config-button-search": "Uusâ",
