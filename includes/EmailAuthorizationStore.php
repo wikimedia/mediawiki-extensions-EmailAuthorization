@@ -63,10 +63,10 @@ class EmailAuthorizationStore {
 	}
 
 	/**
-	 * @param string $email
+	 * @param string|null $email
 	 * @return bool
 	 */
-	public function isEmailAuthorized( string $email ): bool {
+	public function isEmailAuthorized( ?string $email ): bool {
 		$dbr = wfGetDB( DB_REPLICA );
 		$row = $dbr->selectRow(
 			'emailauth',
