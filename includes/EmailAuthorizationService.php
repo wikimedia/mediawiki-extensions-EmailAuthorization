@@ -70,10 +70,10 @@ class EmailAuthorizationService {
 	}
 
 	/**
-	 * @param string $email
+	 * @param string|null $email
 	 * @return bool
 	 */
-	private function isEmailAuthorized( string $email ): bool {
+	private function isEmailAuthorized( ?string $email ): bool {
 		$authorized = $this->emailAuthorizationStore->isEmailAuthorized( $email );
 		if ( $authorized ) {
 			return true;
