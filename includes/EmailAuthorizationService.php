@@ -22,8 +22,9 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
-use User;
+use MediaWiki\User\UserIdentity;
 
 class EmailAuthorizationService {
 	public const CONSTRUCTOR_OPTIONS = [
@@ -46,27 +47,36 @@ class EmailAuthorizationService {
 	private $userGroupManager;
 
 	/**
+	 * @var UserFactory
+	 */
+	private $userFactory;
+
+	/**
 	 * @param ServiceOptions $options
 	 * @param EmailAuthorizationStore $emailAuthorizationStore
 	 * @param UserGroupManager $userGroupManager
+	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
 		ServiceOptions $options,
 		EmailAuthorizationStore $emailAuthorizationStore,
-		UserGroupManager $userGroupManager
+		UserGroupManager $userGroupManager,
+		UserFactory $userFactory
 	) {
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 		$this->authorizedGroups = $options->get( 'EmailAuthorization_AuthorizedGroups' );
 		$this->emailAuthorizationStore = $emailAuthorizationStore;
 		$this->userGroupManager = $userGroupManager;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public function isUserAuthorized( User $user ): bool {
-		return $this->isEmailAuthorized( $user->getEmail() ) || $this->isUserGroupAuthorized( $user );
+	public function isUserAuthorized( UserIdentity $user ): bool {
+		return $this->isEmailAuthorized( $this->userFactory->newFromUserIdentity( $user )->getEmail() ) ||
+			$this->isUserGroupAuthorized( $user );
 	}
 
 	/**
@@ -87,10 +97,10 @@ class EmailAuthorizationService {
 	}
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	private function isUserGroupAuthorized( User $user ): bool {
+	private function isUserGroupAuthorized( UserIdentity $user ): bool {
 		$memberships = $this->userGroupManager->getUserGroupMemberships( $user );
 		foreach ( $this->authorizedGroups as $group ) {
 			if ( isset( $memberships[ $group ] ) && !$memberships[ $group ]->isExpired() ) {

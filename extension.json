@@ -1,6 +1,6 @@
 {
 	"name": "Email Authorization",
-	"version": "2.0",
+	"version": "3.0",
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:Cindy.cicalese Cindy Cicalese]",
 		"[https://www.mediawiki.org/wiki/User:Matthew-a-thompson Mint Thompson]"
@@ -114,14 +114,16 @@
 		"main": {
 			"class": "MediaWiki\\Extension\\EmailAuthorization\\MainHooks",
 			"services": [
-				"MainConfig"
+				"MainConfig",
+				"EmailAuthorizationService",
+				"UserFactory"
 			]
 		}
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "schema",
 		"SpecialPage_initList": "main",
-		"PluggableAuthUserAuthorization": "\\MediaWiki\\Extension\\EmailAuthorization\\LegacyHooks::authorize",
+		"PluggableAuthUserAuthorization": "main",
 		"BeforeCreateEchoEvent": "MediaWiki\\Extension\\EmailAuthorization\\LegacyHooks::onBeforeCreateEchoEvent"
 	},
 	"config": {

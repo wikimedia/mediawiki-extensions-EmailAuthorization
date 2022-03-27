@@ -22,20 +22,8 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use MediaWiki\MediaWikiServices;
-use User;
 
 class LegacyHooks {
-	/**
-	 * @param User $user
-	 * @param bool &$authorized
-	 * @return bool
-	 */
-	public static function authorize( User $user, bool &$authorized ): bool {
-		$emailAuthorizationService = MediaWikiServices::getInstance()->get( "EmailAuthorizationService" );
-		$authorized = $emailAuthorizationService->isUserAuthorized( $user );
-		return $authorized;
-	}
-
 	/**
 	 * @param array &$notifications
 	 * @param array &$notificationCategories

@@ -34,7 +34,8 @@ return [
 			return new EmailAuthorizationService(
 				new ServiceOptions( EmailAuthorizationService::CONSTRUCTOR_OPTIONS, $services->getMainConfig() ),
 				$services->get( 'EmailAuthorizationStore' ),
-				$services->getUserGroupManager()
+				$services->getUserGroupManager(),
+				$services->getUserFactory()
 			);
 		},
 ];
