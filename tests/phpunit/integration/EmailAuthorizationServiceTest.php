@@ -117,7 +117,8 @@ class EmailAuthorizationServiceTest extends MediaWikiIntegrationTestCase {
 		$service = new EmailAuthorizationService(
 			$options,
 			$store,
-			$this->getServiceContainer()->getUserGroupManager()
+			$this->getServiceContainer()->getUserGroupManager(),
+			$this->getServiceContainer()->getUserFactory()
 		);
 		$this->assertEquals( $expected, $service->isUserAuthorized( $user ), $message );
 	}

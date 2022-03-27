@@ -23,9 +23,11 @@ namespace MediaWiki\Extension\EmailAuthorization;
 
 use Config;
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Extension\PluggableAuth\Hook\PluggableAuthUserAuthorization;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
+use MediaWiki\User\UserIdentity;
 
-class MainHooks implements SpecialPage_initListHook {
+class MainHooks implements SpecialPage_initListHook, PluggableAuthUserAuthorization {
 	public const CONSTRUCTOR_OPTIONS = [
 		'EmailAuthorization_EnableRequests'
 	];
@@ -36,12 +38,22 @@ class MainHooks implements SpecialPage_initListHook {
 	private $enableRequests;
 
 	/**
-	 * @param Config $config
+	 * @var EmailAuthorizationService
 	 */
-	public function __construct( Config $config ) {
+	private $emailAuthorizationService;
+
+	/**
+	 * @param Config $config
+	 * @param EmailAuthorizationService $emailAuthorizationService
+	 */
+	public function __construct(
+		Config $config,
+		EmailAuthorizationService $emailAuthorizationService
+	) {
 		$options = new ServiceOptions( self::CONSTRUCTOR_OPTIONS, $config );
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 		$this->enableRequests = $options->get( 'EmailAuthorization_EnableRequests' );
+		$this->emailAuthorizationService = $emailAuthorizationService;
 	}
 
 	/**
@@ -54,5 +66,15 @@ class MainHooks implements SpecialPage_initListHook {
 			unset( $list['EmailAuthorizationRequest'] );
 			unset( $list['EmailAuthorizationApprove'] );
 		}
+	}
+
+	/**
+	 * @param UserIdentity $user
+	 * @param bool &$authorized
+	 * @return bool
+	 */
+	public function onPluggableAuthUserAuthorization( UserIdentity $user, bool &$authorized ): bool {
+		$authorized = $this->emailAuthorizationService->isUserAuthorized( $user );
+		return $authorized;
 	}
 }
