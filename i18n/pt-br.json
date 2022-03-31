@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Eduardo Addad de Oliveira",
-			"Eduardoaddad"
+			"Eduardoaddad",
+			"YuriNikolai"
 		]
 	},
 	"emailauthorization-desc": "Autorize usuários por endereço de e-mail",
@@ -57,5 +58,7 @@
 	"emailauthorization-approve-button-previous": "Anterior",
 	"emailauthorization-approve-norequestsfound": "Não foi encontrado nenhum pedido de conta.",
 	"emailauthorization-approve-approved": "Aprovou $1.",
-	"emailauthorization-approve-rejected": "Rejeitou $1."
+	"emailauthorization-approve-rejected": "Rejeitou $1.",
+	"emailauthorization-api-error-permissions": "Permissão negada.",
+	"apihelp-emailauthorization-getall-param-limit": "Numero máximo de resultados a serem retornados."
 }
