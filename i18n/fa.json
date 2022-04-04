@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jeeputer"
+			"Jeeputer",
+			"Beginneruser"
 		]
 	},
 	"emailauthorization-config-nousersfound": "کاربری یافت نشد.",
@@ -22,7 +23,7 @@
 	"emailauthorization-request-button-submit": "ثبت",
 	"emailauthorization-request-invalidemail": "نشانی ایمیل نامعتبر: $1",
 	"notification-subject-emailauthorization-account-request": "درخواست حساب تازه.",
-	"notification-body-emailauthorization-account-request": "$1 درخواست یک حساب کرده‌است.",
+	"notification-body-emailauthorization-account-request": "$1 یک حساب درخواست کرده‌است.",
 	"notification-link-label-emailauthorization-account-request": "رفتن به صفحهٔ تأیید حساب",
 	"emailauthorizationapprove": "تأیید درخواست‌های حساب",
 	"emailauthorization-approve-label-email": "نشانی ایمیل",
