@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DiegoAmbrocio",
 			"Fitoschido",
 			"Macofe"
 		]
@@ -43,5 +44,6 @@
 	"emailauthorization-approve-button-next": "Siguiente",
 	"emailauthorization-approve-button-previous": "Anterior",
 	"emailauthorization-approve-norequestsfound": "No se encontró ninguna solicitud de cuenta.",
-	"emailauthorization-approve-approved": "$1 aprobado."
+	"emailauthorization-approve-approved": "$1 aprobado.",
+	"emailauthorization-api-error-permissions": "Permiso denegado."
 }
