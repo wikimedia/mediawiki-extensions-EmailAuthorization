@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Macofe"
+			"Macofe",
+			"DiegoAmbrocio"
 		]
 	},
+	"emailauthorization-desc": "Autorizar a los usuarios por dirección de correo electrónico",
 	"emailauthorizationconfig": "Tablero de autorización de correo electrónico",
 	"emailauthorization-config-authorized": "''$1'' está autorizado.",
 	"emailauthorization-config-notauthorized": "''$1'' no está autorizado.",
@@ -19,16 +21,24 @@
 	"emailauthorization-config-label-authorized": "Autorizado",
 	"emailauthorization-config-value-yes": "sí",
 	"emailauthorization-config-value-no": "no",
+	"emailauthorization-config-legend-search": "Búsqueda de direcciones de correo electrónico",
+	"emailauthorization-config-legend-add": "Añadir dirección de correo electrónico o dominio autorizado",
+	"emailauthorization-config-legend-revoke": "Revocar la dirección de correo electrónico o el dominio autorizado",
 	"emailauthorization-config-button-next": "Siguiente",
 	"emailauthorization-config-button-previous": "Anterior",
 	"emailauthorization-config-button-search": "Buscar",
 	"emailauthorization-config-button-add": "Añadir",
 	"emailauthorization-config-button-revoke": "Revocar",
+	"emailauthorization-config-button-showauth": "Mostrar direcciones de correo electrónico y dominios autorizados",
+	"emailauthorization-config-button-showall": "Mostrar todos los usuarios del wiki",
+	"right-emailauthorizationconfig": "Configurar la autorización de usuarios por dirección de correo electrónico",
 	"action-emailauthorizationconfig": "configuraa autorización de correo electrónico",
 	"emailauthorizationrequest": "Solicitar una cuenta",
+	"emailauthorization-request-instructions": "Rellene los campos y envíelos para solicitar una cuenta. Los campos marcados con * son obligatorios.",
 	"emailauthorization-request-label-email": "Dirección de correo electrónico",
 	"emailauthorization-request-button-submit": "Enviar",
 	"emailauthorization-request-requested": "Se solicitó una cuenta para la dirección de correo $1.",
+	"emailauthorization-request-missingmandatory": "Faltan valores de campos obligatorios.",
 	"emailauthorization-request-invalidemail": "Dirección de correo electrónico no válida: $1",
 	"emailauthorization-request-error": "Se produjo un error al solicitar una cuenta para $1.",
 	"echo-category-title-emailauthorization-notification-category": "Solicitudes de cuentas nuevas",
@@ -45,5 +55,6 @@
 	"emailauthorization-approve-button-next": "Siguiente",
 	"emailauthorization-approve-button-previous": "Anterior",
 	"emailauthorization-approve-norequestsfound": "No se encontró ninguna solicitud de cuenta.",
-	"emailauthorization-approve-approved": "$1 aprobado."
+	"emailauthorization-approve-approved": "$1 aprobado.",
+	"emailauthorization-approve-rejected": "Rechazado $1."
 }
