@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"ديفيد",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"FiberAhmed"
 		]
 	},
 	"emailauthorization-desc": "تفويض المستخدمين عن طريق عنوان البريد الإلكتروني",
@@ -47,7 +48,7 @@
 	"echo-category-title-emailauthorization-notification-category": "طلبات الحساب الجديد",
 	"notification-header-emailauthorization-account-request": "تم تقديم طلب للحصول على حساب جديد.",
 	"notification-subject-emailauthorization-account-request": "طلب حساب جديد.",
-	"notification-body-emailauthorization-account-request": "طلب $1 حسابا.",
+	"notification-body-emailauthorization-account-request": "طلب $1 حسابًا.",
 	"notification-link-label-emailauthorization-account-request": "زيارة صفحة موافقة الحساب",
 	"emailauthorizationapprove": "الموافقة على طلبات الحسابات",
 	"emailauthorization-approve-label-email": "عنوان البريد الإلكتروني",
