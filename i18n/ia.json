@@ -56,5 +56,13 @@
 	"emailauthorization-approve-button-previous": "Precedente",
 	"emailauthorization-approve-norequestsfound": "Nulle requesta de conto trovate.",
 	"emailauthorization-approve-approved": "$1 approbate.",
-	"emailauthorization-approve-rejected": "$1 rejectate."
+	"emailauthorization-approve-rejected": "$1 rejectate.",
+	"emailauthorization-api-error-permissions": "Permission refusate.",
+	"apihelp-emailauthorization-getall-summary": "Retorna information pertinente al autorisation de e-mail pro tote le usatores.",
+	"apihelp-emailauthorization-getall-description": "Retorna information pertinente al autorisation de e-mail pro tote le usatores.",
+	"apihelp-emailauthorization-getall-param-draw": "Valores a includer in responsa. Usate pro mantener le ordinamento.",
+	"apihelp-emailauthorization-getall-param-offset": "Numero de registros a saltar ante de adder los al insimul de resultatos.",
+	"apihelp-emailauthorization-getall-param-limit": "Numero maxime de resultatos a retornar.",
+	"apihelp-emailauthorization-getall-param-search": "Specifica de retornar solo resultatos que contine iste texto.",
+	"apihelp-emailauthorization-getall-param-columns": "Lista separate per barras vertical de identificatores de columna in le tabella generate."
 }
