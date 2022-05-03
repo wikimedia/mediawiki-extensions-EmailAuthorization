@@ -8,6 +8,7 @@
 			"YaronSh"
 		]
 	},
+	"emailauthorization-desc": "אישור משתמשים לפי דואר אלקטרוני",
 	"emailauthorization-config-label-email": "כתובת דוא\"ל",
 	"emailauthorization-config-label-username": "שם משתמש",
 	"emailauthorization-config-label-realname": "שם אמיתי",
@@ -25,5 +26,15 @@
 	"emailauthorization-config-button-add": "הוספה",
 	"emailauthorization-config-button-revoke": "שלילה",
 	"emailauthorization-request-button-submit": "שליחה",
-	"emailauthorization-request-invalidemail": "כתובת דוא\"ל לא תקינה: $1"
+	"emailauthorization-request-invalidemail": "כתובת דוא\"ל לא תקינה: $1",
+	"emailauthorization-approve-label-email": "כתובת דוא\"ל",
+	"emailauthorization-approve-label-extra": "שדות נוספים",
+	"emailauthorization-approve-label-action": "פעולות",
+	"emailauthorization-approve-button-approve": "לאשר",
+	"emailauthorization-approve-button-reject": "לדחות",
+	"emailauthorization-approve-button-next": "הבא",
+	"emailauthorization-approve-button-previous": "הקודם",
+	"emailauthorization-approve-norequestsfound": "לא נמצאו בקשות חשבון.",
+	"emailauthorization-approve-approved": "אישור של $1.",
+	"emailauthorization-approve-rejected": "דחייה של $1."
 }
