@@ -9,12 +9,16 @@
 	"emailauthorization-config-label-userpage": "Uzero-pagino",
 	"emailauthorization-config-value-yes": "yes",
 	"emailauthorization-config-value-no": "no",
+	"emailauthorization-config-button-next": "Sequanta",
+	"emailauthorization-config-button-previous": "Antea",
 	"emailauthorization-config-button-search": "Serchez",
 	"emailauthorization-config-button-add": "Adjuntez",
 	"emailauthorization-request-label-email": "E-postal adreso",
 	"emailauthorization-request-button-submit": "Sendar",
 	"emailauthorization-approve-label-email": "E-postal adreso",
 	"emailauthorization-approve-button-approve": "Aprobar",
+	"emailauthorization-approve-button-next": "Sequanta",
+	"emailauthorization-approve-button-previous": "Antea",
 	"emailauthorization-approve-approved": "Aprobita $1.",
 	"emailauthorization-approve-rejected": "Neaceptita $1."
 }
