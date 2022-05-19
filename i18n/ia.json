@@ -64,5 +64,16 @@
 	"apihelp-emailauthorization-getall-param-offset": "Numero de registros a saltar ante de adder los al insimul de resultatos.",
 	"apihelp-emailauthorization-getall-param-limit": "Numero maxime de resultatos a retornar.",
 	"apihelp-emailauthorization-getall-param-search": "Specifica de retornar solo resultatos que contine iste texto.",
-	"apihelp-emailauthorization-getall-param-columns": "Lista separate per barras vertical de identificatores de columna in le tabella generate."
+	"apihelp-emailauthorization-getall-param-columns": "Lista separate per barras vertical de identificatores de columna in le tabella generate.",
+	"apihelp-emailauthorization-getall-param-order": "Lista, separate per barras vertical, de optiones de ordinamento, indexate per numero integre.",
+	"apihelp-emailauthorization-getall-standard-example": "Cercar le prime dece usatores, ordinate per adresse de e-mail.",
+	"apihelp-emailauthorization-getauthorized-summary": "Retornar tote le adresses e dominios de e-mail autorisate, includente le usatores pro le adresses autorisate.",
+	"apihelp-emailauthorization-getauthorized-description": "Retornar tote le adresses e dominios de e-mail autorisate, includente le usatores pro adresses autorisate.",
+	"apihelp-emailauthorization-getauthorized-param-draw": "Le valor a includer in le responsa. Usate pro mantener le ordinamento.",
+	"apihelp-emailauthorization-getauthorized-param-offset": "Numero de registros a saltar ante de adder los al insimul de resultatos.",
+	"apihelp-emailauthorization-getauthorized-param-limit": "Numero maxime de resultatos a retornar.",
+	"apihelp-emailauthorization-getauthorized-param-search": "Specifica de retornar solo resultatos que contine iste texto.",
+	"apihelp-emailauthorization-getauthorized-param-columns": "Lista, separate per barras vertical, de identificatores de columna in le tabella generate.",
+	"apihelp-emailauthorization-getauthorized-param-order": "Lista, separate per barras vertical, de optiones de ordinamento, indexate per numero integre.",
+	"apihelp-emailauthorization-getauthorized-standard-example": "Cercar le prime dece adresses e dominios de e-mail autorisate, ordinate per adresse."
 }
