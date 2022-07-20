@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Tranve"
+			"Tranve",
+			"Diskdance",
+			"Tr jason"
 		]
 	},
 	"emailauthorization-desc": "使用电子邮件验证用户",
@@ -57,5 +59,6 @@
 	"emailauthorization-approve-button-previous": "上一步",
 	"emailauthorization-approve-norequestsfound": "未找到账号申请。",
 	"emailauthorization-approve-approved": "已通过$1。",
-	"emailauthorization-approve-rejected": "已拒绝$1。"
+	"emailauthorization-approve-rejected": "已拒绝$1。",
+	"emailauthorization-api-error-permissions": "拒绝访问。"
 }
