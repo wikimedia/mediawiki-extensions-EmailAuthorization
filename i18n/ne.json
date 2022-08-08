@@ -7,6 +7,7 @@
 	},
 	"emailauthorizationconfig": "इमेल पुष्टीकरण ड्यासबोर्ड",
 	"emailauthorization-config-label-email": "इमेल ठेगाना",
+	"emailauthorization-config-button-search": "खोज्नुहोस्",
 	"emailauthorization-config-button-add": "थप्नुहोस्",
 	"emailauthorizationrequest": "एउटा खाता अनुरोध गर्नुहोस्",
 	"emailauthorization-request-label-email": "इमेल ठेगाना",
