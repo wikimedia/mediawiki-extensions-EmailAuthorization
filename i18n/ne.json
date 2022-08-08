@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nirajan pant"
+			"Nirajan pant",
+			"Bada Kaji"
 		]
 	},
 	"emailauthorizationconfig": "इमेल पुष्टीकरण ड्यासबोर्ड",
 	"emailauthorization-config-label-email": "इमेल ठेगाना",
+	"emailauthorization-config-button-add": "थप्नुहोस्",
 	"emailauthorizationrequest": "एउटा खाता अनुरोध गर्नुहोस्",
 	"emailauthorization-request-label-email": "इमेल ठेगाना",
 	"emailauthorization-request-button-submit": "पेश",
