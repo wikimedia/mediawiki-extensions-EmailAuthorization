@@ -20,6 +20,8 @@
 	"emailauthorization-request-label-email": "نشانی ایمیل",
 	"emailauthorization-request-button-submit": "ثبت",
 	"emailauthorization-request-invalidemail": "نشانی ایمیل نامعتبر: $1",
+	"echo-category-title-emailauthorization-notification-category": "درخواست‌های حساب تازه",
+	"notification-header-emailauthorization-account-request": "درخواستی برای یک حساب کاربری تازه ثبت شده‌است.",
 	"notification-subject-emailauthorization-account-request": "درخواست حساب تازه.",
 	"notification-body-emailauthorization-account-request": "$1 یک حساب درخواست کرده‌است.",
 	"notification-link-label-emailauthorization-account-request": "رفتن به صفحهٔ تأیید حساب",
@@ -32,5 +34,6 @@
 	"emailauthorization-approve-button-previous": "قبلی",
 	"emailauthorization-approve-norequestsfound": "هیچ درخواست حسابی یافت نشد.",
 	"emailauthorization-approve-approved": "$1 تأیید شد.",
-	"emailauthorization-approve-rejected": "$1 رد شد."
+	"emailauthorization-approve-rejected": "$1 رد شد.",
+	"emailauthorization-api-error-permissions": "اجازه داده نشد."
 }
