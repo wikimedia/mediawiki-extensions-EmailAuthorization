@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kendo13"
+			"Kendo13",
+			"Kareyac"
 		]
 	},
+	"emailauthorization-config-button-add": "Přidat",
 	"emailauthorizationrequest": "Požádat o účet",
 	"emailauthorizationapprove": "Povolit žádosti o účet"
 }
