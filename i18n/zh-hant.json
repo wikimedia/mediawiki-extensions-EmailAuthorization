@@ -22,7 +22,7 @@
 	"emailauthorization-config-label-username": "使用者名稱",
 	"emailauthorization-config-label-realname": "真實姓名",
 	"emailauthorization-config-label-userpage": "使用者頁面",
-	"emailauthorization-config-label-authorized": "已授權",
+	"emailauthorization-config-label-authorized": "已驗證",
 	"emailauthorization-config-value-domain": "電子郵件地址以 $1 作為結尾的所有使用者",
 	"emailauthorization-config-value-yes": "是",
 	"emailauthorization-config-value-no": "否",
