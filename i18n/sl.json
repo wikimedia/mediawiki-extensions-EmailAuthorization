@@ -13,6 +13,9 @@
 	"emailauthorization-config-button-add": "Dodaj",
 	"emailauthorization-request-button-submit": "Potrdi",
 	"emailauthorization-approve-label-action": "Dejanja",
+	"emailauthorization-approve-button-approve": "Odobri",
 	"emailauthorization-approve-button-next": "Naprej",
-	"emailauthorization-approve-button-previous": "Nazaj"
+	"emailauthorization-approve-button-previous": "Nazaj",
+	"emailauthorization-approve-approved": "Odobril/a $1.",
+	"emailauthorization-approve-rejected": "Zavrnil/a $1."
 }
