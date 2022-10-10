@@ -20,7 +20,7 @@
 	"emailauthorization-config-revoked": "L’autorisation de « $1 » a bien été révoquée.",
 	"emailauthorization-config-noauthfound": "Aucune adresse de courriel ou ni aucun domaine trouvé.",
 	"emailauthorization-config-nousersfound": "Aucun utilisateur trouvé.",
-	"emailauthorization-config-invalidemail": "« $1 » n'est ni une adresse de courriel ni un domaine valide.",
+	"emailauthorization-config-invalidemail": "« $1 » n’est pas une adresse de courriel ou un nom de domaine valide.",
 	"emailauthorization-config-label-email": "Adresse de courriel",
 	"emailauthorization-config-label-username": "Nom d’utilisateur",
 	"emailauthorization-config-label-realname": "Vrai nom",
