@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Jon Harald Søby",
+			"Kingu",
 			"Pmt"
 		]
 	},
@@ -16,7 +17,7 @@
 	"emailauthorization-config-noauthfound": "Ingen autoriserte epostadresser eller domener funnet.",
 	"emailauthorization-config-nousersfound": "Ingen brukere funnet.",
 	"emailauthorization-config-invalidemail": "«$1» er ikke en gyldig epostadresse eller domene.",
-	"emailauthorization-config-label-email": "Epostadresse",
+	"emailauthorization-config-label-email": "E-postadresse",
 	"emailauthorization-config-label-username": "Brukernavn",
 	"emailauthorization-config-label-realname": "Virkelig navn",
 	"emailauthorization-config-label-userpage": "Brukerside",
@@ -36,7 +37,7 @@
 	"action-emailauthorizationconfig": "konfigurere epostautorisering",
 	"emailauthorizationrequest": "Be om en konto",
 	"emailauthorization-request-instructions": "Fyll inn filtene og send inn for å be om en konto. Felt som er merket med * er obligatoriske.",
-	"emailauthorization-request-label-email": "Epostadresse",
+	"emailauthorization-request-label-email": "E-postadresse",
 	"emailauthorization-request-button-submit": "Send",
 	"emailauthorization-request-requested": "En konto har blitt forespurt for epostadressen $1.",
 	"emailauthorization-request-missingmandatory": "Manglende obligatorisk(e) felt.",
@@ -48,7 +49,7 @@
 	"notification-body-emailauthorization-account-request": "$1 har bedt om en konto.",
 	"notification-link-label-emailauthorization-account-request": "Besøk kontogodkjenningssiden",
 	"emailauthorizationapprove": "Godkjenn kontoforespørsler",
-	"emailauthorization-approve-label-email": "Epostadresse",
+	"emailauthorization-approve-label-email": "E-postadresse",
 	"emailauthorization-approve-label-extra": "Ekstra felter",
 	"emailauthorization-approve-label-action": "Handlinger",
 	"emailauthorization-approve-button-approve": "Godkjenn",
