@@ -6,7 +6,7 @@
 	},
 	"emailauthorization-desc": "Autorizar utilizadores pelo endereço de correio eletrónico",
 	"emailauthorizationconfig": "Painel de controlo da autorização pelo correio eletrónico",
-	"emailauthorization-config-instructions": "Para adicionar ou revogar todos os endereços de correio eletrónico de um domínio, use '@domínio'', onde ''domínio'' é o domínio do correio eletrónico. Isto não afetará outros endereços de correio eletrónico adicionados explicitamente nesse domínio.",
+	"emailauthorization-config-instructions": "Para adicionar ou revogar todos os endereços de correio eletrónico de um domínio, use ''@domínio'', onde ''domínio'' é o domínio do correio eletrónico. Isto não afetará outros endereços de correio eletrónico adicionados explicitamente nesse domínio.",
 	"emailauthorization-config-authorized": "''$1'' está autorizado.",
 	"emailauthorization-config-notauthorized": "''$1'' não está autorizado.",
 	"emailauthorization-config-added": "Autorizou ''$1''.",
