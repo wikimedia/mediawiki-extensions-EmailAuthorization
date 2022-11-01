@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
+	"emailauthorization-config-label-username": "Օգտանուն",
 	"emailauthorization-config-value-yes": "այո",
 	"emailauthorization-config-button-search": "Որոնել",
 	"emailauthorization-config-button-add": "Ավելացնել",
