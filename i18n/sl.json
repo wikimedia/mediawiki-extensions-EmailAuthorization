@@ -4,6 +4,7 @@
 			"Eleassar"
 		]
 	},
+	"emailauthorization-config-label-email": "E-poštni naslov",
 	"emailauthorization-config-label-username": "Uporabniško ime",
 	"emailauthorization-config-button-next": "Naprej",
 	"emailauthorization-config-button-previous": "Nazaj",
