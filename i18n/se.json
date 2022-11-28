@@ -4,8 +4,11 @@
 			"Yupik"
 		]
 	},
+	"emailauthorization-config-label-email": "E-poastačujuhus",
 	"emailauthorization-config-label-userpage": "Geavaheaddjisiidu",
 	"emailauthorization-config-button-next": "Čuovvovaš",
 	"emailauthorization-config-button-search": "Oza",
+	"emailauthorization-request-label-email": "E-poastačujuhus",
+	"emailauthorization-approve-label-email": "E-poastačujuhus",
 	"emailauthorization-approve-button-next": "Čuovvovaš"
 }
