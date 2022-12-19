@@ -4,7 +4,8 @@
 			"Corainn",
 			"Kly",
 			"LNDDYL",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"捍粵者"
 		]
 	},
 	"emailauthorization-desc": "透過電子郵件地址驗證使用者",
@@ -13,7 +14,7 @@
 	"emailauthorization-config-authorized": "「$1」已驗證。",
 	"emailauthorization-config-notauthorized": "「$1」未驗證。",
 	"emailauthorization-config-added": "成功驗證「$1」。",
-	"emailauthorization-config-alreadyauthorized": "「$1」已被驗證。",
+	"emailauthorization-config-alreadyauthorized": "「$1」已驗證。",
 	"emailauthorization-config-revoked": "成功從「$1」撤銷驗證。",
 	"emailauthorization-config-noauthfound": "找不到驗證電子郵件地址或網域。",
 	"emailauthorization-config-nousersfound": "查無使用者。",
