@@ -4,5 +4,7 @@
 			"Kareyac"
 		]
 	},
-	"emailauthorization-config-value-yes": "da"
+	"emailauthorization-config-value-yes": "da",
+	"emailauthorization-config-button-search": "Pretraži",
+	"action-emailauthorizationconfig": "konfigurišete ovlašćenje imejlom"
 }
