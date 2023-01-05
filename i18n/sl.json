@@ -7,6 +7,7 @@
 	"emailauthorization-config-label-email": "E-poštni naslov",
 	"emailauthorization-config-label-username": "Uporabniško ime",
 	"emailauthorization-config-label-userpage": "Uporabniška stran",
+	"emailauthorization-config-legend-search": "Iskanje e-poštnih naslovov",
 	"emailauthorization-config-button-next": "Naprej",
 	"emailauthorization-config-button-previous": "Nazaj",
 	"emailauthorization-config-button-search": "Išči",
