@@ -13,6 +13,7 @@
 	"emailauthorization-config-button-search": "Išči",
 	"emailauthorization-config-button-add": "Dodaj",
 	"emailauthorization-request-button-submit": "Potrdi",
+	"emailauthorization-request-missingmandatory": "Manjka(jo) obvezna(e) vrednost(i) polja.",
 	"emailauthorization-request-error": "Pri zahtevanju računa za $1 je prišlo do napake.",
 	"notification-link-label-emailauthorization-account-request": "Obišči stran za odobritev računa",
 	"emailauthorization-approve-label-action": "Dejanja",
