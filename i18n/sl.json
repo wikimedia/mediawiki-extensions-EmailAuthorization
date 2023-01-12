@@ -4,23 +4,30 @@
 			"Eleassar"
 		]
 	},
+	"emailauthorization-config-nousersfound": "Ni najdenih uporabnikov.",
 	"emailauthorization-config-label-email": "E-poštni naslov",
 	"emailauthorization-config-label-username": "Uporabniško ime",
+	"emailauthorization-config-label-realname": "Pravo ime",
 	"emailauthorization-config-label-userpage": "Uporabniška stran",
 	"emailauthorization-config-legend-search": "Iskanje e-poštnih naslovov",
 	"emailauthorization-config-button-next": "Naprej",
 	"emailauthorization-config-button-previous": "Nazaj",
 	"emailauthorization-config-button-search": "Išči",
 	"emailauthorization-config-button-add": "Dodaj",
+	"emailauthorization-config-button-showall": "Prikaži vse uporabnike vikija",
+	"emailauthorization-request-label-email": "E-poštni naslov",
 	"emailauthorization-request-button-submit": "Potrdi",
 	"emailauthorization-request-missingmandatory": "Manjka(jo) obvezna(e) vrednost(i) polja.",
 	"emailauthorization-request-error": "Pri zahtevanju računa za $1 je prišlo do napake.",
 	"notification-link-label-emailauthorization-account-request": "Obišči stran za odobritev računa",
+	"emailauthorization-approve-label-email": "E-poštni naslov",
+	"emailauthorization-approve-label-extra": "Dodatna polja",
 	"emailauthorization-approve-label-action": "Dejanja",
 	"emailauthorization-approve-button-approve": "Odobri",
 	"emailauthorization-approve-button-reject": "Zavrni",
 	"emailauthorization-approve-button-next": "Naprej",
 	"emailauthorization-approve-button-previous": "Nazaj",
 	"emailauthorization-approve-approved": "Odobril_a $1.",
-	"emailauthorization-approve-rejected": "Zavrnil_a $1."
+	"emailauthorization-approve-rejected": "Zavrnil_a $1.",
+	"emailauthorization-api-error-permissions": "Dovoljenje zavrnjeno."
 }
