@@ -24,6 +24,11 @@ namespace MediaWiki\Extension\EmailAuthorization;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
 
+// PHP unit does not understand code coverage for this file
+// as the @covers annotation cannot cover a specific file
+// This is fully tested in ServiceWiringTest.php
+// @codeCoverageIgnoreStart
+
 return [
 	'EmailAuthorizationStore' =>
 		static function ( MediaWikiServices $services ): EmailAuthorizationStore {
@@ -39,3 +44,5 @@ return [
 			);
 		},
 ];
+
+// @codeCoverageIgnoreEnd
