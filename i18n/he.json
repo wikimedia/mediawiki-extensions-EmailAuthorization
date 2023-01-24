@@ -45,8 +45,8 @@
 	"apihelp-emailauthorization-getall-param-offset": "על כמה הרשומות לדלג לפני הוספה לערכת התוצאה.",
 	"apihelp-emailauthorization-getall-param-limit": "מספר התוצאות המרבי להחזרה.",
 	"apihelp-emailauthorization-getall-param-search": "יש להגדיר את זה כדי להחזיר רק תוצאות שמכילות את המחרוזת הזאת.",
-	"apihelp-emailauthorization-getall-param-columns": "רשימה מופרדת בקווים אנכיים של מזהי עמודות בטבלת הפלט.",
-	"apihelp-emailauthorization-getall-param-order": "רשימה מופרדת בקווים אנכיים של אפשרויות מיון ממוינות לפי מספרים שלמים.",
+	"apihelp-emailauthorization-getall-param-columns": "רשימה מופרדת בקווים ניצבים של מזהי עמודות בטבלת הפלט.",
+	"apihelp-emailauthorization-getall-param-order": "רשימה מופרדת בקווים ניצבים של אפשרויות מיון ממוינות לפי מספרים שלמים.",
 	"apihelp-emailauthorization-getall-standard-example": "שאילתה בעבור עשרת המשתמשים הראשונים, ממוינים לפי כתובת דואר אלקטרוני.",
 	"apihelp-emailauthorization-getauthorized-summary": "החזרת כל כתובות הדואר האלקטרוני והתחומים, כולל משתמשים עבור כתובות מאושרות.",
 	"apihelp-emailauthorization-getauthorized-description": "החזרת כל כתובות הדואר האלקטרוני המאושרות והתחומים, כולל משתמשים בעבור כתובות מאושרות.",
@@ -54,7 +54,7 @@
 	"apihelp-emailauthorization-getauthorized-param-offset": "על כמה הרשומות לדלג לפני הוספה לערכת התוצאה.",
 	"apihelp-emailauthorization-getauthorized-param-limit": "מספר התוצאות המרבי להחזרה.",
 	"apihelp-emailauthorization-getauthorized-param-search": "יש להגדיר את זה כדי להחזיר תוצאות שכוללות רק את המחרוזת הזאת.",
-	"apihelp-emailauthorization-getauthorized-param-columns": "רשימה מופרדת בקווים אנכיים של מזהי עמודות בטבלת הפלט.",
-	"apihelp-emailauthorization-getauthorized-param-order": "רשימה מופרדת בקווים אנכיים של אפשרויות מיון ממוינות לפי מספרים שלמים.",
+	"apihelp-emailauthorization-getauthorized-param-columns": "רשימה מופרדת בקווים ניצבים של מזהי עמודות בטבלת הפלט.",
+	"apihelp-emailauthorization-getauthorized-param-order": "רשימה מופרדת בקווים ניצבים של אפשרויות מיון ממוינות לפי מספרים שלמים.",
 	"apihelp-emailauthorization-getauthorized-standard-example": "שאילתה בעבור עשרת כתובות הדואר האלקטרוני והתחומים המאושרים הראשונים, ממוינים לפי כתובת."
 }
