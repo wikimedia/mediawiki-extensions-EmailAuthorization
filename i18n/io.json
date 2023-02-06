@@ -6,6 +6,7 @@
 		]
 	},
 	"emailauthorization-config-label-email": "E-postal adreso",
+	"emailauthorization-config-label-username": "Uzero-nomo",
 	"emailauthorization-config-label-userpage": "Uzero-pagino",
 	"emailauthorization-config-button-next": "Sequanta",
 	"emailauthorization-config-button-previous": "Antea",
