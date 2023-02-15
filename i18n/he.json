@@ -5,7 +5,8 @@
 			"Steeve815",
 			"Strayblues",
 			"YaronSh",
-			"Ex-Diktator"
+			"Ex-Diktator",
+			"שוקו מוקה"
 		]
 	},
 	"emailauthorization-desc": "אישור משתמשים לפי דואר אלקטרוני",
@@ -25,6 +26,7 @@
 	"emailauthorization-config-button-add": "הוספה",
 	"emailauthorization-config-button-revoke": "שלילה",
 	"emailauthorizationrequest": "בקשת חשבון",
+	"emailauthorization-request-label-email": "כתובת דוא\"ל",
 	"emailauthorization-request-button-submit": "שליחה",
 	"emailauthorization-request-invalidemail": "כתובת דוא\"ל לא תקינה: $1",
 	"emailauthorizationapprove": "אישור בקשות חשבון",
