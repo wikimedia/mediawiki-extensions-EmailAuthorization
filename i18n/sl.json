@@ -4,6 +4,7 @@
 			"Eleassar"
 		]
 	},
+	"emailauthorization-config-instructions": "Da dodate ali prekličete vse e-poštne naslove v domeni, uporabite »@domain«, pri čemer je »domain« e-poštna domena. To ne bo vplivalo na druge e-poštne naslove, ki so izrecno dodani v tej domeni.",
 	"emailauthorization-config-nousersfound": "Ni najdenih uporabnikov.",
 	"emailauthorization-config-label-email": "E-poštni naslov",
 	"emailauthorization-config-label-username": "Uporabniško ime",
