@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
-			"MathXplore"
+			"MathXplore",
+			"Shirayuki"
 		]
 	},
 	"emailauthorization-config-label-username": "利用者名",
 	"emailauthorization-config-button-add": "追加",
 	"emailauthorizationrequest": "アカウント申請",
 	"emailauthorizationapprove": "アカウント申請を有効にする",
+	"emailauthorization-approve-label-action": "操作",
 	"emailauthorization-api-error-permissions": "許可されていません。"
 }
