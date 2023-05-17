@@ -3,7 +3,9 @@
 		"authors": [
 			"ديفيد",
 			"محمد أحمد عبد الفتاح",
-			"FiberAhmed"
+			"FiberAhmed",
+			"Alshamiri1",
+			"أَحمد"
 		]
 	},
 	"emailauthorization-desc": "تفويض المستخدمين عن طريق عنوان البريد الإلكتروني",
@@ -58,5 +60,24 @@
 	"emailauthorization-approve-button-previous": "السابق",
 	"emailauthorization-approve-norequestsfound": "لم يتم العثور على طلبات حساب.",
 	"emailauthorization-approve-approved": "تمت الموافقة على $1.",
-	"emailauthorization-approve-rejected": "تم رفض $1."
+	"emailauthorization-approve-rejected": "تم رفض $1.",
+	"emailauthorization-api-error-permissions": "الإذن مرفوض.",
+	"apihelp-emailauthorization-getall-summary": "قم بإرجاع المعلومات المتعلقة بتفويض البريد الإلكتروني لجميع المستخدمين.",
+	"apihelp-emailauthorization-getall-description": "قم بإرجاع المعلومات المتعلقة بتفويض البريد الإلكتروني لجميع المستخدمين.",
+	"apihelp-emailauthorization-getall-param-draw": "القيمة المراد تضمينها في الرد. تستخدم للحفاظ على الطلب.",
+	"apihelp-emailauthorization-getall-param-offset": "عدد السجلات المطلوب تخطيها قبل إضافتها إلى مجموعة النتائج.",
+	"apihelp-emailauthorization-getall-param-limit": "العدد الأقصى للنتائج المراد إرجاعها.",
+	"apihelp-emailauthorization-getall-param-search": "حدد لإرجاع النتائج التي تحتوي على هذه السلسلة فقط.",
+	"apihelp-emailauthorization-getall-param-columns": "قائمة محددة بأنابيب لمعرفات الأعمدة في جدول الإخراج.",
+	"apihelp-emailauthorization-getall-param-order": "قائمة بخيارات الترتيب المفهرسة بالأرقام الصحيحة.",
+	"apihelp-emailauthorization-getall-standard-example": "استعلام عن أول عشرة مستخدمين ، مرتبة حسب عنوان البريد الإلكتروني.",
+	"apihelp-emailauthorization-getauthorized-summary": "قم بإرجاع جميع عناوين البريد الإلكتروني والمجالات المصرح بها ، بما في ذلك المستخدمين للحصول على عناوين مرخصة.",
+	"apihelp-emailauthorization-getauthorized-description": "قم بإرجاع جميع عناوين البريد الإلكتروني والمجالات المصرح بها ، بما في ذلك المستخدمين للحصول على عناوين مرخصة.",
+	"apihelp-emailauthorization-getauthorized-param-draw": "القيمة المراد تضمينها في الرد. تستخدم للحفاظ على الطلب.",
+	"apihelp-emailauthorization-getauthorized-param-offset": "عدد السجلات المطلوب تخطيها قبل إضافتها إلى مجموعة النتائج.",
+	"apihelp-emailauthorization-getauthorized-param-limit": "العدد الأقصى للنتائج المُرجعة",
+	"apihelp-emailauthorization-getauthorized-param-search": "حدد لإرجاع النتائج التي تحتوي على هذه السلسلة فقط.",
+	"apihelp-emailauthorization-getauthorized-param-columns": "قائمة محددة بأنابيب لمعرفات الأعمدة في جدول الإخراج.",
+	"apihelp-emailauthorization-getauthorized-param-order": "قائمة بخيارات الترتيب المفهرسة بالأرقام الصحيحة.",
+	"apihelp-emailauthorization-getauthorized-standard-example": "الاستعلام عن أول عشرة عناوين بريد إلكتروني ومجالات معتمدة ، مرتبة حسب العنوان."
 }
