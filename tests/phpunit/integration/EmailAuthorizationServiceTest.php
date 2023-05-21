@@ -17,7 +17,7 @@ class EmailAuthorizationServiceTest extends MediaWikiIntegrationTestCase {
 		$this->tablesUsed = [ 'emailauth' ];
 	}
 
-	public function provideIsUserAuthorized() {
+	public static function provideIsUserAuthorized() {
 		yield [
 			false,
 			false,
