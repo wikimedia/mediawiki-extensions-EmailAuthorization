@@ -60,7 +60,6 @@
 	"emailauthorization-approve-rejected": "$1 abgelehnt.",
 	"emailauthorization-api-error-permissions": "Zugriff verweigert",
 	"apihelp-emailauthorization-getall-summary": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer.",
-	"apihelp-emailauthorization-getall-description": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer.",
 	"apihelp-emailauthorization-getall-param-limit": "Maximale Anzahl zurückzugebender Ergebnisse.",
 	"apihelp-emailauthorization-getauthorized-param-limit": "Maximale Anzahl zurückzugebender Ergebnisse."
 }

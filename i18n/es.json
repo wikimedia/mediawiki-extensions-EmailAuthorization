@@ -57,7 +57,6 @@
 	"emailauthorization-approve-rejected": "Rechazado $1.",
 	"emailauthorization-api-error-permissions": "Permiso denegado.",
 	"apihelp-emailauthorization-getall-summary": "Devuelve la información relativa a la autorización del correo electrónico para todos los usuarios.",
-	"apihelp-emailauthorization-getall-description": "Devuelve la información relativa a la autorización del correo electrónico para todos los usuarios.",
 	"apihelp-emailauthorization-getall-param-draw": "Valor a incluir en la respuesta. Se utiliza para mantener el orden.",
 	"apihelp-emailauthorization-getall-param-limit": "Número máximo de resultados a devolver.",
 	"apihelp-emailauthorization-getall-param-search": "Especifica que sólo se devuelvan resultados que contengan esta cadena.",
