@@ -6,6 +6,7 @@
 	},
 	"emailauthorization-config-label-username": "Потребителско име",
 	"emailauthorization-config-label-realname": "Истинско име",
+	"emailauthorization-config-label-userpage": "Потребителска страница",
 	"emailauthorization-config-value-yes": "да",
 	"emailauthorization-config-value-no": "не",
 	"emailauthorization-config-button-search": "Търсене",
