@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"emailauthorization-desc": "Autorizacija korisnika pomoću adrese e-pošte",
+	"emailauthorization-config-button-next": "Sljedeće",
+	"emailauthorization-config-button-previous": "Prethodno",
+	"emailauthorization-config-button-search": "Traži",
+	"emailauthorization-config-button-add": "Dodaj",
+	"emailauthorization-config-button-revoke": "Opozovi",
+	"emailauthorization-config-button-showauth": "Prikaži autorizirane adrese e-pošte ili domene",
+	"emailauthorization-config-button-showall": "Prikaži sve korisnike wikija",
+	"right-emailauthorizationconfig": "Konfiguriranje autorizacije korisnika pomoću adrese e-pošte",
+	"action-emailauthorizationconfig": "konfigurirate autorizaciju e-poštom",
+	"emailauthorization-request-label-email": "Adresa e-pošte",
+	"emailauthorization-request-button-submit": "Unesi",
+	"emailauthorization-request-invalidemail": "Neispravna adresa e-pošte: $1"
+}
