@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Tranve"
+			"Tranve",
+			"Diskdance",
+			"LittlePaw365",
+			"Tr jason"
 		]
 	},
-	"emailauthorization-desc": "使用电子邮件验证用户",
+	"emailauthorization-desc": "通过电子邮件地址授权用户",
 	"emailauthorizationconfig": "电子邮件验证控制面板",
 	"emailauthorization-config-instructions": "要添加或移除某一域名的所有电子邮件地址，可使用“@domain”，其中“domain”为电子邮件域名。这将不会影响其他明确添加到该域名的电子邮件地址。",
 	"emailauthorization-config-authorized": "“$1”已验证。",
@@ -53,11 +56,11 @@
 	"emailauthorization-approve-label-email": "电子邮件地址",
 	"emailauthorization-approve-label-extra": "额外字段",
 	"emailauthorization-approve-label-action": "操作",
-	"emailauthorization-approve-button-approve": "通过",
+	"emailauthorization-approve-button-approve": "批准",
 	"emailauthorization-approve-button-reject": "拒绝",
 	"emailauthorization-approve-button-next": "下一步",
 	"emailauthorization-approve-button-previous": "上一步",
 	"emailauthorization-approve-norequestsfound": "未找到账号申请。",
-	"emailauthorization-approve-approved": "已通过$1。",
+	"emailauthorization-approve-approved": "已批准$1。",
 	"emailauthorization-approve-rejected": "已拒绝$1。"
 }
