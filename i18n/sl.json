@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eleassar"
+			"Eleassar",
+			"Upwinxp"
 		]
 	},
 	"emailauthorization-desc": "Pooblaščajte uporabnike po e-poštnem naslovu",
@@ -55,8 +56,8 @@
 	"emailauthorization-approve-button-next": "Naprej",
 	"emailauthorization-approve-button-previous": "Nazaj",
 	"emailauthorization-approve-norequestsfound": "Ni najdenih prošenj za račun.",
-	"emailauthorization-approve-approved": "Odobril_a $1.",
-	"emailauthorization-approve-rejected": "Zavrnil_a $1.",
+	"emailauthorization-approve-approved": "Odobril/a $1.",
+	"emailauthorization-approve-rejected": "Zavrnil/a $1.",
 	"emailauthorization-api-error-permissions": "Dovoljenje zavrnjeno.",
 	"apihelp-emailauthorization-getall-summary": "Vrnitev informacij, ki se nanašajo na e-poštno pooblastitev, za vse uporabnike.",
 	"apihelp-emailauthorization-getall-param-draw": "Vrednost, ki naj bo vključena v odgovor. Uporablja se za vzdrževanje vrstnega reda.",
