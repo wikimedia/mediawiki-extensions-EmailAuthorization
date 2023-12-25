@@ -55,6 +55,6 @@
 	"emailauthorization-approve-button-next": "Naprej",
 	"emailauthorization-approve-button-previous": "Nazaj",
 	"emailauthorization-approve-norequestsfound": "Ni najdenih prošenj za račun.",
-	"emailauthorization-approve-approved": "Odobril/a $1.",
-	"emailauthorization-approve-rejected": "Zavrnil/a $1."
+	"emailauthorization-approve-approved": "Odobril_a $1.",
+	"emailauthorization-approve-rejected": "Zavrnil_a $1."
 }
