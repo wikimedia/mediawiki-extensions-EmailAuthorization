@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Aftabuzzaman",
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"Aishik Rehman"
 		]
 	},
 	"emailauthorization-desc": "ইমেল ঠিকানা দ্বারা ব্যবহারকারীদের অনুমোদন করে",
@@ -13,7 +14,7 @@
 	"emailauthorization-config-added": "''$1'' সফলভাবে অনুমোদিত হয়েছে।",
 	"emailauthorization-config-alreadyauthorized": "''$1'' ইতিমধ্যে অনুমোদিত।",
 	"emailauthorization-config-revoked": "''$1'' থেকে সফলভাবে অনুমোদন প্রত্যাহার করা হয়েছে।",
-	"emailauthorization-config-noauthfound": "কোন অনুমোদিত ইমেল ঠিকানা বা ডোমেন পাওয়া যায় নি।",
+	"emailauthorization-config-noauthfound": "কোনো অনুমোদিত ইমেল ঠিকানা বা ডোমেন পাওয়া যায় নি।",
 	"emailauthorization-config-nousersfound": "কোনো ব্যবহারকারী পাওয়া যায়নি।",
 	"emailauthorization-config-invalidemail": "''$1'' বৈধ ইমেইল ঠিকানা বা ডোমেন নয়।",
 	"emailauthorization-config-label-email": "ইমেইল ঠিকানা",
@@ -55,7 +56,7 @@
 	"emailauthorization-approve-button-reject": "প্রত্যাখ্যান করুন",
 	"emailauthorization-approve-button-next": "পরবর্তী",
 	"emailauthorization-approve-button-previous": "পূর্ববর্তী",
-	"emailauthorization-approve-norequestsfound": "কোন অ্যাকাউন্ট অনুরোধ পাওয়া যায়নি।",
+	"emailauthorization-approve-norequestsfound": "কোনো অ্যাকাউন্ট অনুরোধ পাওয়া যায়নি।",
 	"emailauthorization-approve-approved": "$1 অনুমোদিত।",
 	"emailauthorization-approve-rejected": "$1 প্রত্যাখ্যাত।"
 }
