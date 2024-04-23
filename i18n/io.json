@@ -15,6 +15,7 @@
 	"emailauthorization-request-label-email": "E-postal adreso",
 	"emailauthorization-request-button-submit": "Sendar",
 	"emailauthorization-approve-label-email": "E-postal adreso",
+	"emailauthorization-approve-label-action": "Agadi",
 	"emailauthorization-approve-button-approve": "Aprobar",
 	"emailauthorization-approve-button-next": "Sequanta",
 	"emailauthorization-approve-button-previous": "Antea",

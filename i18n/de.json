@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Metalhead64",
-			"TMg"
+			"TMg",
+			"TomatoCake"
 		]
 	},
 	"emailauthorization-desc": "Autorisiert Benutzer durch ihre E-Mail-Adresse",
@@ -62,5 +63,6 @@
 	"apihelp-emailauthorization-getall-summary": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer.",
 	"apihelp-emailauthorization-getall-description": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer.",
 	"apihelp-emailauthorization-getall-param-limit": "Maximale Anzahl zurückzugebender Ergebnisse.",
+	"apihelp-emailauthorization-getall-standard-example": "Abfrage der ersten zehn Benutzer, sortiert anhand der E-Mail-Adresse.",
 	"apihelp-emailauthorization-getauthorized-param-limit": "Maximale Anzahl zurückzugebender Ergebnisse."
 }
