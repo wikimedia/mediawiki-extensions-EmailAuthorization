@@ -5,7 +5,8 @@
 			"LittlePaw365",
 			"Liuxinyu970226",
 			"Tr jason",
-			"Tranve"
+			"Tranve",
+			"沈澄心"
 		]
 	},
 	"emailauthorization-desc": "通过电子邮件地址授权用户",
@@ -61,5 +62,6 @@
 	"emailauthorization-approve-norequestsfound": "未找到账号申请。",
 	"emailauthorization-approve-approved": "已批准$1。",
 	"emailauthorization-approve-rejected": "已拒绝$1。",
-	"emailauthorization-api-error-permissions": "拒绝访问。"
+	"emailauthorization-api-error-permissions": "拒绝访问。",
+	"apihelp-emailauthorization-getall-param-limit": "最大返回结果数。"
 }
