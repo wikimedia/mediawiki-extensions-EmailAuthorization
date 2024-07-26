@@ -4,6 +4,7 @@
 			"Mainframe98",
 			"McDutchie",
 			"Romaine",
+			"Siebrand",
 			"Xbaked potatox"
 		]
 	},
@@ -32,7 +33,7 @@
 	"emailauthorization-config-button-search": "Zoeken",
 	"emailauthorization-config-button-add": "Toevoegen",
 	"emailauthorization-config-button-revoke": "Intrekken",
-	"emailauthorization-config-button-showauth": "Geautoriseerde e-mailadressen en domeinen tonen",
+	"emailauthorization-config-button-showauth": "Geautoriseerde e-mailadressen en domeinen weergeven",
 	"emailauthorization-config-button-showall": "Toon alle wikigebruikers",
 	"right-emailauthorizationconfig": "Gebruikersautorisatie per e-mailadres configureren",
 	"action-emailauthorizationconfig": "gebruikersautorisatie per e-mailadres te configureren",
