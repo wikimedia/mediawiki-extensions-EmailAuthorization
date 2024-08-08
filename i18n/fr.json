@@ -7,7 +7,8 @@
 			"Thibaut120094",
 			"Urhixidur",
 			"Verdy p",
-			"Wladek92"
+			"Wladek92",
+			"Saimawnkham"
 		]
 	},
 	"emailauthorization-desc": "Autoriser les utilisateurs en fonctions des adresses courriel",
@@ -55,7 +56,7 @@
 	"emailauthorizationapprove": "Approuver les demandes de compte",
 	"emailauthorization-approve-label-email": "Adresse de courriel",
 	"emailauthorization-approve-label-extra": "Champs supplémentaires",
-	"emailauthorization-approve-label-action": "Actions",
+	"emailauthorization-approve-label-action": "လွင်ႈႁဵတ်းသၢင်ႈ",
 	"emailauthorization-approve-button-approve": "Approuver",
 	"emailauthorization-approve-button-reject": "Rejeter",
 	"emailauthorization-approve-button-next": "Suivant",
