@@ -3,7 +3,8 @@
 		"authors": [
 			"Metalhead64",
 			"TMg",
-			"TomatoCake"
+			"TomatoCake",
+			"Justman10000"
 		]
 	},
 	"emailauthorization-desc": "Autorisiert Benutzer durch ihre E-Mail-Adresse",
@@ -62,7 +63,19 @@
 	"emailauthorization-api-error-permissions": "Zugriff verweigert",
 	"apihelp-emailauthorization-getall-summary": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer.",
 	"apihelp-emailauthorization-getall-description": "Rückgabe von Informationen über die E-Mail-Autorisierung für alle Benutzer.",
+	"apihelp-emailauthorization-getall-param-draw": "Wert, der in die Antwort aufgenommen wird. Wird verwendet, um die Reihenfolge beizubehalten.",
+	"apihelp-emailauthorization-getall-param-offset": "Anzahl der Datensätze, die übersprungen werden sollen, bevor sie der Ergebnismenge hinzugefügt werden.",
 	"apihelp-emailauthorization-getall-param-limit": "Maximale Anzahl zurückzugebender Ergebnisse.",
+	"apihelp-emailauthorization-getall-param-search": "Lege fest, dass nur Ergebnisse zurückgegeben werden, die diese Zeichenfolge enthalten.",
+	"apihelp-emailauthorization-getall-param-columns": "Pipe-getrennte Liste der Spaltenbezeichner in der Ausgabetabelle.",
+	"apihelp-emailauthorization-getall-param-order": "Pipe-getrennte Liste von ganzzahlig indizierten Bestelloptionen.",
 	"apihelp-emailauthorization-getall-standard-example": "Abfrage der ersten zehn Benutzer, sortiert anhand der E-Mail-Adresse.",
-	"apihelp-emailauthorization-getauthorized-param-limit": "Maximale Anzahl zurückzugebender Ergebnisse."
+	"apihelp-emailauthorization-getauthorized-summary": "Gib alle autorisierten E-Mail-Adressen und Domänen zurück, einschließlich der Benutzer für autorisierte Adressen.",
+	"apihelp-emailauthorization-getauthorized-param-draw": "Wert, der in die Antwort aufgenommen wird. Wird verwendet, um die Reihenfolge beizubehalten.",
+	"apihelp-emailauthorization-getauthorized-param-offset": "Anzahl der Datensätze, die übersprungen werden sollen, bevor sie der Ergebnismenge hinzugefügt werden.",
+	"apihelp-emailauthorization-getauthorized-param-limit": "Maximale Anzahl zurückzugebender Ergebnisse.",
+	"apihelp-emailauthorization-getauthorized-param-search": "Lege fest, dass nur Ergebnisse zurückgegeben werden, die diese Zeichenfolge enthalten.",
+	"apihelp-emailauthorization-getauthorized-param-columns": "Pipe-getrennte Liste der Spaltenbezeichner in der Ausgabetabelle.",
+	"apihelp-emailauthorization-getauthorized-param-order": "Pipe-getrennte Liste von ganzzahlig indizierten Sortieroptionen.",
+	"apihelp-emailauthorization-getauthorized-standard-example": "Abfrage der ersten zehn autorisierten E-Mail-Adressen und Domänen, geordnet nach Adresse."
 }
