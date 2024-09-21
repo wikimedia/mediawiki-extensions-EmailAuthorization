@@ -21,6 +21,7 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class EmailAuthorizationStore {
@@ -29,7 +30,7 @@ class EmailAuthorizationStore {
 	 * @return bool
 	 */
 	public function insertEmail( string $email ): bool {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->upsert(
 			'emailauth',
 			[
@@ -51,7 +52,7 @@ class EmailAuthorizationStore {
 	 * @return bool
 	 */
 	public function deleteEmail( string $email ): bool {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'emailauth',
 			[
@@ -67,7 +68,7 @@ class EmailAuthorizationStore {
 	 * @return bool
 	 */
 	public function isEmailAuthorized( ?string $email ): bool {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		$row = $dbr->selectRow(
 			'emailauth',
 			[
@@ -85,7 +86,7 @@ class EmailAuthorizationStore {
 	 * @return int
 	 */
 	public function getAuthorizedEmailsCount(): int {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		return $dbr->estimateRowCount( 'emailauth' );
 	}
 
@@ -104,7 +105,7 @@ class EmailAuthorizationStore {
 		array $columns,
 		array $order
 	): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		$orderOptions = array_map( static function ( $orderOption ) use ( $columns ) {
 			$validOption = preg_match( "/(\d+)(asc|desc)/i", $orderOption, $matches );
 			if ( $validOption === 1 ) {
@@ -169,7 +170,7 @@ class EmailAuthorizationStore {
 	 * @return IResultWrapper
 	 */
 	public function getUserInfo( string $email ): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		return $dbr->select(
 			'user',
 			[
@@ -190,7 +191,7 @@ class EmailAuthorizationStore {
 	 * @return int
 	 */
 	public function getUsersCount(): int {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		return $dbr->estimateRowCount( 'user' );
 	}
 
@@ -209,7 +210,7 @@ class EmailAuthorizationStore {
 		array $columns,
 		array $order
 	): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		$orderOptions = array_map( static function ( $orderOption ) use ( $columns ) {
 			$validOption = preg_match( "/(\d+)(asc|desc)/i", $orderOption, $matches );
 			if ( $validOption === 1 ) {
@@ -263,7 +264,7 @@ class EmailAuthorizationStore {
 	 * @return IResultWrapper
 	 */
 	public function getRequests( string $limit, string $offset ): IResultWrapper {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		return $dbr->select(
 			'emailrequest',
 			[
@@ -285,7 +286,7 @@ class EmailAuthorizationStore {
 	 * @return mixed|string
 	 */
 	public function getRequestFields( string $email ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		$request = $dbr->selectRow(
 			'emailrequest',
 			[
@@ -308,7 +309,7 @@ class EmailAuthorizationStore {
 	 * @return bool
 	 */
 	public function insertRequest( string $email, string $json ): bool {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->upsert(
 			'emailrequest',
 			[
@@ -328,7 +329,7 @@ class EmailAuthorizationStore {
 	 * @param string $email
 	 */
 	public function deleteRequest( string $email ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'emailrequest',
 			[
@@ -342,7 +343,7 @@ class EmailAuthorizationStore {
 	 * @return IResultWrapper
 	 */
 	public function getBureaucrats(): IResultWrapper {
-		$db = wfGetDB( DB_REPLICA );
+		$db = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		return $db->select(
 			[
 				'user_groups',
