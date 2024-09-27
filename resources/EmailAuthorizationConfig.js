@@ -90,15 +90,11 @@ const EmailAuthorizationConfig = ( function () {
 				offset: data.start,
 				limit: data.length,
 				search: data.search.value,
-				columns: data.columns.map( function ( c ) {
-					return c.data;
-				} ).join( '|' ),
-				order: data.order.map( function ( o ) {
-					return o.column.toString() + o.dir;
-				} ).join( '|' )
-			} ).done( function ( response ) {
+				columns: data.columns.map( ( c ) => c.data ).join( '|' ),
+				order: data.order.map( ( o ) => o.column.toString() + o.dir ).join( '|' )
+			} ).done( ( response ) => {
 				callback( response[ 'emailauthorization-getauthorized' ] );
-			} ).fail( function ( response ) {
+			} ).fail( ( response ) => {
 				callback( {
 					draw: data.draw,
 					recordsTotal: 0,
@@ -116,15 +112,11 @@ const EmailAuthorizationConfig = ( function () {
 				offset: data.start,
 				limit: data.length,
 				search: data.search.value,
-				columns: data.columns.map( function ( c ) {
-					return c.data;
-				} ).join( '|' ),
-				order: data.order.map( function ( o ) {
-					return o.column.toString() + o.dir;
-				} ).join( '|' )
-			} ).done( function ( response ) {
+				columns: data.columns.map( ( c ) => c.data ).join( '|' ),
+				order: data.order.map( ( o ) => o.column.toString() + o.dir ).join( '|' )
+			} ).done( ( response ) => {
 				callback( response[ 'emailauthorization-getall' ] );
-			} ).fail( function ( response ) {
+			} ).fail( ( response ) => {
 				callback( {
 					draw: data.draw,
 					recordsTotal: 0,
@@ -138,7 +130,7 @@ const EmailAuthorizationConfig = ( function () {
 }() );
 
 ( function () {
-	$( function () {
+	$( () => {
 		if ( mw.config.exists( 'EmailAuthorizationAuthorizedData' ) ) {
 			EmailAuthorizationConfig.initializeAuthorized();
 		} else if ( mw.config.exists( 'EmailAuthorizationUserData' ) ) {
