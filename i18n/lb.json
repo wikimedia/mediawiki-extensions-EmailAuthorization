@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Les Meloures",
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"emailauthorization-desc": "Benotzer duerch E-Mail-Adressen autoriséieren",
@@ -31,7 +32,7 @@
 	"emailauthorization-request-label-email": "E-Mail-Adress",
 	"emailauthorization-request-button-submit": "Schécken",
 	"emailauthorization-request-requested": "Fir d'E-Mail-Adress $1 gouf e Benotzerkont ugefrot.",
-	"emailauthorization-request-invalidemail": "Net valabel E-Mail-Adress: $1",
+	"emailauthorization-request-invalidemail": "Ongülteg E-Mail-Adress: $1",
 	"emailauthorization-request-error": "Beim Ufroe vun engem Benotzerkont fir $1 ass e Feeler geschitt.",
 	"echo-category-title-emailauthorization-notification-category": "Nei Ufroe fir Benotzerkonten",
 	"notification-header-emailauthorization-account-request": "e gouf eng Ufro fir en neie Benotzerkont eragereecht.",
