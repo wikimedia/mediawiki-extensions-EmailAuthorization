@@ -12,11 +12,6 @@ use MediaWikiIntegrationTestCase;
  */
 class EmailAuthorizationServiceTest extends MediaWikiIntegrationTestCase {
 
-	public function setUp(): void {
-		parent::setUp();
-		$this->tablesUsed = [ 'emailauth' ];
-	}
-
 	public static function provideIsUserAuthorized() {
 		yield [
 			false,
