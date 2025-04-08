@@ -58,5 +58,22 @@
 	"emailauthorization-approve-button-previous": "Forrige",
 	"emailauthorization-approve-norequestsfound": "Ingen kontoforespørsler funnet.",
 	"emailauthorization-approve-approved": "Godkjente $1.",
-	"emailauthorization-approve-rejected": "Avviste $1."
+	"emailauthorization-approve-rejected": "Avviste $1.",
+	"emailauthorization-api-error-permissions": "Ingen tilgang.",
+	"apihelp-emailauthorization-getall-summary": "Returner informasjon som gjelder e-postautorisering for alle brukere.",
+	"apihelp-emailauthorization-getall-param-draw": "Verdi som skal inkluderes i svaret. Brukes for å ivareta rekkefølgen.",
+	"apihelp-emailauthorization-getall-param-offset": "Antall poster som skal hoppes over før man legger dem til i resultatsettet.",
+	"apihelp-emailauthorization-getall-param-limit": "Maksimalt antall resultater som skal returneres.",
+	"apihelp-emailauthorization-getall-param-search": "Angi at kun resultater som inneholder denne strengen skal returneres.",
+	"apihelp-emailauthorization-getall-param-columns": "Liste, atskilt med vertikalskilletegn (|), over kolonne-ID-er i resultattabellen.",
+	"apihelp-emailauthorization-getall-param-order": "Liste, atskilt med vertikalskilletegn (|), over heltallsindekserte rekkefølgealternativer.",
+	"apihelp-emailauthorization-getall-standard-example": "Spør etter de første ti brukerne, sortert etter e-postadresse.",
+	"apihelp-emailauthorization-getauthorized-summary": "Returner alle autoriserte e-postadresser og domener, inkludert brukere av autoriserte adresser.",
+	"apihelp-emailauthorization-getauthorized-param-draw": "Verdi som skal inkluderes i svaret. Brukes for å ivareta rekkefølgen.",
+	"apihelp-emailauthorization-getauthorized-param-offset": "Antall poster som skal hoppes over før man legger dem til i resultatsettet.",
+	"apihelp-emailauthorization-getauthorized-param-limit": "Maksimalt antall resultater som skal returneres.",
+	"apihelp-emailauthorization-getauthorized-param-search": "Angi at kun resultater som inneholder denne strengen skal returneres.",
+	"apihelp-emailauthorization-getauthorized-param-columns": "Liste, atskilt med vertikalskilletegn (|), over kolonne-ID-er i resultattabellen.",
+	"apihelp-emailauthorization-getauthorized-param-order": "Liste, atskilt med vertikalskilletegn (|), over heltallsindekserte rekkefølgealternativer.",
+	"apihelp-emailauthorization-getauthorized-standard-example": "Spør etter de første ti autoriserte e-postadressene og domenene, sortert etter adresse."
 }
