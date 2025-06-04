@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"David1010",
 			"Გიო ოქრო"
 		]
 	},
-	"emailauthorization-config-label-username": "მომხმარებლის სახელი"
+	"emailauthorization-config-label-username": "მომხმარებლის სახელი",
+	"emailauthorizationrequest": "ანგარიშის მოთხოვნა"
 }
