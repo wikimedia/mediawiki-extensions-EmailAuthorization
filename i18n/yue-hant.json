@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ktchankt",
+			"Yueman"
+		]
+	},
+	"emailauthorization-config-label-userpage": "用戶頁",
+	"emailauthorization-request-button-submit": "遞交",
+	"emailauthorization-approve-label-action": "動作"
+}
