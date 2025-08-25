@@ -4,12 +4,16 @@
 			"Bosogo"
 		]
 	},
+	"emailauthorization-config-nousersfound": "Колдонуучулар табылган жок.",
 	"emailauthorization-config-label-email": "Электрондук почта",
 	"emailauthorization-config-label-username": "Колдонуучунун аты",
 	"emailauthorization-config-label-userpage": "Колдонуучунун барагы",
 	"emailauthorization-config-button-next": "Кийинки",
 	"emailauthorization-config-button-search": "Издөө",
 	"emailauthorization-config-button-add": "Кошуу",
+	"emailauthorization-request-label-email": "Электрондук почта",
+	"emailauthorization-request-button-submit": "Жөнөтүү",
+	"emailauthorization-approve-label-email": "Электрондук почта",
 	"emailauthorization-approve-label-action": "Аракеттер",
 	"emailauthorization-approve-button-reject": "Четке кагуу",
 	"emailauthorization-approve-button-next": "Кийинки"
