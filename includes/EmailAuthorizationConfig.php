@@ -22,8 +22,8 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use ErrorPageError;
-use Html;
 use HTMLForm;
+use MediaWiki\Html\Html;
 use MWException;
 use PermissionsError;
 

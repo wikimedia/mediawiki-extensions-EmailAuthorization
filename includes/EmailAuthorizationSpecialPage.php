@@ -22,7 +22,7 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use ErrorPageError;
-use Html;
+use MediaWiki\Html\Html;
 use MWException;
 use PermissionsError;
 use SpecialPage;

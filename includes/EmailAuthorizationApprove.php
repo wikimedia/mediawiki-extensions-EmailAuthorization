@@ -21,8 +21,8 @@
 
 namespace MediaWiki\Extension\EmailAuthorization;
 
-use Html;
 use HTMLForm;
+use MediaWiki\Html\Html;
 use MWException;
 
 class EmailAuthorizationApprove extends EmailAuthorizationSpecialPage {

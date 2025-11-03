@@ -22,8 +22,8 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use EchoEventPresentationModel;
+use MediaWiki\Title\Title;
 use Message;
-use Title;
 
 class EchoEAPresentationModel extends EchoEventPresentationModel {
 
