@@ -4,6 +4,7 @@
 			"Diskdance",
 			"LittlePaw365",
 			"Liuxinyu970226",
+			"Peterxy12",
 			"Tr jason",
 			"Tranve",
 			"沈澄心"
@@ -63,5 +64,6 @@
 	"emailauthorization-approve-approved": "已批准$1。",
 	"emailauthorization-approve-rejected": "已拒绝$1。",
 	"emailauthorization-api-error-permissions": "拒绝访问。",
+	"apihelp-emailauthorization-getall-summary": "回传与所有用户的电子邮件授权之相关信息。",
 	"apihelp-emailauthorization-getall-param-limit": "最大返回结果数。"
 }
