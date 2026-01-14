@@ -65,5 +65,19 @@
 	"emailauthorization-approve-rejected": "已拒绝$1。",
 	"emailauthorization-api-error-permissions": "拒绝访问。",
 	"apihelp-emailauthorization-getall-summary": "回传与所有用户的电子邮件授权之相关信息。",
-	"apihelp-emailauthorization-getall-param-limit": "最大返回结果数。"
+	"apihelp-emailauthorization-getall-param-draw": "要包含在回应的值。用于维持顺序。",
+	"apihelp-emailauthorization-getall-param-offset": "在将它们添加到结果集合之前，要略过的纪录数目。",
+	"apihelp-emailauthorization-getall-param-limit": "最大返回结果数。",
+	"apihelp-emailauthorization-getall-param-search": "指定仅回传包含此字符串的结果。",
+	"apihelp-emailauthorization-getall-param-columns": "在输出表格中以竖线区分的字段识别码清单。",
+	"apihelp-emailauthorization-getall-param-order": "以竖线区分的整数索引排序选项清单。",
+	"apihelp-emailauthorization-getall-standard-example": "查询前十个用户，按照电子邮件地址排序。",
+	"apihelp-emailauthorization-getauthorized-summary": "回传所有已验证的电子邮件地址和域名，包含已验证地址的用户。",
+	"apihelp-emailauthorization-getauthorized-param-draw": "要包含在回应的值。用于维持顺序。",
+	"apihelp-emailauthorization-getauthorized-param-offset": "在将它们添加到结果集合之前，要略过的纪录数目。",
+	"apihelp-emailauthorization-getauthorized-param-limit": "回传结果的数量上限。",
+	"apihelp-emailauthorization-getauthorized-param-search": "指定仅回传包含此字符串的结果。",
+	"apihelp-emailauthorization-getauthorized-param-columns": "在输出表格中以竖线区分的字段识别码清单。",
+	"apihelp-emailauthorization-getauthorized-param-order": "以竖线区分的整数索引排序选项清单。",
+	"apihelp-emailauthorization-getauthorized-standard-example": "查询前十个已验证的电子邮件地址和域名，按按地址排序。"
 }
