@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Renessaince"
+			"Renessaince",
+			"Ucukor"
 		]
 	},
 	"emailauthorization-config-nousersfound": "Карыстальнікаў ня знойдзена.",
+	"emailauthorizationrequest": "Запыт рахунку",
+	"echo-category-title-emailauthorization-notification-category": "Запыты на новы рахунак",
 	"emailauthorization-approve-label-action": "Дзеяньні"
 }
