@@ -6,6 +6,7 @@
 		]
 	},
 	"emailauthorization-config-nousersfound": "Карыстальнікаў ня знойдзена.",
+	"emailauthorization-config-button-revoke": "Адклікаць",
 	"emailauthorizationrequest": "Запыт рахунку",
 	"echo-category-title-emailauthorization-notification-category": "Запыты на новы рахунак",
 	"emailauthorization-approve-label-action": "Дзеяньні"
