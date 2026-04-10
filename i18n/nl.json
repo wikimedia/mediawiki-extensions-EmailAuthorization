@@ -34,7 +34,7 @@
 	"emailauthorization-config-button-add": "Toevoegen",
 	"emailauthorization-config-button-revoke": "Intrekken",
 	"emailauthorization-config-button-showauth": "Geautoriseerde e-mailadressen en domeinen weergeven",
-	"emailauthorization-config-button-showall": "Toon alle wikigebruikers",
+	"emailauthorization-config-button-showall": "Alle wikigebruikers weergeven",
 	"right-emailauthorizationconfig": "Gebruikersautorisatie per e-mailadres configureren",
 	"action-emailauthorizationconfig": "gebruikersautorisatie per e-mailadres te configureren",
 	"emailauthorizationrequest": "Account aanvragen",
