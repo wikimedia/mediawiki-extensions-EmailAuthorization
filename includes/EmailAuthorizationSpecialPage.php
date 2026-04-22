@@ -36,15 +36,13 @@ abstract class EmailAuthorizationSpecialPage extends SpecialPage {
 
 	/**
 	 * @param string $name
-	 * @param string $restriction
 	 * @param EmailAuthorizationStore $emailAuthorizationStore
 	 */
 	public function __construct(
 		string $name,
-		string $restriction,
 		EmailAuthorizationStore $emailAuthorizationStore
 	) {
-		parent::__construct( $name, $restriction );
+		parent::__construct( $name );
 		$this->emailAuthorizationStore = $emailAuthorizationStore;
 	}
 

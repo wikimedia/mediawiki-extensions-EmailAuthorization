@@ -30,7 +30,12 @@ class EmailAuthorizationApprove extends EmailAuthorizationSpecialPage {
 	 * @param EmailAuthorizationStore $emailAuthorizationStore
 	 */
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore ) {
-		parent::__construct( 'EmailAuthorizationApprove', 'emailauthorizationconfig', $emailAuthorizationStore );
+		parent::__construct( 'EmailAuthorizationApprove', $emailAuthorizationStore );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'emailauthorizationconfig';
 	}
 
 	/**

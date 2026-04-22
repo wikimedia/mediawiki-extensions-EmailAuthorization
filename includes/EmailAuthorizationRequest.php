@@ -44,7 +44,7 @@ class EmailAuthorizationRequest extends EmailAuthorizationSpecialPage {
 	 * @param Config $config
 	 */
 	public function __construct( EmailAuthorizationStore $emailAuthorizationStore, Config $config ) {
-		parent::__construct( 'EmailAuthorizationRequest', '', $emailAuthorizationStore );
+		parent::__construct( 'EmailAuthorizationRequest', $emailAuthorizationStore );
 		$options = new ServiceOptions( self::CONSTRUCTOR_OPTIONS, $config );
 		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
 		$this->requestFields = $options->get( 'EmailAuthorization_RequestFields' );
