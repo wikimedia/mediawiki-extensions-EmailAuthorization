@@ -43,7 +43,7 @@
 	"emailauthorization-request-button-submit": "Verzenden",
 	"emailauthorization-request-requested": "Een account is aangevraagd voor het e-mailadres $1.",
 	"emailauthorization-request-missingmandatory": "Ontbrekende verplichte veldwaarde(n).",
-	"emailauthorization-request-invalidemail": "Ongeldig e-mailadres: $1",
+	"emailauthorization-request-invalidemail": "Onjuist e-mailadres: $1",
 	"emailauthorization-request-error": "Er is een fout opgetreden bij het aanvragen van een account voor $1.",
 	"echo-category-title-emailauthorization-notification-category": "Nieuwe account aanvragen",
 	"notification-header-emailauthorization-account-request": "Er is een aanvraag ingediend voor een nieuw account.",
