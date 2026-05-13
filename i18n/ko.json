@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"Tensama0415"
 		]
 	},
 	"emailauthorization-desc": "이메일 주소로 사용자를 인가합니다",
@@ -55,5 +56,7 @@
 	"emailauthorization-approve-button-previous": "이전",
 	"emailauthorization-approve-norequestsfound": "계정 요청이 없습니다.",
 	"emailauthorization-approve-approved": "$1을(를) 승인했습니다.",
-	"emailauthorization-approve-rejected": "$1을(를) 거절했습니다."
+	"emailauthorization-approve-rejected": "$1을(를) 거절했습니다.",
+	"apihelp-emailauthorization-getall-param-limit": "반환할 결과의 최대 수입니다.",
+	"apihelp-emailauthorization-getauthorized-param-limit": "반환할 결과의 최대 수입니다."
 }
