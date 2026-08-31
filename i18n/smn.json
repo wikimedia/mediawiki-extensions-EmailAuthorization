@@ -10,11 +10,14 @@
 	"emailauthorization-config-label-realname": "Olmâ nommâ",
 	"emailauthorization-config-label-userpage": "Kevtteesijđo",
 	"emailauthorization-config-button-next": "Čuávuvâš",
+	"emailauthorization-config-button-previous": "Oovdeb",
 	"emailauthorization-config-button-search": "Uusâ",
 	"emailauthorization-config-button-add": "Lasseet",
 	"emailauthorizationrequest": "Táátu tubdâlduv",
 	"emailauthorization-request-label-email": "Šleđgâpostâčujottâs",
+	"emailauthorization-request-button-submit": "Vuolgât",
 	"emailauthorization-approve-label-email": "Šleđgâpostâčujottâs",
 	"emailauthorization-approve-label-action": "Tooimah",
-	"emailauthorization-approve-button-next": "Čuávuvâš"
+	"emailauthorization-approve-button-next": "Čuávuvâš",
+	"emailauthorization-approve-button-previous": "Oovdeb"
 }
