@@ -22,10 +22,11 @@
 namespace MediaWiki\Extension\EmailAuthorization;
 
 use Config;
-use EchoEvent;
-use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Notification\Notification;
+use MediaWiki\Notification\RecipientSet;
 use MWException;
 use WebRequest;
 
@@ -166,16 +167,14 @@ class EmailAuthorizationRequest extends EmailAuthorizationSpecialPage {
 		$email = $validatedemail;
 		if ( $this->isEmailRequestable( $email ) ) {
 			if ( self::insertRequest( $email, $request ) ) {
-				if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
-					$extra = [
+				MediaWikiServices::getInstance()->getNotificationService()->notify(
+					new Notification( 'emailauthorization-account-request', [
 						'email' => $validatedemail,
-						'notifyAgent' => true
-					];
-					EchoEvent::create( [
-						'type' => 'emailauthorization-account-request',
-						'extra' => $extra
-					] );
-				}
+					] ),
+					// The actual recipients (bureaucrats) are resolved by Echo via the
+					// notification type's own user-locators config (LegacyHooks::locateBureaucrats()).
+					new RecipientSet( [] )
+				);
 				$this->displayMessage( wfMessage( 'emailauthorization-request-requested', $validatedemail ) );
 				return false;
 			} else {
